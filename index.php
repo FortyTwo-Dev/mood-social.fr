@@ -1,3 +1,30 @@
+<?php
+$color = [
+    [
+        'color' => "grey",
+        'text' => "white"
+    ],
+    [
+        'color' => "yellow",
+        'text' => "black"
+    ],
+    [
+        'color' => "red",
+        'text' => "white"
+    ],
+    [
+        'color' => "purple",
+        'text' => "white"
+    ],
+    [
+        'color' => "blue",
+        'text' => "black"
+    ],
+];
+#text-ms-grey bg-ms-grey border-ms-grey shadow-ms-grey
+$i = rand(0,4);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +33,9 @@
     <title>MoodSocial</title>
     <link href="/resources/css/style.css" rel="stylesheet">
 </head>
-<body class="relative text-ms-black dark:text-ms-white bg-ms-white dark:bg-ms-black">
+<body class="relative text-ms-<?=$color[$i]['text']?> dark:text-ms-white bg-ms-white dark:bg-ms-black">
     <header class="relative">
-        <nav class="w-full fixed bg-ms-white dark:bg-ms-black p-5 border-b border-ms-grey">
+        <nav class="w-full fixed bg-ms-white dark:bg-ms-black p-5 border-b border-ms-<?=$color[$i]['color']?>">
             <div class="w-full flex justify-center items-center">
                 <div class="w-full flex justify-between items-center max-w-7xl text-lg">
                     <div class="flex gap-4 items-center justify-center">
@@ -31,12 +58,12 @@
             <h1 class="flex flex-col items-center text-7xl font-semibold"><span>MoodSocial</span><span>Ton émotion, ton réseau.</span></h1>
             <p class=" text-4xl">Parce que chaque jour est différent, ton fil aussi.</p>
             <div class="flex gap-8">
-                <a href="" class="text-base text-ms-white px-12 py-2 font-semibold bg-ms-grey hover:underline rounded-md shadow shadow-ms-grey hover:shadow-none">S'inscrire</a>
-                <a href="" class="text-sm px-6 py-2 font-semibold border-ms-grey border-2 uppercase  hover:underline rounded-md" >En savoir plus</a>
+                <a href="" class="text-base text-ms-<?=$color[$i]['text']?> px-12 py-2 font-semibold bg-ms-<?=$color[$i]['color']?> hover:underline rounded-md shadow shadow-ms-<?=$color[$i]['color']?> hover:shadow-none">S'inscrire</a>
+                <a href="" class="text-sm px-6 py-2 font-semibold border-ms-<?=$color[$i]['color']?> border-2 uppercase hover:underline rounded-md" >En savoir plus</a>
             </div>
         </section>
 
-        <section class="h-svh flex w-full items-center justify-center gap-8 bg-ms-grey text-ms-white">
+        <section class="h-svh flex w-full items-center justify-center gap-8 bg-ms-<?=$color[$i]['color']?> text-ms-<?=$color[$i]['text']?>">
             <div class="max-w-7xl h-full flex items-center justify-center gap-8">
                 <div class="basis-1/2">
                     <div class=" bg-ms-white w-2xl h-[672px]">
@@ -68,19 +95,19 @@
                         <p class="text-2xl">Pour cela vous pouvez prendre l’abonnement MoodSocial+</p>
                     </div>
                     <div class="flex gap-8">
-                        <a href="" class="text-base text-white px-12 py-2 font-semibold bg-ms-grey hover:underline rounded-md shadow shadow-ms-grey hover:shadow-none">S'abonner</a>
-                        <a href="" class="text-sm px-6 py-2 font-semibold border-ms-grey border-2 uppercase  hover:underline rounded-md" >En savoir plus</a>
+                        <a href="" class="text-base text-ms-<?=$color[$i]['text']?> px-12 py-2 font-semibold bg-ms-<?=$color[$i]['color']?> hover:underline rounded-md shadow shadow-ms-<?=$color[$i]['color']?> hover:shadow-none">S'abonner</a>
+                        <a href="" class="text-sm px-6 py-2 font-semibold border-ms-<?=$color[$i]['color']?> border-2 uppercase  hover:underline rounded-md" >En savoir plus</a>
                     </div>
                 </div>
                 <div class="basis-1/2">
-                    <div class=" bg-ms-grey w-[550px] h-[450px]">
+                    <div class=" bg-ms-<?=$color[$i]['color']?> w-[550px] h-[450px]">
     
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-ms-grey py-16 text-ms-white">
+        <section class="bg-ms-<?=$color[$i]['color']?> py-16 text-ms-<?=$color[$i]['text']?>">
             <div class="flex flex-col justify-center items-center mx-auto px-4 gap-4">
 
                 <h3 class="text-5xl font-semibold text-center">FAQs</h3>
@@ -88,9 +115,9 @@
 
                 <div class="max-w-4xl flex flex-col justify-center">
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-ms-white">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-ms-white absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         <div class="flex justify-between items-center">
                             <h3 class="text-xl">Comment je peux me créer un compte ?</h3>
                         </div>
@@ -101,9 +128,9 @@
                         </div>
                     </label>
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-ms-white">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-ms-white absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     
                         <div class="flex justify-between items-center">
                             <h3 class="text-xl">Est-ce que l'application est gratuite ?</h3>
@@ -115,9 +142,9 @@
                         </div>
                     </label>
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-ms-white">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-ms-white absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     
                         <div class="flex justify-between items-center">
                             <h3 class="text-xl">Combien de fois je peux changer d’humeur ?</h3>
@@ -129,9 +156,9 @@
                         </div>
                     </label>
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-ms-white">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-ms-white absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         <div class="flex justify-between items-center">
                             <h3 class="text-xl">Pourquoi le site web est tout gris ?</h3>
                         </div>
@@ -142,9 +169,9 @@
                         </div>
                     </label>
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-ms-white">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-ms-white absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     
                         <div class="flex justify-between items-center">
                             <h3 class="text-xl">Pourquoi je ne vois que des personnes neutres ?</h3>
@@ -162,7 +189,7 @@
                     <h3 class="text-3xl font-semibold text-center">Vous avez d'autres questions ?</h3>
                     <p class="text-xl">Vous pouvez les envoyer en cliquant sur le bouton juste en desous</p>
                     <div>
-                        <a href="" class="text-sm px-6 py-2 font-semibold border-ms-white border-2 uppercase hover:underline rounded-md" >Contactez-nous</a>
+                        <a href="" class="text-sm px-6 py-2 font-semibold border-ms-<?=$color[$i]['text']?> border-2 uppercase hover:underline rounded-md" >Contactez-nous</a>
                     </div>
                 </div>
 
@@ -171,7 +198,7 @@
 
     </main>
 
-    <footer class="h-24 border-t border-ms-grey">
+    <footer class="h-24 border-t border-ms-<?=$color[$i]['color']?>">
         <div class="w-full flex flex-col gap-4 my-6">
             <nav class="w-full flex justify-center items-center">
                 <ul class="w-full flex justify-center items-center gap-8">
