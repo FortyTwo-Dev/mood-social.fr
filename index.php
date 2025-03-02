@@ -43,7 +43,7 @@ $i = rand(0,4);
                         <span class="text-xl font-bold">MoodSocial</span>
                     </div>
                     <ul class="flex gap-8 font-medium">
-                        <li class="hover:underline"><a href="">Acceuil</a></li>
+                        <li class="hover:underline"><a href="">Accueil</a></li>
                         <li class="hover:underline"><a href="">Tarif</a></li>
                         <li class="hover:underline"><a href="">Connexion</a></li>
                     </ul>
