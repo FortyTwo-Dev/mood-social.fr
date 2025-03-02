@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # Service pour Apache avec PHP
+  apache-php:
+    build: .
+    container_name: apache-php
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+    networks:
+      - mynetwork
+    depends_on:
+      - mysql
+
+  # Service pour MySQL
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password  # Change-le selon ton besoin
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - mynetwork
+    ports:
+      - "3306:3306"
+
+  # Service pour phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8081:80"
+    networks:
+      - mynetwork
+    depends_on:
+      - mysql
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local
