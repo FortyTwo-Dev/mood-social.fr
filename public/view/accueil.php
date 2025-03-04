@@ -1,58 +1,13 @@
 <!-- Non validé W3C -->
 
 <?php
-$color = [
-    [
-        'color' => "grey",
-        'text' => "white"
-    ],
-    [
-        'color' => "yellow",
-        'text' => "black"
-    ],
-    [
-        'color' => "red",
-        'text' => "white"
-    ],
-    [
-        'color' => "purple",
-        'text' => "white"
-    ],
-    [
-        'color' => "blue",
-        'text' => "black"
-    ],
-];
 #text-ms-grey bg-ms-grey border-ms-grey shadow-ms-grey
-$i = rand(0,4);
-
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$page_title?></title>
-    <link href="/resources/css/style.css" rel="stylesheet">
-</head>
+<?php include( $root . '/resources/layout/head.php' ) ?>
+
 <body class="relative text-ms-<?=$color[$i]['text']?> dark:text-ms-white bg-ms-white dark:bg-ms-black">
-    <header class="relative">
-        <nav class="w-full fixed bg-ms-white dark:bg-ms-black p-5 border-b border-ms-<?=$color[$i]['color']?>">
-            <div class="w-full flex justify-center items-center">
-                <div class="w-full flex justify-between items-center max-w-7xl text-lg">
-                    <div class="flex gap-4 items-center justify-center">
-                        <img class="w-8 h-8" src="/resources/assets/svg/logo.svg" alt="Logo MoodSocal"/>
-                        <span class="text-xl font-bold">MoodSocial</span>
-                    </div>
-                    <ul class="flex gap-8 font-medium">
-                        <li class="hover:underline"><a href="">Accueil</a></li>
-                        <li class="hover:underline"><a href="">Tarif</a></li>
-                        <li class="hover:underline"><a href="">Connexion</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    
+    <?php include( $root . '/resources/layout/header.php' ) ?>
 
     <main class="">
 
@@ -200,20 +155,7 @@ $i = rand(0,4);
 
     </main>
 
-    <footer class="h-24 border-t border-ms-<?=$color[$i]['color']?>">
-        <div class="w-full flex flex-col gap-4 my-6">
-            <nav class="w-full flex justify-center items-center">
-                <ul class="w-full flex justify-center items-center gap-8">
-                    <li> <a href="">Privacy Policy</a></li>
-                    <li><a href="">Terms of Service</a></li>
-                    <li><a href="">Cookies Settings</a></li>
-                </ul>
-            </nav>
-            <div class="w-full flex justify-center items-center">
-                <span class=" font-medium">MoodSocial | All Right Reserved</span>
-            </div>
-        </div>
-    </footer>
+    <?php include( $root . '/resources/layout/footer.php' ) ?>
 
 </body>
 
