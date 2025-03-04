@@ -1,3 +1,5 @@
+<!-- Non validé W3C -->
+
 <?php
 $color = [
     [
