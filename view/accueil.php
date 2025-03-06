@@ -9,13 +9,21 @@
     
     <?php include( $root . '/resources/layout/header.php' ) ?>
 
+    <input type="hidden" class="text-ms-grey bg-ms-grey border-ms-grey shadow-ms-grey">
+    <input type="hidden" class="text-ms-yellow bg-ms-yellow border-ms-yellow shadow-ms-yellow">
+    <input type="hidden" class="text-ms-purple bg-ms-purple border-ms-purple shadow-ms-purple">
+    <input type="hidden" class="text-ms-red bg-ms-red border-ms-red shadow-ms-red">
+    <input type="hidden" class="text-ms-blue bg-ms-blue border-ms-blue shadow-ms-blue">
+    <input type="hidden" class="text-ms-white bg-ms-white border-ms-white shadow-ms-white">
+    <input type="hidden" class="text-ms-black bg-ms-black border-ms-black shadow-ms-black">
+
     <main class="">
 
         <section class="h-svh flex flex-col gap-8 items-center justify-center bg-ms-white dark:bg-ms-black">
             <h1 class="flex flex-col items-center text-7xl font-semibold"><span>MoodSocial</span><span>Ton émotion, ton réseau.</span></h1>
             <p class=" text-4xl">Parce que chaque jour est différent, ton fil aussi.</p>
             <div class="flex gap-8">
-                <a href="" class="text-base text-ms-<?=$color[$i]['text']?> px-12 py-2 font-semibold bg-ms-<?=$color[$i]['color']?> hover:underline rounded-md shadow shadow-ms-<?=$color[$i]['color']?> hover:shadow-none">S'inscrire</a>
+                <a href="/auth/register/" class="text-base text-ms-<?=$color[$i]['text']?> px-12 py-2 font-semibold bg-ms-<?=$color[$i]['color']?> hover:underline rounded-md shadow shadow-ms-<?=$color[$i]['color']?> hover:shadow-none">S'inscrire</a>
                 <a href="" class="text-sm px-6 py-2 font-semibold border-ms-<?=$color[$i]['color']?> border-2 uppercase hover:underline rounded-md" >En savoir plus</a>
             </div>
         </section>
@@ -38,7 +46,7 @@
                         <p class="text-2xl">3. Je discute !</p>
                     </div>
                     <div class="flex gap-8">
-                        <a href="" class="text-base text-ms-black px-4 py-2 font-semibold bg-ms-white hover:underline rounded-md shadow shadow-ms-white hover:shadow-none">Commencer à discuter</a>
+                        <a href="/auth/register/" class="text-base text-ms-black px-4 py-2 font-semibold bg-ms-white hover:underline rounded-md shadow shadow-ms-white hover:shadow-none">Commencer à discuter</a>
                     </div>
                 </div>
             </div>
@@ -80,7 +88,7 @@
                         </div>
                         <div class="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96 cursor-default">
                             <div class="flex flex-col items-start gap-4 mt-6">
-                                <p class="text-lg">Pour se créer un compte, il vous suffit de  cliquer sur ce lien : <a href="" class="underline">se créer un compte</a>.</p>
+                                <p class="text-lg">Pour se créer un compte, il vous suffit de  cliquer sur ce lien : <a href="/auth/register/" class="underline">se créer un compte</a>.</p>
                             </div>
                         </div>
                     </label>
@@ -144,7 +152,7 @@
 
                 <div class="flex flex-col justify-center text-center gap-4">
                     <h3 class="text-3xl font-semibold text-center">Vous avez d'autres questions ?</h3>
-                    <p class="text-xl">Vous pouvez les envoyer en cliquant sur le bouton juste en desous</p>
+                    <p class="text-xl">Vous pouvez les envoyer en cliquant sur le bouton juste en dessous</p>
                     <div>
                         <a href="" class="text-sm px-6 py-2 font-semibold border-ms-<?=$color[$i]['text']?> border-2 uppercase hover:underline rounded-md" >Contactez-nous</a>
                     </div>

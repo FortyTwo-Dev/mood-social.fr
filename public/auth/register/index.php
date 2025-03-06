@@ -1,7 +1,7 @@
 <?php
 	$app = '';
 	$root = $_SERVER['DOCUMENT_ROOT'] . $app;
-	$page_title = 'Login - MoodSocial';
+	$page_title = 'Register - MoodSocial';
 	include_once($root . '/private/Actions/RandomColor.php');
 ?>
 
@@ -10,13 +10,13 @@
 <body class="relative">
 
     <?php 
-        $link = "/auth/register"; 
-        $text_link = "S'inscrire"; 
-        $text = "Vous n'avez pas de compte ?";
+        $link = "/auth/login"; 
+        $text_link = "Se connecter"; 
+        $text = "Vous avez déjà un compte ?";
         include_once( $root . '/resources/layout/auth/header.php' ); 
     ?>
 
-	<?php include_once( $root . '/view/auth/login.php') ?>
+    <?php include_once( $root . '/view/auth/register.php' ) ?>
 
     <?php include_once( $root . '/resources/layout/auth/footer.php' ) ?>
 
