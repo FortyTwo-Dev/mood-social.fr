@@ -8,7 +8,7 @@
                 </div>
                 <ul class="sm:flex gap-8 font-medium hidden">
                     <li class="hover:underline"><a href="">Accueil</a></li>
-                    <li class="hover:underline"><a href="">Tarif</a></li>
+                    <li class="hover:underline"><a href="/pricing/">Tarif</a></li>
                     <li class="hover:underline"><a href="/auth/login/">Connexion</a></li>
                 </ul>
                 <div id="nav-button-open" class="sm:hidden flex">
@@ -28,7 +28,7 @@
             </div>
             <ul class="basis-5/6 h-full w-full flex flex-col justify-center items-center gap-8 font-medium">
                 <li class=" text-2xl"><a href="">Accueil</a></li>
-                <li class=" text-2xl"><a href="">Tarif</a></li>
+                <li class=" text-2xl"><a href="/pricing/">Tarif</a></li>
                 <li class=" text-2xl"><a href="/auth/login/">Connexion</a></li>
             </ul>
         </div>

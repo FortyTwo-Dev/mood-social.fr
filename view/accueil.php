@@ -1,11 +1,8 @@
 <!-- Non validé W3C -->
 
-<?php
-#text-ms-grey bg-ms-grey border-ms-grey shadow-ms-grey
-?>
 <?php include( $root . '/resources/layout/head.php' ) ?>
 
-<body class="relative text-ms-<?=$color[$i]['text']?> dark:text-ms-white bg-ms-white dark:bg-ms-black">
+<body class="relative text-ms-black dark:text-ms-white bg-ms-white dark:bg-ms-black">
     
     <?php include( $root . '/resources/layout/header.php' ) ?>
 
@@ -24,7 +21,7 @@
             <p class="sm:text-4xl text-base text-center">Parce que chaque jour est différent, ton fil aussi.</p>
             <div class="flex gap-8 sm:mt-0 mt-16">
                 <a href="/auth/register/" class="text-lg sm:text-lg text-ms-<?=$color[$i]['text']?> sm:px-12 px-8 py-1 sm:py-2 font-semibold bg-ms-<?=$color[$i]['color']?> hover:underline rounded-md shadow shadow-ms-<?=$color[$i]['color']?> hover:shadow-none">S'inscrire</a>
-                <a href="" class="text-xs sm:text-base sm:px-6 px-4 py-2 font-semibold border-ms-<?=$color[$i]['color']?> sm:border-2  border uppercase hover:underline rounded-md">En savoir plus</a>
+                <a href="/moodsocial/about/" class="text-xs sm:text-base sm:px-6 px-4 py-2 font-semibold border-ms-<?=$color[$i]['color']?> sm:border-2  border uppercase hover:underline rounded-md">En savoir plus</a>
             </div>
         </section>
 
@@ -60,8 +57,8 @@
                         <p class="sm:text-2xl text-base text-start">Pour cela vous pouvez prendre l’abonnement MoodSocial+</p>
                     </div>
                     <div class="flex gap-8 justify-center sm:justify-normal">
-                        <a href="" class="text-base sm:text-lg text-ms-<?=$color[$i]['text']?> sm:px-12 px-4 py-1 sm:py-2 font-semibold bg-ms-<?=$color[$i]['color']?> hover:underline rounded-md shadow shadow-ms-<?=$color[$i]['color']?> hover:shadow-none">S'abonner</a>
-                        <a href="" class="text-xs sm:text-base sm:px-6 px-4 py-2 font-semibold border-ms-<?=$color[$i]['color']?> sm:border-2  border uppercase hover:underline rounded-md" >En savoir plus</a>
+                        <a href="/subscribe/" class="text-base sm:text-lg text-ms-<?=$color[$i]['text']?> sm:px-12 px-4 py-1 sm:py-2 font-semibold bg-ms-<?=$color[$i]['color']?> hover:underline rounded-md shadow shadow-ms-<?=$color[$i]['color']?> hover:shadow-none">S'abonner</a>
+                        <a href="/subscribe/about/" class="text-xs sm:text-base sm:px-6 px-4 py-2 font-semibold border-ms-<?=$color[$i]['color']?> sm:border-2  border uppercase hover:underline rounded-md" >En savoir plus</a>
                     </div>
                 </div>
                 <div class="sm:basis-1/2 basis-3/5">
@@ -154,7 +151,7 @@
                     <h3 class="sm:text-3xl text-xl font-semibold text-center">Vous avez d'autres questions ?</h3>
                     <p class="sm:text-xl text-lg">Vous pouvez les envoyer en cliquant sur le bouton juste en dessous</p>
                     <div>
-                        <a href="" class="text-sm px-6 py-2 font-semibold border-ms-<?=$color[$i]['text']?> border-2 uppercase hover:underline rounded-md" >Contactez-nous</a>
+                        <a href="/contact/" class="text-sm px-6 py-2 font-semibold border-ms-<?=$color[$i]['text']?> border-2 uppercase hover:underline rounded-md" >Contactez-nous</a>
                     </div>
                 </div>
 
