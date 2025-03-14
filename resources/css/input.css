@@ -9,3 +9,12 @@
     --color-ms-purple: #8B4E9A;
     --color-ms-grey: #838485;
 }
+
+.nav-slide {
+    animation: nav-slide-animation 700ms ease-out;
+}
+
+@keyframes nav-slide-animation {
+    0%   {translate: -100%;}
+    100% {translate: 0;}
+}

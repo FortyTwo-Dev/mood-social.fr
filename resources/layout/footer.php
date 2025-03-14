@@ -1,7 +1,7 @@
-<footer class="h-24 border-t border-ms-<?=$color[$i]['color']?>">
+<footer class="sm:h-24 h-auto border-t border-ms-<?=$color[$i]['color']?>">
     <div class="w-full flex flex-col gap-4 my-6">
         <nav class="w-full flex justify-center items-center ">
-            <ul class="w-full flex justify-center items-center gap-8">
+            <ul class="w-full flex sm:flex-row flex-col justify-center items-center gap-8">
                 <li> <a href="">Privacy Policy</a></li>
                 <li><a href="">Terms of Service</a></li>
                 <li><a href="">Cookies Settings</a></li>
