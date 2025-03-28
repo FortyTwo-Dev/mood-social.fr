@@ -7,7 +7,7 @@
                     <span class="text-xl font-bold">MoodSocial</span>
                 </div>
                 <ul class="sm:flex gap-8 font-medium hidden">
-                    <li class="hover:underline"><a href="">Accueil</a></li>
+                    <li class="hover:underline"><a href="/">Accueil</a></li>
                     <li class="hover:underline"><a href="/pricing/">Tarif</a></li>
                     <li class="hover:underline"><a href="/auth/login/">Connexion</a></li>
                 </ul>

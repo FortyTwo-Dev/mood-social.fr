@@ -1,7 +1,6 @@
 <?php
-	$app = '';
-	$root = $_SERVER['DOCUMENT_ROOT'] . $app;
+	$root = $_SERVER['DOCUMENT_ROOT'];
 	$page_title = 'Dashboard';
 ?>
 
-<?php include( $root . '/public/view/dashboard.php' ) ?>
+<?php include_once( $root . '/view/dashboard.php' ) ?>

@@ -1,6 +1,4 @@
 <?php
-// Fichier de configuration générale de l'application
-
 #text-ms-grey bg-ms-grey border-ms-grey shadow-ms-grey
 $color = [
     [

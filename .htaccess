@@ -5,5 +5,7 @@
     RewriteCond %{REQUEST_URI} !^/public/
     RewriteCond %{REQUEST_URI} !^/resources/
     RewriteRule ^(.*)$ /public/$1 [L]
-</IfModule>
 
+    ErrorDocument 404 http://localhost:8080/errors/404/
+    ErrorDocument 500 http://localhost:8080/errors/500/
+</IfModule>

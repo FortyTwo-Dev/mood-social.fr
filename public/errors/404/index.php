@@ -1,8 +1,9 @@
 <?php
     $root = $_SERVER['DOCUMENT_ROOT'];
-    $page_title = 'En cours de construction';
+    $page_title = 'MoodSocial - 404';
 
     include_once($root . '/private/Actions/RandomColor.php');
+
 ?>
 
-<?php include( $root . '/view/under_construction.php' ) ?>
+<?php include_once( $root . '/view/errors/404.php' ) ?>

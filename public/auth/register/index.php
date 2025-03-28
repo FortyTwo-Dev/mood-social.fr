@@ -1,6 +1,5 @@
 <?php
-	$app = '';
-	$root = $_SERVER['DOCUMENT_ROOT'] . $app;
+	$root = $_SERVER['DOCUMENT_ROOT'];
 	$page_title = 'Register - MoodSocial';
 	include_once($root . '/private/Actions/RandomColor.php');
 ?>
@@ -10,7 +9,7 @@
 <body class="relative">
 
     <?php 
-        $link = "/auth/login"; 
+        $link = "/auth/login/"; 
         $text_link = "Se connecter"; 
         $text = "Vous avez déjà un compte ?";
         include_once( $root . '/resources/layout/auth/header.php' ); 

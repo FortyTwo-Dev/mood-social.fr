@@ -22,6 +22,5 @@
             <input id="password" type="password" class="w-full h-full outline-hidden focus:outline-hidden focus:ring-0 focus:border-transparent" placeholder="Entrez votre mot de passe">
         </div>
     </div>
-    <button class="max-w-lg w-full py-2 bg-ms-<?=$color[$i]['color']?> rounded-md hover:underline text-ms-<?=$color[$i]['text']?>">Se connecter</button>
-    <a href="#" class=" underline">Mot de passe oubliée</a>
+    <button class="max-w-lg w-full py-2 bg-ms-<?=$color[$i]['color']?> rounded-md hover:underline text-ms-<?=$color[$i]['text']?>">S'inscrire</button>
 </main>
