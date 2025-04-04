@@ -1,4 +1,3 @@
-<!-- Validé W3C -->
 <main class="flex flex-col justify-center items-center gap-6 h-svh">
     <h1 class="text-6xl font-semibold">Se connecter</h1>
     <p class="text-lg">Page pour vous connectez</p>
