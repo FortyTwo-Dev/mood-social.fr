@@ -2,7 +2,7 @@
 
 <?php include( $root . '/resources/layout/head.php' ) ?>
 
-<body class="relative text-ms-black dark:text-ms-white bg-ms-white dark:bg-ms-black">
+<body class="relative transition-colors text-ms-black dark:text-ms-white bg-ms-white dark:bg-ms-black">
     
     <?php include( $root . '/resources/layout/header.php' ) ?>
 

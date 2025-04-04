@@ -10,4 +10,6 @@
         <h1 class="text-5xl font-semibold">En cours de construction</h1>
         <p class="text-2xl font-medium">Nous travaillons sur quelque chose d'extraordinaire. Restez connectés !</p>
     </main>
+
+    <script src="/resources/js/theme.js"></script>
 </body>

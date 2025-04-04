@@ -28,7 +28,7 @@ services:
     networks:
       - mynetwork
     ports:
-      - "3306:3306"
+      - "3316:3306"
 
   # Service pour phpMyAdmin
   phpmyadmin:

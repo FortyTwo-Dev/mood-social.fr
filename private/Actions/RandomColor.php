@@ -1,3 +1,6 @@
 <?php
 include_once($root . '/config/app.php');
-$i = rand(0,4);
+
+function RandomColor() : int {
+    return rand(0,4);
+}

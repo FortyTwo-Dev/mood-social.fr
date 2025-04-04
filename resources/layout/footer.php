@@ -12,3 +12,4 @@
         </div>
     </div>
 </footer>
+<script src="/resources/js/theme.js"></script>

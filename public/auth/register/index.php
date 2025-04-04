@@ -6,7 +6,7 @@
 
 <?php include_once( $root . '/resources/layout/auth/head.php' ) ?>
 
-<body class="relative">
+<body class="relative bg-ms-white dark:bg-ms-black text-ms-black dark:text-ms-white transition-colors">
 
     <?php 
         $link = "/auth/login/"; 
