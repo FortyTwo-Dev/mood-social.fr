@@ -20,12 +20,12 @@
             <h1 class="flex flex-col items-center sm:text-7xl text-2xl font-semibold"><span>MoodSocial</span><span>Ton émotion, ton réseau.</span></h1>
             <p class="sm:text-4xl text-base text-center">Parce que chaque jour est différent, ton fil aussi.</p>
             <div class="flex gap-8 sm:mt-0 mt-16">
-                <a href="/auth/register/" class="text-lg sm:text-lg text-ms-<?=$color[$i]['text']?> sm:px-12 px-8 py-1 sm:py-2 font-semibold bg-ms-<?=$color[$i]['color']?> hover:underline rounded-md shadow shadow-ms-<?=$color[$i]['color']?> hover:shadow-none">S'inscrire</a>
-                <a href="/moodsocial/about/" class="text-xs sm:text-base sm:px-6 px-4 py-2 font-semibold border-ms-<?=$color[$i]['color']?> sm:border-2  border uppercase hover:underline rounded-md">En savoir plus</a>
+                <a href="/auth/register/" class="text-lg sm:text-lg text-ms-<?=$mood['text_color']?> sm:px-12 px-8 py-1 sm:py-2 font-semibold bg-ms-<?=$mood['color']?> hover:underline rounded-md shadow shadow-ms-<?=$mood['color']?> hover:shadow-none">S'inscrire</a>
+                <a href="/moodsocial/about/" class="text-xs sm:text-base sm:px-6 px-4 py-2 font-semibold border-ms-<?=$mood['color']?> sm:border-2  border uppercase hover:underline rounded-md">En savoir plus</a>
             </div>
         </section>
 
-        <section class="h-svh flex w-screen items-center justify-center gap-8 bg-ms-<?=$color[$i]['color']?> text-ms-<?=$color[$i]['text']?>">
+        <section class="h-svh flex w-screen items-center justify-center gap-8 bg-ms-<?=$mood['color']?> text-ms-<?=$mood['text_color']?>">
             <div class="max-w-7xl h-full flex sm:flex-row flex-col items-center justify-center sm:gap-8 gap-0 sm:mt-0 mt-4">
                 <div class="basis-1/2">
                     <div class=" bg-ms-white sm:w-2xl w-[260px] sm:h-[672px] h-[260px]">
@@ -57,19 +57,19 @@
                         <p class="sm:text-2xl text-base text-start">Pour cela vous pouvez prendre l’abonnement MoodSocial+</p>
                     </div>
                     <div class="flex gap-8 justify-center sm:justify-normal">
-                        <a href="/subscribe/" class="text-base sm:text-lg text-ms-<?=$color[$i]['text']?> sm:px-12 px-4 py-1 sm:py-2 font-semibold bg-ms-<?=$color[$i]['color']?> hover:underline rounded-md shadow shadow-ms-<?=$color[$i]['color']?> hover:shadow-none">S'abonner</a>
-                        <a href="/subscribe/about/" class="text-xs sm:text-base sm:px-6 px-4 py-2 font-semibold border-ms-<?=$color[$i]['color']?> sm:border-2  border uppercase hover:underline rounded-md" >En savoir plus</a>
+                        <a href="/subscribe/" class="text-base sm:text-lg text-ms-<?=$mood['text_color']?> sm:px-12 px-4 py-1 sm:py-2 font-semibold bg-ms-<?=$mood['color']?> hover:underline rounded-md shadow shadow-ms-<?=$mood['color']?> hover:shadow-none">S'abonner</a>
+                        <a href="/subscribe/about/" class="text-xs sm:text-base sm:px-6 px-4 py-2 font-semibold border-ms-<?=$mood['color']?> sm:border-2  border uppercase hover:underline rounded-md" >En savoir plus</a>
                     </div>
                 </div>
                 <div class="sm:basis-1/2 basis-3/5">
-                    <div class=" bg-ms-<?=$color[$i]['color']?> sm:w-[550px] sm:h-[450px] w-[260px] h-[260px]">
+                    <div class=" bg-ms-<?=$mood['color']?> sm:w-[550px] sm:h-[450px] w-[260px] h-[260px]">
     
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-ms-<?=$color[$i]['color']?> py-16 text-ms-<?=$color[$i]['text']?>">
+        <section class="bg-ms-<?=$mood['color']?> py-16 text-ms-<?=$mood['text_color']?>">
             <div class="flex flex-col justify-center items-center mx-auto px-4 gap-4">
 
                 <h3 class="sm:text-5xl text-2xl font-semibold sm:text-start text-center">FAQs</h3>
@@ -77,9 +77,9 @@
 
                 <div class="max-w-4xl flex flex-col justify-center">
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$mood['text_color']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$mood['text_color']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         <div class="flex justify-between items-center sm:w-full w-4/5">
                             <h3 class="sm:text-xl text-base">Comment je peux me créer un compte ?</h3>
                         </div>
@@ -90,9 +90,9 @@
                         </div>
                     </label>
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$mood['text_color']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$mood['text_color']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     
                         <div class="flex justify-between items-center sm:w-full w-4/5">
                             <h3 class="sm:text-xl text-base">Est-ce que l'application est gratuite ?</h3>
@@ -104,9 +104,9 @@
                         </div>
                     </label>
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$mood['text_color']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$mood['text_color']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     
                         <div class="flex justify-between items-center sm:w-full w-4/5">
                             <h3 class="sm:text-xl text-base">Combien de fois je peux changer d’humeur ?</h3>
@@ -118,9 +118,9 @@
                         </div>
                     </label>
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$mood['text_color']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$mood['text_color']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         <div class="flex justify-between items-center sm:w-full w-4/5">
                             <h3 class="sm:text-xl text-base">Pourquoi le site web est tout gris ?</h3>
                         </div>
@@ -131,9 +131,9 @@
                         </div>
                     </label>
 
-                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$color[$i]['text']?>">
+                    <label class="relative w-full h-auto p-4 overflow-hidden cursor-pointer border-b border-<?=$mood['text_color']?>">
                         <input class="peer hidden" type="checkbox" >
-                        <svg class="stroke-2 stroke-<?=$color[$i]['text']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <svg class="stroke-2 stroke-<?=$mood['text_color']?> absolute top-5 right-0 mr-4 transition delay-100 peer-checked:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     
                         <div class="flex justify-between items-center sm:w-full w-4/5">
                             <h3 class="sm:text-xl text-base">Pourquoi je ne vois que des personnes neutres ?</h3>
@@ -151,7 +151,7 @@
                     <h3 class="sm:text-3xl text-xl font-semibold text-center">Vous avez d'autres questions ?</h3>
                     <p class="sm:text-xl text-lg">Vous pouvez les envoyer en cliquant sur le bouton juste en dessous</p>
                     <div>
-                        <a href="/contact/" class="text-sm px-6 py-2 font-semibold border-ms-<?=$color[$i]['text']?> border-2 uppercase hover:underline rounded-md" >Contactez-nous</a>
+                        <a href="/contact/" class="text-sm px-6 py-2 font-semibold border-ms-<?=$mood['text_color']?> border-2 uppercase hover:underline rounded-md" >Contactez-nous</a>
                     </div>
                 </div>
 

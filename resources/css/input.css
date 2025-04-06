@@ -19,3 +19,16 @@
     0%   {translate: -100%;}
     100% {translate: 0;}
 }
+
+.progress-bar {
+    animation: progress 7s forwards;
+}
+
+@keyframes progress {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+}

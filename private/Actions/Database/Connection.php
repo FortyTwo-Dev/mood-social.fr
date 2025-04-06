@@ -1,10 +1,12 @@
 <?php
-
 include_once($root . '/config/db.php');
 
-try {
-    $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+function Connection() {
+    try {
+        return new PDO("mysql:host=" . HOST . ";dbname=" . DBNAME . ";charset=utf8", USERNAME, PASSWORD);
+    }
+    catch(Exception $e) {
+        die('Error' . $e->getMessage());
+    }
 }
-catch(Exception $e) {
-    die('Error' . $e->getMessage());
-}
+

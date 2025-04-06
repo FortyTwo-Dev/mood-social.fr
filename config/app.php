@@ -3,22 +3,27 @@
 $color = [
     [
         'color' => "grey",
-        'text' => "white"
+        'text' => "white",
+        'mood' => "neutre"
     ],
     [
         'color' => "yellow",
-        'text' => "black"
+        'text' => "black",
+        'mood' => "joyeux"
     ],
     [
         'color' => "red",
-        'text' => "white"
+        'text' => "white",
+        'mood' => "aigris"
     ],
     [
         'color' => "purple",
-        'text' => "white"
+        'text' => "white",
+        'mood' => "stressé"
     ],
     [
         'color' => "blue",
-        'text' => "black"
+        'text' => "black",
+        'mood' => "triste"
     ],
 ];

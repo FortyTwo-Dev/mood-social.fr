@@ -1,5 +1,5 @@
 <header class="relative z-30">
-    <nav class="w-screen fixed dark:bg-ms-black bg-ms-white transition-all p-5 border-b border-ms-<?=$color[$i]['color']?>">
+    <nav class="w-screen fixed dark:bg-ms-black bg-ms-white transition-all p-5 border-b border-ms-<?=$mood['color']?>">
         <div class="w-full flex justify-center items-center">
             <div class="w-full flex justify-between items-center max-w-2xs sm:max-w-7xl text-lg">
                 <a href="/" class="flex gap-4 items-center justify-center">
@@ -23,7 +23,7 @@
             <svg class=" stroke-2 dark:stroke-ms-white stroke-ms-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </div>
         <div class="h-full w-full flex flex-col items-center text-ms-black dark:text-ms-white">
-            <div class="basis-1/6 h-full w-full flex gap-4 items-center justify-center border-b border-ms-<?=$color[$i]['color']?>">
+            <div class="basis-1/6 h-full w-full flex gap-4 items-center justify-center border-b border-ms-<?=$mood['color']?>">
                 <img class="w-8 h-8" src="/resources/assets/svg/logo.svg" alt="Logo MoodSocal"/>
                 <span class="text-xl font-bold">MoodSocial</span>
             </div>

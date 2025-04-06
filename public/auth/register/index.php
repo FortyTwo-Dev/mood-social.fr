@@ -2,10 +2,10 @@
 	$root = $_SERVER['DOCUMENT_ROOT'];
 	$page_title = 'Register - MoodSocial';
 	include_once($root . '/private/Actions/Security/MethodVerify.php');
-    include_once($root . '/private/Actions/RandomColor.php');
+    include_once($root . '/private/Actions/MoodColor.php');
 
     MethodVerify("GET");
-    $i = RandomColor();
+    $mood = RandomColor();
 ?>
 
 <?php include_once( $root . '/resources/layout/auth/head.php' ) ?>

@@ -1,4 +1,4 @@
-<footer class="sm:h-24 h-auto border-t border-ms-<?=$color[$i]['color']?>">
+<footer class="sm:h-24 h-auto border-t border-ms-<?=$mood['color']?>">
     <div class="w-full flex flex-col gap-4 my-6">
         <nav class="w-full flex justify-center items-center ">
             <ul class="w-full flex sm:flex-row flex-col justify-center items-center gap-8">

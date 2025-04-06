@@ -3,11 +3,15 @@
     $page_title = 'Choose your mood';
 
     include_once($root . '/private/Actions/Security/MethodVerify.php');
-    include_once($root . '/private/Actions/RandomColor.php');
+    include_once($root . '/private/Actions/MoodColor.php');
+    include_once($root . '/private/Actions/Cookie/Cookie.php');
 
     MethodVerify("GET");
-    $i = RandomColor();
+    $moods = GetAllColor();
+    // echo ShowCookie('flash_message_success');
 ?>
+
+<?php require_once( $root . '/resources/layout/notification/base.php' ) ?>
 
 <?php include_once( $root . '/resources/layout/mood/head.php' ) ?>
 
