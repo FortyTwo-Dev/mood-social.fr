@@ -9,4 +9,3 @@ function Connection() {
         die('Error' . $e->getMessage());
     }
 }
-

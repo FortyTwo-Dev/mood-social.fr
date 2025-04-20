@@ -44,6 +44,15 @@ services:
     depends_on:
       - mysql
 
+  mail:
+    image: mailhog/mailhog:latest
+    container_name: mail
+    ports:
+      - "8025:8025" # Interface web MailHog (http://localhost:8025)
+      - "1025:1025"
+    networks:
+      - mynetwork
+
 networks:
   mynetwork:
     driver: bridge

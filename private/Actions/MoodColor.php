@@ -2,12 +2,11 @@
 // include_once($root . '/config/app.php');
 include_once($root . '/private/Actions/Generic/Json.php');
 include_once($root . '/private/Actions/Generic/Javascript.php');
-require_once($root . '/private/Actions/Database/Connection.php');
+require_once($root . '/private/Actions/Database/Database.php');
 
 function RandomColor() : array {
 
     $moods = GetAllColor();
-
     return $moods[rand(0,4)];
 }
 

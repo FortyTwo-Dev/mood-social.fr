@@ -1,4 +1,7 @@
 <?php
+
+use Dba\Connection;
+
 require_once($root . '/private/Actions/Database/Connection.php');
 
 // argon2id
@@ -7,12 +10,12 @@ require('database.php');
 
 if(isset($_POST['validate'])){
 
-    if(!empty($_POST['name']) AND !empty($_POST['password'])){
-        $user_name = htmlspecialchars($_POST['name']);
+    if(!empty($_POST['email']) AND !empty($_POST['password'])){
+        $user_email = htmlspecialchars($_POST['email']);
         $user_password = htmlspecialchars($_POST['password']);
 
-        $checkIfUserExists = $bdd->prepare('SELECT * FROM users WHERE name = ?');
-        $checkIfUserExists->execute(array($user_name));
+        $checkIfUserExists = Connection()->prepare('SELECT email, password FROM users WHERE email = ?');
+        $checkIfUserExists->execute(array($user_email));
 
         if($checkIfUserExists->rowCount() > 0) {
             $usersInfos = $checkIfUserExists->fetch();
@@ -21,16 +24,16 @@ if(isset($_POST['validate'])){
 
                 $_SESSION['auth'] = true;
                 $_SESSION['id'] = $usersInfos['id'];
-                $_SESSION['name'] = $usersInfos['name'];
+                $_SESSION['email'] = $usersInfos['email'];
                 $_SESSION['role'] = $usersInfos['role'];
 
                 header('Location: allActus.php');
             }else{
-                $errorMsg = "votre name ou mot de passe est incorect";
+                $errorMsg = "votre email ou mot de passe est incorect";
             }
 
         }else{
-            $errorMsg = "votre name ou mot de passe est incorect";
+            $errorMsg = "votre email ou mot de passe est incorect";
         }
 
     }else{
