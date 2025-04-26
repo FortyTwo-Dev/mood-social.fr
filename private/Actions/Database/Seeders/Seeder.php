@@ -10,4 +10,6 @@ function SeedAllTable() {
     $conn = Connection();
 
     MoodSeeder($conn);
+    RoleSeeder($conn);
+    SubscriptionSeeder($conn);
 }

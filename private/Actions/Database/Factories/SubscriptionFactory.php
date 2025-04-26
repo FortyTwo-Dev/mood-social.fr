@@ -6,7 +6,7 @@ function CreateSubscriptionTable(PDO $conn) {
             title VARCHAR(50),
             type VARCHAR(50),
             updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
-            Created_at DATETIME DEFAULT NOW()
+            created_at DATETIME DEFAULT NOW()
         );
     ";
     $conn->exec($query);

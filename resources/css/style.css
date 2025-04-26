@@ -316,6 +316,9 @@
   .block {
     display: block;
   }
+  .contents {
+    display: contents;
+  }
   .flex {
     display: flex;
   }
@@ -324,6 +327,9 @@
   }
   .hidden {
     display: none;
+  }
+  .inline {
+    display: inline;
   }
   .inline-block {
     display: inline-block;
@@ -788,6 +794,9 @@
   .duration-500 {
     --tw-duration: 500ms;
     transition-duration: 500ms;
+  }
+  .\[hostname\:port\] {
+    hostname: port;
   }
   .peer-checked\:max-h-96 {
     &:is(:where(.peer):checked ~ *) {

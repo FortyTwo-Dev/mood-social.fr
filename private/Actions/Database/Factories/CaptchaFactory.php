@@ -7,7 +7,7 @@ function CreateCaptchaTable(PDO $conn) {
             question VARCHAR(200),
             answer VARCHAR(200),
             updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
-            Created_at DATETIME DEFAULT NOW(),
+            created_at DATETIME DEFAULT NOW(),
             user_id INT NOT NULL REFERENCES USERS(id)
         );
     ";

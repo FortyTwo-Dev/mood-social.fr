@@ -39,9 +39,10 @@ CREATE TABLE USERS (
     country VARCHAR(50),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
-    role_id INT NOT NULL REFERENCES ROLES(id),
+    role_id INT NOT NULL DEFAULT 3 REFERENCES ROLES(id),
     subscription_id INT NOT NULL DEFAULT 1 REFERENCES SUBSCRIPTIONS(id),
-    subscription_updated_at INT CHECK(subscription_updated_at>=0)
+    subscription_updated_at INT CHECK(subscription_updated_at>=0),
+    email_verified_at VARCHAR(255)
 );
 
 CREATE TABLE TALKS (

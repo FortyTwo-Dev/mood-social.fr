@@ -6,7 +6,7 @@ function CreateEventTable(PDO $conn) {
             title VARCHAR(100),
             description VARCHAR(255),
             updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
-            Created_at DATETIME DEFAULT NOW(),
+            created_at DATETIME DEFAULT NOW(),
             talk_id INT UNIQUE NOT NULL REFERENCES TALKS(id)
         );
     ";

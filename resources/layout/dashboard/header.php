@@ -3,7 +3,10 @@
         <img class="w-8 h-8" src="/resources/assets/svg/logo.svg" alt="Logo MoodSocal"/>
         <span class="text-2xl font-bold">MoodSocial</span>
     </div>
-    <div class="col-span-2 col-end-13 flex justify-center items-center">
+    <div class="col-span-2 col-end-13 flex justify-center items-center gap-4">
         <p class=" text-xl font-semibold">Mon Compte</p>
+        <form action="/auth/logout/" method="POST">
+            <button type="submit" class="text-xl font-semibold cursor-pointer">Déconnexion</button>
+        </form>
     </div>
 </header>

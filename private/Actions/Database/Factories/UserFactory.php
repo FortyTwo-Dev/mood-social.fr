@@ -13,10 +13,11 @@ function CreateUserTable(PDO $conn) {
             city VARCHAR(50),
             country VARCHAR(50),
             updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
-            Created_at DATETIME DEFAULT NOW(),
-            role_id INT NOT NULL REFERENCES ROLES(id),
+            created_at DATETIME DEFAULT NOW(),
+            role_id INT NOT NULL DEFAULT 1 REFERENCES ROLES(id),
             subscription_id INT NOT NULL DEFAULT 1 REFERENCES SUBSCRIPTIONS(id),
-            subscription_updated_at INT CHECK(subscription_updated_at>=0)
+            subscription_updated_at INT CHECK(subscription_updated_at>=0),
+            email_verified_at VARCHAR(255)
         );
     ";
     $conn->exec($query);

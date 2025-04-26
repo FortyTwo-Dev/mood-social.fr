@@ -7,7 +7,7 @@ function CreateMoodTable(PDO $conn) {
             color VARCHAR(10),
             text_color VARCHAR(10),
             updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
-            Created_at DATETIME DEFAULT NOW()
+            created_at DATETIME DEFAULT NOW()
         );
     ";
     $conn->exec($query);
