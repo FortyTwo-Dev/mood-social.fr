@@ -14,6 +14,8 @@
 
     MethodVerify("GET");
     $mood = RandomColor();
+
+    print_r($_SERVER);
 ?>
 
 

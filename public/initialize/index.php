@@ -19,7 +19,7 @@ if (CreateAllTables(Connection())) {
     SeedAllTable();
     GoToRoute('/');
 } else {
-    header("Location: /errors/500/?error_message=Base de données déjà initialiser");
+    header("Location: /errors/500/?error_message=Base de données déjà initialiser ou la base de données : " . DBNAME . " n'existe pas.CREATE DATABASE " . DBNAME . ";" );
 }
 
 ?>
