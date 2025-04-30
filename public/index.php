@@ -14,9 +14,6 @@
 
     MethodVerify("GET");
     $mood = RandomColor();
-    var_dump(EmailVerified());
-    // echo substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
 ?>
 
 

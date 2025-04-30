@@ -4,28 +4,34 @@ foreach (glob(__DIR__ . '/*Factory.php') as $file) {
     require_once $file;
 }
 
-function CreateAllTables(PDO $conn) {
-    CreateRightTable($conn);
-    CreateRoleTable($conn);
-    CreateRoleRightTable($conn);
-    CreateSubscriptionTable($conn);
-    CreateUserTable($conn);
-    CreateTalkTable($conn);
-    CreateEventTable($conn);
-    CreateMessageTable($conn);
-    CreateMessageLikeTable($conn);
-    CreateReactionTable($conn);
-    CreateUserMessageReactionTable($conn);
-    CreateFriendTable($conn);
-    CreateFollowerTable($conn);
-    CreateExchangeTable($conn);
-    CreateUserExchangeReactionTable($conn);
-    CreateUserTalkTable($conn);
-    CreateUserEventTable($conn);
-    CreateUserMoodTable($conn);
-    CreateEventLikeTable($conn);
-    CreateMoodTable($conn);
-    CreateCaptchaTable($conn);
+function CreateAllTables(PDO $conn): bool {
+    try {
+        CreateRightTable($conn);
+        CreateRoleTable($conn);
+        CreateRoleRightTable($conn);
+        CreateSubscriptionTable($conn);
+        CreateUserTable($conn);
+        CreateTalkTable($conn);
+        CreateEventTable($conn);
+        CreateMessageTable($conn);
+        CreateMessageLikeTable($conn);
+        CreateReactionTable($conn);
+        CreateUserMessageReactionTable($conn);
+        CreateFriendTable($conn);
+        CreateFollowerTable($conn);
+        CreateExchangeTable($conn);
+        CreateUserExchangeReactionTable($conn);
+        CreateUserTalkTable($conn);
+        CreateUserEventTable($conn);
+        CreateUserMoodTable($conn);
+        CreateEventLikeTable($conn);
+        CreateMoodTable($conn);
+        CreateCaptchaTable($conn);
+        return true;
+
+    } catch (PDOException $e) {
+        return false;
+    }
 }
 
 function DropAllTables(PDO $conn) {

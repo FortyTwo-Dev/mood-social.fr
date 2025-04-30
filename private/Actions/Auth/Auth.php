@@ -13,8 +13,8 @@ function Register() {
     $query = "INSERT INTO USERS (email, password) VALUES (:email, :password)";
     $stmt = Connection()->prepare($query);
 
-    $stmt->bindParam(':email', $request['email']);
-    $stmt->bindParam(':password', password_hash($request['password'], 'argon2id'));
+    $stmt->bindValue(':email', $request['email']);
+    $stmt->bindValue(':password', password_hash($request['password'], 'argon2id'));
     
     $stmt->execute();
 
