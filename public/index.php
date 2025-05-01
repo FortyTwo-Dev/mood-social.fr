@@ -16,10 +16,7 @@
     MethodVerify("GET");
     $mood = RandomColor();
 
-    // print_r($_SERVER);
-
-    LogAction("string");
-    print GetUserId();
+    LogAction("string");  
 ?>
 
 
