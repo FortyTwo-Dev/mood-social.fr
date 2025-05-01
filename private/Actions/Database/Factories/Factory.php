@@ -27,6 +27,7 @@ function CreateAllTables(PDO $conn): bool {
         CreateEventLikeTable($conn);
         CreateMoodTable($conn);
         CreateCaptchaTable($conn);
+        CreateLogsTable($conn);
         return true;
 
     } catch (PDOException $e) {
