@@ -18,7 +18,7 @@ function IsAuth(): bool {
 
 function IsAdmin(): bool {
     if (IsAuth()) {
-        if ($_SESSION['role'] == 3){
+        if ($_SESSION['role'] == 2){
             return true;
         } else {
             return false;

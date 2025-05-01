@@ -2,3 +2,4 @@
     <p class="text-black dark:text-white">MoodSocial | Tous droits réservés</p>
 </footer>
 <script src="/resources/js/theme.js"></script>
+<script src="/resources/js/captcha.js"></script>

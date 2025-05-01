@@ -18,9 +18,18 @@ function Register() {
     
     $stmt->execute();
 
+    $query = "SELECT id, role_id, password FROM USERS WHERE email = :email;";
+    
+    $stmt = Connection()->prepare($query);
+    $stmt->bindParam(':email', $request['email']);
+    $stmt->execute();
+    
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
     $_SESSION['auth'] = 1;
+    $_SESSION['id'] = $user['id'];
     $_SESSION['email'] = $request['email'];
-    $_SESSION['role'] = 1;
+    $_SESSION['role'] = $user['role_id'];
 
     header('Location: /');
 }
@@ -30,6 +39,7 @@ function Login() {
     $request = LoginValidation();
 
     $_SESSION['auth'] = 1;
+    $_SESSION['id'] = $request['id'];
     $_SESSION['email'] = $request['email'];
     $_SESSION['role'] = $request['role'];
 

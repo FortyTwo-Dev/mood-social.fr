@@ -34,8 +34,12 @@ function GetUsername(string $where = "email") {
     }
 }
 
-function GetUserId(){
-    return (SelectAuthUserWithEmail('id'))->id;
+function GetUserId() {
+    $user_id = SelectAuthUserWithEmail('id');
+    if ($user_id) {
+        return ($user_id)->id;
+    }
+    return NULL;
 }
 
 function GetEmailVerifiedAt(string $where = "email") {

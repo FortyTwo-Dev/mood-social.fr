@@ -13,5 +13,4 @@ function LogAction(string $action_type) {
     $stmt->bindParam(':ip',$_SERVER['REMOTE_ADDR'], is_null($_SERVER['REMOTE_ADDR']) ? PDO::PARAM_NULL : PDO::PARAM_STR);
     $stmt->bindParam(':status',$_SERVER['REDIRECT_STATUS'], is_null($_SERVER['REDIRECT_STATUS']) ? PDO::PARAM_NULL : PDO::PARAM_STR);
     $stmt->execute();
-    
 }

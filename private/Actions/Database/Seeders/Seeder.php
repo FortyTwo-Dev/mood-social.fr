@@ -12,4 +12,6 @@ function SeedAllTable() {
     MoodSeeder($conn);
     RoleSeeder($conn);
     SubscriptionSeeder($conn);
+    UserSeeder($conn);
+    CaptchaSeeder($conn);
 }

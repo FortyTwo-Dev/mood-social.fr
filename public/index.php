@@ -15,8 +15,8 @@
 
     MethodVerify("GET");
     $mood = RandomColor();
-
-    LogAction("string");  
+    print_r($_SERVER);
+    // LogAction("Home");  
 ?>
 
 
