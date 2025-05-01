@@ -6,13 +6,13 @@
     
     <?php include( $root . '/resources/layout/header.php' ) ?>
 
-    <input type="hidden" class="text-ms-grey bg-ms-grey border-ms-grey shadow-ms-grey">
-    <input type="hidden" class="text-ms-yellow bg-ms-yellow border-ms-yellow shadow-ms-yellow">
-    <input type="hidden" class="text-ms-purple bg-ms-purple border-ms-purple shadow-ms-purple">
-    <input type="hidden" class="text-ms-red bg-ms-red border-ms-red shadow-ms-red">
-    <input type="hidden" class="text-ms-blue bg-ms-blue border-ms-blue shadow-ms-blue">
-    <input type="hidden" class="text-ms-white bg-ms-white border-ms-white shadow-ms-white">
-    <input type="hidden" class="text-ms-black bg-ms-black border-ms-black shadow-ms-black">
+    <input type="hidden" class="text-ms-grey bg-ms-grey border-ms-grey shadow-ms-grey fill-ms-grey">
+    <input type="hidden" class="text-ms-yellow bg-ms-yellow border-ms-yellow shadow-ms-yellow fill-ms-yellow">
+    <input type="hidden" class="text-ms-purple bg-ms-purple border-ms-purple shadow-ms-purple fill-ms-purple">
+    <input type="hidden" class="text-ms-red bg-ms-red border-ms-red shadow-ms-red fill-ms-">
+    <input type="hidden" class="text-ms-blue bg-ms-blue border-ms-blue shadow-ms-blue fill-ms-blue">
+    <input type="hidden" class="text-ms-white bg-ms-white border-ms-white shadow-ms-white fill-ms-white">
+    <input type="hidden" class="text-ms-black bg-ms-black border-ms-black shadow-ms-black fill-ms-black">
 
     <main class="">
 
