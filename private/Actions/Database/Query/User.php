@@ -34,7 +34,7 @@ function GetUsername(string $where = "email") {
     }
 }
 
-function GetId() {
+function GetUserId(){
     return (SelectAuthUserWithEmail('id'))->id;
 }
 
