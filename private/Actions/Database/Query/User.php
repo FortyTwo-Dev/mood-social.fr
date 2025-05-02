@@ -4,7 +4,7 @@ include_once($root . '/private/Actions/Database/Database.php');
 function SelectAuthUserWithEmail(string $col) {
     $query = "SELECT {$col} FROM USERS WHERE email = :email";
     $stmt = Connection()->prepare($query);
-    $stmt->bindValue(':email', GetEmail());
+    $stmt->bindValue(':email', GetEmail(), is_null(GetEmail()) ? PDO::PARAM_NULL : PDO::PARAM_STR);
     $stmt->execute();
     return ($stmt->fetch(PDO::FETCH_OBJ));
 }
@@ -12,7 +12,7 @@ function SelectAuthUserWithEmail(string $col) {
 function SelectUserWithId(string $col) {
     $query = "SELECT {$col} FROM USERS WHERE id = :id";
     $stmt = Connection()->prepare($query);
-    $stmt->bindValue(':id', $_GET['id']);
+    $stmt->bindValue(':id', $_GET['id'], is_null($_GET['id']) ? PDO::PARAM_NULL : PDO::PARAM_INT);
     $stmt->execute();
     return ($stmt->fetch(PDO::FETCH_OBJ));
 }
@@ -35,11 +35,7 @@ function GetUsername(string $where = "email") {
 }
 
 function GetUserId() {
-    $user_id = SelectAuthUserWithEmail('id');
-    if ($user_id) {
-        return ($user_id)->id;
-    }
-    return NULL;
+    return ( isset($_SESSION['id']) ) ? $_SESSION['id'] : NULL;
 }
 
 function GetEmailVerifiedAt(string $where = "email") {
@@ -53,7 +49,7 @@ function GetEmailVerifiedAt(string $where = "email") {
 }
 
 function GetEmail() {
-    return $_SESSION['email'];
+    return ( isset($_SESSION['email']) ) ? $_SESSION['email'] : NULL;
 }
 
 
