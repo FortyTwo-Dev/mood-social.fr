@@ -22,8 +22,6 @@
 
     $svg = '<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">';
     $angle_start = 0;
-
-
     foreach ($all_status as $status) {
         $angle = ($status->occurrences / $total) * 360;
         $angle_end = $angle_start + $angle;
@@ -37,12 +35,10 @@
         $large_arc = ($angle > 180) ? 1 : 0;
 
         $svg .= '<path d="M'.$cx.','.$cy.' L'.$x1.','.$y1.' A'.$r.','.$r.' 0 '.$large_arc.',1 '.$x2.','.$y2.' Z" fill="'.$colors[$status->status].'" />';
+        
         $angle_start = $angle_end;
-
     }
-
     $svg .= '</svg>';
-
     header("Content-Type: image/svg+xml");
     echo $svg;
 ?>

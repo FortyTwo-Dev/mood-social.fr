@@ -74,6 +74,9 @@ function Store() {
             ";
     $content = "
         <tr>
+            <td class=\"paragraph\">{$request['title']}</td>
+        </tr>
+        <tr>
             <td class=\"paragraph\">" . nl2br(html_entity_decode($request['content'])) . "</td>
         </tr>
             ";
