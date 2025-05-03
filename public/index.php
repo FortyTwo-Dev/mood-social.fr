@@ -15,7 +15,7 @@
 
     MethodVerify("GET");
     $mood = RandomColor();
-    LogAction("Home");  
+    LogAction();  
 ?>
 
 

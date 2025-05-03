@@ -28,6 +28,7 @@ function CreateAllTables(PDO $conn): bool {
         CreateMoodTable($conn);
         CreateCaptchaTable($conn);
         CreateLogsTable($conn);
+        CreateNewsletterTable($conn);
         return true;
 
     } catch (PDOException $e) {
@@ -36,7 +37,7 @@ function CreateAllTables(PDO $conn): bool {
 }
 
 function DropAllTables(PDO $conn) {
-    $conn->prepare('DROP TABLE IF EXISTS CAPTCHAS, EVENTS, EVENT_LIKES, EXCHANGES, FOLLOWERS, FRIENDS, MESSAGES, MESSAGE_LIKES, MOODS, REACTIONS, RIGHTS, ROLES, ROLE_RIGHT, SUBSCRIPTIONS, TALKS, USERS, USER_EVENT, USER_EXCHANGE_REACTION, USER_MESSAGE_REACTION, USER_MOOD, USER_TALK, LOGS;')->execute();
+    $conn->prepare('DROP TABLE IF EXISTS CAPTCHAS, EVENTS, EVENT_LIKES, EXCHANGES, FOLLOWERS, FRIENDS, MESSAGES, MESSAGE_LIKES, MOODS, REACTIONS, RIGHTS, ROLES, ROLE_RIGHT, SUBSCRIPTIONS, TALKS, USERS, USER_EVENT, USER_EXCHANGE_REACTION, USER_MESSAGE_REACTION, USER_MOOD, USER_TALK, LOGS, NEWSLETTERS;')->execute();
 }
 
 function ResetDatabase() {

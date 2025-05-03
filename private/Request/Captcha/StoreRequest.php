@@ -9,7 +9,7 @@ function StoreValidation() {
     $content = htmlspecialchars($_POST['content']);
     $question = htmlspecialchars($_POST['question']);
     $answer = htmlspecialchars($_POST['answer']);
-    $user_id = GetId();
+    $user_id = GetUserId();
 
     if(empty($title) OR empty($question) OR empty($answer) OR empty($content)) {
         GoToRoute('/dashboard/security/captcha/create/', 'Veuillez remplir tous les champs obligatoires.', 'error');

@@ -39,7 +39,7 @@ CREATE TABLE USERS (
     country VARCHAR(50),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
-    role_id INT NOT NULL DEFAULT 3 REFERENCES ROLES(id),
+    role_id INT NOT NULL DEFAULT 1 REFERENCES ROLES(id),
     subscription_id INT NOT NULL DEFAULT 1 REFERENCES SUBSCRIPTIONS(id),
     subscription_updated_at INT CHECK(subscription_updated_at>=0),
     email_verified_at VARCHAR(255)
@@ -143,7 +143,7 @@ CREATE TABLE USER_EVENT (
 CREATE TABLE USER_MOOD (
     user_id INT REFERENCES USERS(id),
     mood_id INT REFERENCES MOODS(id),
-    attached_at DATETIME,
+    attached_at DATETIME DEFAULT NOW(),
     PRIMARY KEY (user_id, mood_id)
 );
 
@@ -186,3 +186,11 @@ CREATE TABLE LOGS (
     server_protocol VARCHAR(255),
     http_user_agent VARCHAR(255)
 );
+
+CREATE TABLE NEWSLETTERS (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    object VARCHAR(255),
+    content TEXT,
+    created_at DATETIME DEFAULT NOW(),
+    user_id INT NOT NULL REFERENCES USERS(id)
+)

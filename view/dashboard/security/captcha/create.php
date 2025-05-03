@@ -42,7 +42,7 @@
                     </div>
                 </section>
 
-                <button class="w-3xl py-2 bg-ms-red rounded-md hover:underline text-ms-white">Créer</button>
+                <button type="submit" class="w-3xl py-2 bg-ms-red rounded-md hover:underline text-ms-white">Créer</button>
                 
             </form>
 

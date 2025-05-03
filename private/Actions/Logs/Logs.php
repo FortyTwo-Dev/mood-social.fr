@@ -2,7 +2,7 @@
 include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Database/Query/User.php');
 
-function LogAction(string $action_type) {
+function LogAction() {
     $user_id = GetUserId();
     $stmt = Connection()->prepare("
         INSERT INTO LOGS (user_id, script_name, ip, status, http_referer, request_uri, request_method, server_protocol, http_user_agent)
