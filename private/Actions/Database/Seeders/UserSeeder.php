@@ -4,7 +4,8 @@ include_once($root . '/private/Actions/Database/Database.php');
 function UserSeeder(PDO $conn) {
     $users = [
         [ 'username' => "FortyTwo_dev", 'email' => "the.fortytwo_dev@proton.me", 'password' => "password", 'role_id' => 2, 'subscription_id' => 2 ],
-        [ 'username' => "jikuji", 'email' => "lefortjiji@gmail.com", 'password' => "password", 'role_id' => 2, 'subscription_id' => 2 ]
+        [ 'username' => "jikuji", 'email' => "lefortjiji@gmail.com", 'password' => "password", 'role_id' => 2, 'subscription_id' => 2 ],
+        [ 'username' => "adems93", 'email' =>"adamgalou938@gmail.com" , 'password' => "password", 'role_id' => 2, 'subscription_id' => 2 ]
     ];
 
     $query = "INSERT INTO USERS (username, email, password, role_id, subscription_id) VALUES (:username, :email, :password, :role_id, :subscription_id)";
