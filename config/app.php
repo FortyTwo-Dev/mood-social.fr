@@ -27,3 +27,5 @@ $color = [
         'mood' => "triste"
     ],
 ];
+
+define("APP_KEY","ZLUNdMLdSrZEWfbSxtCbRhLLfjiRSEYPSGVrnzCxeSngeECuOBwUwWkLNSZhdVxu");

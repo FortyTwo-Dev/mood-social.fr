@@ -43,6 +43,8 @@ CREATE TABLE USERS (
     subscription_id INT NOT NULL DEFAULT 1 REFERENCES SUBSCRIPTIONS(id),
     subscription_updated_at INT CHECK(subscription_updated_at>=0),
     email_verified_at VARCHAR(255)
+    email_verification_token VARCHAR(255),
+    email_verification_expiration INT CHECK(email_verification_expiration>=0)
 );
 
 CREATE TABLE TALKS (
