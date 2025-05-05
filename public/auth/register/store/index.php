@@ -4,8 +4,10 @@
 	$page_title = 'Register - MoodSocial';
 	include_once($root . '/private/Actions/Security/Method.php');
     include_once($root . '/private/Actions/Auth/Auth.php');
+    include_once($root . '/private/Actions/Logs/Logs.php');
     
     MethodVerify("POST");
+    LogAction();
 
     Register();
 ?>

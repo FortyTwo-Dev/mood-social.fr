@@ -1,26 +1,26 @@
 <main class="w-screen h-screen flex flex-col justify-center items-center">
     <section class="w-full h-full">
-        <form action="" class="w-full h-full flex flex-col justify-around items-center">
+        <form action="/mood/store/" class="w-full h-full flex flex-col justify-around items-center" method="POST">
             <h1 class="text-7xl font-semibold">Choisi ton humeur<span id="mood-span"></span>.</h1>
             <ul class="flex gap-12">
                 <li> 
-                    <input class="hidden peer" type="radio" id="yellow" name="mood">
+                    <input class="hidden peer" type="radio" id="yellow" name="mood" value="yellow">
                     <label for="yellow" class="relative flex items-center justify-center w-20 h-20 overflow-hidden cursor-pointer bg-ms-yellow rounded-full peer-checked:border-2 box-border"></label>
                 </li>
                 <li> 
-                    <input class="hidden peer" type="radio" id="blue" name="mood">
+                    <input class="hidden peer" type="radio" id="blue" name="mood" value="blue">
                     <label for="blue" class="relative flex items-center justify-center w-20 h-20 overflow-hidden cursor-pointer bg-ms-blue rounded-full peer-checked:border-2 box-border"></label>
                 </li>
                 <li>
-                    <input class="hidden peer" type="radio" id="purple" name="mood">
+                    <input class="hidden peer" type="radio" id="purple" name="mood" value="purple">
                     <label for="purple" class="relative flex items-center justify-center w-20 h-20 overflow-hidden cursor-pointer bg-ms-purple rounded-full peer-checked:border-2 box-border"></label>
                 </li>
                 <li> 
-                    <input class="hidden peer" type="radio" id="red" name="mood">
+                    <input class="hidden peer" type="radio" id="red" name="mood" value="red">
                     <label for="red" class="relative flex items-center justify-center w-20 h-20 overflow-hidden cursor-pointer bg-ms-red rounded-full peer-checked:border-2 box-border"></label>
                 </li>
             </ul>
-            <button id="choose-button" class="max-w-xl w-full py-2 bg-ms-grey rounded-md hover:underline text-ms-white">Je valide</button>
+            <button type="submit" id="choose-button" class="max-w-xl w-full py-2 bg-ms-grey rounded-md hover:underline text-ms-white">Je valide</button>
         </form>
     </section>
     <script>
