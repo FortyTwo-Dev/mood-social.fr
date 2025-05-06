@@ -8,6 +8,13 @@ function GetAllCaptchas(string $col) {
     return ($stmt->fetchAll(PDO::FETCH_OBJ));
 }
 
+function GetCaptcha(string $col) {
+    $query = "SELECT {$col} FROM CAPTCHAS";
+    $stmt = Connection()->prepare($query);
+    $stmt->execute();
+    return ($stmt->fetch(PDO::FETCH_OBJ));
+}
+
 function GetCaptchaTitle() {
 
 }

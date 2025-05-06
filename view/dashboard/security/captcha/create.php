@@ -24,7 +24,7 @@
                 <section class="w-3xl flex flex-col gap-4 justify-center">
                     <label for="content">Couleur<span class="text-ms-red">*</span></label>
                     <div class="border border-ms-red px-8 py-2 rounded-md">
-                        <input id="content" type="content" name="content" class="w-full h-full outline-hidden focus:outline-hidden focus:ring-0 focus:border-transparent" placeholder="Entrez un nom">
+                        <input id="content" type="content" name="content" class="w-full h-full outline-hidden focus:outline-hidden focus:ring-0 focus:border-transparent" placeholder="Entrez une couleur">
                     </div>
                 </section>
 
