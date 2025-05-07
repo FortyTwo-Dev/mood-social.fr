@@ -9,7 +9,7 @@
 
 	MethodVerify("GET");
 
-	if (!IsAdmin()) { GoToRoute('/'); }
+	if (!IsAdmin()) { ToRoute('/'); }
 	$logs = GetAllLogs("ip, script_name, http_referer, request_uri, request_method");
 	$all_status = GetStatusOccurrences();
 ?>

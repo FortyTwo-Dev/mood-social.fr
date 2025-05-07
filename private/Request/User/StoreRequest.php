@@ -6,7 +6,7 @@ include_once($root . '/private/Actions/Routing/Route.php');
 function StoreValidation() {
 
     if (!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
-        GoToRoute('/auth/register/', 'L’adresse email saisie n’est pas valide.', 'error');
+        ToRoute(Back(), 'L’adresse email saisie n’est pas valide.', 'error');
     }
     $email = htmlspecialchars($_POST['email']);
 
@@ -18,15 +18,15 @@ function StoreValidation() {
     $password_confirmation = htmlspecialchars($password_confirmation);
 
     if(empty($email) OR empty($password) OR empty($password_confirmation) OR empty($captcha)) {
-        GoToRoute('/auth/register/', 'Veuillez remplir tous les champs obligatoires.', 'error');
+        ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
     }
 
     if ($password !== $password_confirmation) {
-        GoToRoute('/auth/register/', 'Les mots de passe ne correspondent pas.', 'error');
+        ToRoute(Back(), 'Les mots de passe ne correspondent pas.', 'error');
     }
 
     if ($captcha !== "on") {
-        GoToRoute('/auth/register/', 'Il faut compléter le captcha', 'error');
+        ToRoute(Back(), 'Il faut compléter le captcha', 'error');
     }
 
     $query = "SELECT email FROM USERS WHERE email = :email;";
@@ -35,7 +35,7 @@ function StoreValidation() {
     $stmt->execute();
 
     if ($stmt->fetchColumn() !== false) {
-        GoToRoute('/auth/register/', 'L’adresse email saisie n’est pas valide.', 'error');
+        ToRoute(Back(), 'L’adresse email saisie n’est pas valide.', 'error');
     }
 
     return [

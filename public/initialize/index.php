@@ -17,7 +17,7 @@ MethodVerify("GET");
 // echo substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 if (CreateAllTables(Connection())) {
     SeedAllTable();
-    GoToRoute('/');
+    ToRoute('/');
 } else {
     header("Location: /errors/500/?error_message=Base de données déjà initialiser ou la base de données : " . DBNAME . " n'existe pas.CREATE DATABASE " . DBNAME . ";" );
 }

@@ -8,4 +8,6 @@
 	$captcha = GetCaptcha('id, title, content, question, answer');
 ?>
 
+<?php require_once( $root . '/resources/layout/notification/base.php' ) ?>
+
 <?php include_once( $root . '/view/dashboard/security/captcha/edit.php' ) ?>

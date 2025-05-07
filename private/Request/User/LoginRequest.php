@@ -6,7 +6,7 @@ include_once($root . '/private/Actions/Routing/Route.php');
 function LoginValidation() {
 
     if (!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
-        GoToRoute('/auth/login/', 'L’adresse email saisie n’est pas valide.', 'error');
+        ToRoute(Back(), 'L’adresse email saisie n’est pas valide.', 'error');
     }
 
     $email = htmlspecialchars($_POST['email']);
@@ -15,7 +15,7 @@ function LoginValidation() {
 
 
     if(empty($email) OR empty($password) OR empty($captcha)) {
-        GoToRoute('/auth/login/', 'Veuillez remplir tous les champs obligatoires.', 'error');
+        ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
     }
 
     $query = "SELECT id, role_id, password FROM USERS WHERE email = :email;";
@@ -25,7 +25,7 @@ function LoginValidation() {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!password_verify($password, $user['password'])) {
-        GoToRoute('/auth/login/', 'Identifiants incorrects.', 'error');
+        ToRoute(Back(), 'Identifiants incorrects.', 'error');
     }
 
     return [

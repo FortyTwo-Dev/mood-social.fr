@@ -9,7 +9,7 @@
 
 	MethodVerify("GET");
 
-	if (!IsAuth()) { GoToRoute('/'); }
+	if (!IsAuth()) { ToRoute('/'); }
 
 	if (!IsAdmin()) { print 'no'; }
 	$users = GetAllUsers("id, username");

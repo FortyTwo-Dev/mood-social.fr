@@ -7,7 +7,7 @@
     include_once($root . '/private/Actions/Auth/Auth.php');
 
 
-	if (!IsAuth()) { GoToRoute('/'); }
+	if (!IsAuth()) { ToRoute('/'); }
     
     MethodVerify("POST");
 

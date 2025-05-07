@@ -11,7 +11,7 @@ function StoreValidation() {
     $username = htmlspecialchars($username);
 
     if(empty($username) ) {
-        GoToRoute('/auth/login/', 'Veuillez remplir tous les champs obligatoires.', 'error');
+        ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
     }
 
     $query = "SELECT username FROM USERS WHERE id = :id;";
@@ -19,9 +19,9 @@ function StoreValidation() {
     $stmt->bindValue(':id', GetUserId(), PDO::PARAM_INT);
     $stmt->execute();
 
-    // if ($stmt->fetchColumn() !== false) {
-    //     GoToRoute('/auth/login/', 'Vous avez déjà définie votre nom d\'utilisateur.', 'error');
-    // }
+    if (isset($stmt->fetch(PDO::FETCH_OBJ)->username)) {
+        ToRoute(Back(), 'Vous avez déjà définie votre nom d\'utilisateur.', 'error');
+    }
 
     $query = "SELECT id FROM USERS WHERE username = :username;";
     $stmt = Connection()->prepare($query);
@@ -29,7 +29,7 @@ function StoreValidation() {
     $stmt->execute();
 
     if ($stmt->fetchColumn() !== false) {
-        GoToRoute('/auth/login/', 'Le nom d\'utilisateur existe déjà.', 'error');
+        ToRoute(Back(), 'Le nom d\'utilisateur existe déjà.', 'error');
     }
 
     return [

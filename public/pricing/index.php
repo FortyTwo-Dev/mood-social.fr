@@ -7,9 +7,9 @@
     include_once($root . '/private/Actions/Routing/Route.php');
 
 
-    // GoToRoute('/mood/choose/', 'Message de succès', 'success');
-    // GoToRoute('/mood/choose/', 'Message d\'information', 'info');
-    // GoToRoute('/mood/choose/', 'Message d\'erreur', 'error');
+    // ToRoute('/mood/choose/', 'Message de succès', 'success');
+    // ToRoute('/mood/choose/', 'Message d\'information', 'info');
+    // ToRoute('/mood/choose/', 'Message d\'erreur', 'error');
 ?>
 
 <?php include( $root . '/view/under_construction.php' ) ?>

@@ -115,5 +115,5 @@ function Store() {
 
     SendEmail('test@exemple.com', 'MoodSocial', 'recipient@test.com', $request['object'], $email);
 
-    GoToRoute('/dashboard/newsletter/', "Newsletter {$request['object']} créé et envoyé avec succès", 'success');
+    ToRoute('/dashboard/newsletter/', "Newsletter {$request['object']} créé et envoyé avec succès", 'success');
 }

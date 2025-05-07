@@ -21,7 +21,7 @@ function Store() {
     
     $stmt->execute();
 
-    GoToRoute('/dashboard/security/', "Captcha {$request['title']} créé avec succès", 'success');
+    ToRoute('/dashboard/security/', "Captcha {$request['title']} créé avec succès", 'success');
 }
 
 function Update() {
@@ -40,7 +40,7 @@ function Update() {
 
     $stmt->execute();
 
-    GoToRoute('/dashboard/security/', "Captcha {$request['title']} modifié avec succès", 'success');
+    ToRoute('/dashboard/security/', "Captcha {$request['title']} modifié avec succès", 'success');
 }
 
 function Delete() {
@@ -54,5 +54,5 @@ function Delete() {
  
      $stmt->execute();
  
-     GoToRoute('/dashboard/security/', "Captcha {$request['title']} supprimée définitivement avec succès", 'success');
+     ToRoute('/dashboard/security/', "Captcha {$request['title']} supprimée définitivement avec succès", 'success');
  }

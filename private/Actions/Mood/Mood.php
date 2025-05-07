@@ -17,5 +17,5 @@ function Store() {
     
     $stmt->execute();
 
-    GoToRoute('/');
+    ToRoute('/');
 }

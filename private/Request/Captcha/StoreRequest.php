@@ -12,7 +12,7 @@ function StoreValidation() {
     $user_id = GetUserId();
 
     if(empty($title) OR empty($question) OR empty($answer) OR empty($content)) {
-        GoToRoute('/dashboard/security/captcha/create/', 'Veuillez remplir tous les champs obligatoires.', 'error');
+        ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
     }
 
     $query = "SELECT title FROM CAPTCHAS WHERE title = :title;";
@@ -21,7 +21,7 @@ function StoreValidation() {
     $stmt->execute();
 
     if ($stmt->fetchColumn() !== false) {
-        GoToRoute('/dashboard/security/captcha/create/', 'Le nom choisie existe déjà.', 'error');
+        ToRoute(Back(), 'Le nom choisie existe déjà.', 'error');
     }
 
     return [

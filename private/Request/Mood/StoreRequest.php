@@ -9,7 +9,7 @@ function StoreValidation() {
     $user_id = GetUserId();
 
     if(empty($color) OR empty($user_id)) {
-        GoToRoute('/mood/', 'Veuillez remplir tous les champs obligatoires.', 'error');
+        ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
     }
 
     $query = "SELECT mood_id FROM USER_MOOD WHERE DATE(attached_at) = CURDATE() AND user_id = :user_id ORDER BY attached_at DESC LIMIT 1;";
@@ -18,7 +18,7 @@ function StoreValidation() {
     $stmt->execute();
 
     if ($stmt->fetchColumn() !== false) {
-        GoToRoute('/mood/', 'Vous avez déjà choisi votre mood.', 'error');
+        ToRoute(Back(), 'Vous avez déjà choisi votre mood.', 'error');
     }
 
     return [

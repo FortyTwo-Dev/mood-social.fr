@@ -9,7 +9,7 @@
 
 	MethodVerify("GET");
 
-	if (!IsAdmin()) { GoToRoute('/'); }
+	if (!IsAdmin()) { ToRoute('/'); }
 	$newsletters = GetAllNewsletter("id, object, created_at");
 ?>
 

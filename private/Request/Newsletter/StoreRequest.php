@@ -14,7 +14,7 @@ function StoreValidation() {
     $user_id = GetUserId();
 
     if(empty($object) OR empty($title) OR empty($content)) {
-        GoToRoute('/dashboard/newsletter/create/', 'Veuillez remplir tous les champs obligatoires.', 'error');
+        ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
     }
 
     if(empty($action) OR empty($url)) {
@@ -28,7 +28,7 @@ function StoreValidation() {
     $stmt->execute();
 
     if ($stmt->fetchColumn() !== false) {
-        GoToRoute('/dashboard/newsletter/create/', 'L\'object existe déjà.', 'error');
+        ToRoute(Back(), 'L\'object existe déjà.', 'error');
     }
 
     return [

@@ -7,7 +7,7 @@ function DeleteValidation() {
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
     if(empty($id)) {
-        GoToRoute('/dashboard/security/', 'Veuillez remplir tous les champs obligatoires.', 'error');
+        ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
     }
 
     $query = "SELECT id, title FROM CAPTCHAS WHERE id = :id;";
@@ -18,7 +18,7 @@ function DeleteValidation() {
     $captcha = $stmt->fetch(PDO::FETCH_OBJ);
 
     if (!isset($captcha->id)) {
-        GoToRoute('/dashboard/security/', 'Le captcha choisie n\'existe pas.', 'error');
+        ToRoute(Back(), 'Le captcha choisie n\'existe pas.', 'error');
     }
 
     return [
