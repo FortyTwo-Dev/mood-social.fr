@@ -1,9 +1,10 @@
 <?php
-
 include_once($root . '/private/Actions/Database/Database.php');
+include_once($root . '/private/Actions/Routing/Route.php');
+
 include_once($root . '/private/Request/Captcha/StoreRequest.php');
 include_once($root . '/private/Request/Captcha/UpdateRequest.php');
-include_once($root . '/private/Actions/Routing/Route.php');
+include_once($root . '/private/Request/Captcha/DeleteRequest.php');
 
 function Store() {
 
@@ -30,7 +31,7 @@ function Update() {
    $query = "UPDATE CAPTCHAS SET title = :title, content = :content, question = :question, answer = :answer, user_id = :user_id WHERE id = :id";
     $stmt = Connection()->prepare($query);
 
-    $stmt->bindValue(':id', $request['id']);
+    $stmt->bindValue(':id', $request['id'], PDO::PARAM_INT);
     $stmt->bindValue(':title', $request['title']);
     $stmt->bindValue(':content', $request['content']);
     $stmt->bindValue(':question', $request['question']);
@@ -41,3 +42,17 @@ function Update() {
 
     GoToRoute('/dashboard/security/', "Captcha {$request['title']} modifié avec succès", 'success');
 }
+
+function Delete() {
+
+    $request = DeleteValidation();
+ 
+    $query = "DELETE FROM CAPTCHAS WHERE id = :id";
+     $stmt = Connection()->prepare($query);
+ 
+     $stmt->bindValue(':id', $request['id'], PDO::PARAM_INT);
+ 
+     $stmt->execute();
+ 
+     GoToRoute('/dashboard/security/', "Captcha {$request['title']} supprimée définitivement avec succès", 'success');
+ }

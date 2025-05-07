@@ -71,9 +71,12 @@
                                 <td class="px-6 py-4 whitespace-nowrap font-medium"><?=$captcha->title?></td>
                                 <td class="px-6 py-4 whitespace-nowrap"><?=$captcha->question?></td>
                                 <td class="px-6 py-4 whitespace-nowrap"><?=$captcha->answer?></td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <a href="/dashboard/security/captcha/edit/?id=<?=$captcha->id?>" class="text-ms-blue font-medium hover:underline mr-4">Edit</a>
-                                    <a href="/dashboard/security/captcha/delete/?id=<?=$captcha->id?>" class="text-ms-red font-medium hover:underline">Supprimer</a>
+                                <td class="px-6 py-4 whitespace-nowrap flex gap-4">
+
+                                    <a href="/dashboard/security/captcha/edit/?id=<?=$captcha->id?>" class="text-ms-blue font-medium hover:underline">Edit</a>
+
+                                    <form action="/dashboard/security/captcha/delete/?id=<?=$captcha->id?>" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');"><button type="submit" class="text-ms-red font-medium hover:underline cursor-pointer">Supprimer</button></form>
+
                                 </td>
                             </tr>
                         <? endforeach ?>
