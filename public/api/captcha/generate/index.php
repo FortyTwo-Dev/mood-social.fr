@@ -1,11 +1,12 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 $root = $_SERVER['DOCUMENT_ROOT'];
+
 include_once($root . '/private/Actions/Database/Query/User.php');
 include_once($root . '/private/Actions/Logs/Logs.php');
 
-
-header('Content-Type: application/json');
+LogAction();
 
 $stmt = Connection()->query("SELECT content, question, answer FROM CAPTCHAS ORDER BY RAND() LIMIT 1");
 $captcha = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -41,5 +42,3 @@ function generateSVG($shape, $class) {
             return '';
     }
 }
-
-LogAction();

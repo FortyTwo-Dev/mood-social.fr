@@ -9,8 +9,9 @@
 
     MethodVerify("GET");
     $mood = RandomColor();
+    
     LogAction();
-    ?>
+?>
 
 <?php include_once( $root . '/resources/layout/auth/head.php' ) ?>
 

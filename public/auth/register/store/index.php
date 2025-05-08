@@ -7,6 +7,7 @@
     include_once($root . '/private/Actions/Logs/Logs.php');
     
     MethodVerify("POST");
+    
     LogAction();
 
     Register();
