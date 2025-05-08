@@ -9,6 +9,8 @@ include_once($root . '/private/Actions/Database/Query/User.php');
 include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Database/Seeders/Seeder.php');
 include_once($root . '/private/Actions/Database/Factories/Factory.php');
+include_once($root . '/private/Actions/Logs/Logs.php');
+
 
 // ResetDatabase();
 
@@ -21,5 +23,5 @@ if (CreateAllTables(Connection())) {
 } else {
     header("Location: /errors/500/?error_message=Base de données déjà initialiser ou la base de données : " . DBNAME . " n'existe pas.CREATE DATABASE " . DBNAME . ";" );
 }
-
+LogAction();
 ?>

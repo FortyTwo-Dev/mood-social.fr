@@ -5,10 +5,13 @@
     include_once($root . '/private/Actions/Security/Method.php');
     include_once($root . '/private/Actions/MoodColor.php');
     include_once($root . '/private/Actions/Cookie/Cookie.php');
+    include_once($root . '/private/Actions/Logs/Logs.php');
+
 
     MethodVerify("GET");
     $moods = GetAllColor();
     // echo ShowCookie('flash_message_success');
+    LogAction();
 ?>
 
 <?php require_once( $root . '/resources/layout/notification/base.php' ) ?>

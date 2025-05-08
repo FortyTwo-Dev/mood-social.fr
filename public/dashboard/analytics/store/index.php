@@ -5,6 +5,8 @@
     include_once($root . '/private/Actions/Cookie/Cookie.php');
     include_once($root . '/private/Actions/Routing/Route.php');
     include_once($root . '/private/Actions/Database/Query/Log.php');
+    include_once($root . '/private/Actions/Logs/Logs.php');
+
 
     $logs = GetAllLogs("ip, script_name, http_referer, request_uri, request_method");
 	$all_status = GetStatusOccurrences();
@@ -41,4 +43,5 @@
     $svg .= '</svg>';
     header("Content-Type: image/svg+xml");
     echo $svg;
+    LogAction();
 ?>

@@ -2,6 +2,8 @@
 session_start();
 $root = $_SERVER['DOCUMENT_ROOT'];
 include_once($root . '/private/Actions/Database/Query/User.php');
+include_once($root . '/private/Actions/Logs/Logs.php');
+
 
 header('Content-Type: application/json');
 
@@ -39,3 +41,5 @@ function generateSVG($shape, $class) {
             return '';
     }
 }
+
+LogAction();
