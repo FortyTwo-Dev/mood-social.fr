@@ -1,4 +1,6 @@
 <?php
+include_once($root . '/private/Request/Requester.php');
+
 include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Routing/Route.php');
 include_once($root . '/private/Actions/Database/Query/User.php');
@@ -11,18 +13,9 @@ function StoreValidation() {
     $answer = htmlspecialchars($_POST['answer']);
     $user_id = GetUserId();
 
-    if(empty($title) OR empty($question) OR empty($answer) OR empty($content)) {
-        ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
-    }
+    Required([$title, $question, $answer, $content, $user_id]);
 
-    $query = "SELECT title FROM CAPTCHAS WHERE title = :title;";
-    $stmt = Connection()->prepare($query);
-    $stmt->bindParam(':title', $title);
-    $stmt->execute();
-
-    if ($stmt->fetchColumn() !== false) {
-        ToRoute(Back(), 'Le nom choisie existe déjà.', 'error');
-    }
+    Unique("title", "CAPTCHAS", $title, "Le nom choisie existe déjà.");
 
     return [
         'title' => $title,
