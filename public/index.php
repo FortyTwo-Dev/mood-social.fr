@@ -8,10 +8,10 @@
     include_once($root . '/private/Actions/Database/Query/User.php');
     include_once($root . '/private/Actions/Logs/Logs.php');
 
-    // include_once($root . '/private/Actions/Database/Seeders/Seeder.php');
-    // include_once($root . '/private/Actions/Database/Factories/Factory.php');
-    // ResetDatabase();
-    // SeedAllTable();
+    include_once($root . '/private/Actions/Database/Seeders/Seeder.php');
+    include_once($root . '/private/Actions/Database/Factories/Factory.php');
+    ResetDatabase();
+    SeedAllTable();
 
     MethodVerify("GET");
     $mood = RandomColor();

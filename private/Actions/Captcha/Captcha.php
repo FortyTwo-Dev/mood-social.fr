@@ -54,5 +54,5 @@ function Delete() {
  
      $stmt->execute();
  
-     ToRoute('/dashboard/security/', "Captcha {$request['title']} supprimée définitivement avec succès", 'success');
+     ToRoute('/dashboard/security/', "Le captcha a été supprimée définitivement avec succès", 'success');
  }

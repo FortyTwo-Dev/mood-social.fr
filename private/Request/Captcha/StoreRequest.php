@@ -7,10 +7,10 @@ include_once($root . '/private/Actions/Database/Query/User.php');
 
 function StoreValidation() {
 
-    $title = htmlspecialchars($_POST['title']);
-    $content = htmlspecialchars($_POST['content']);
-    $question = htmlspecialchars($_POST['question']);
-    $answer = htmlspecialchars($_POST['answer']);
+    $title = ValidatePost('title');
+    $content = ValidatePost('content');
+    $question = ValidatePost('question');
+    $answer = ValidatePost('answer');
     $user_id = GetUserId();
 
     Required([$title, $question, $answer, $content, $user_id]);

@@ -4,25 +4,13 @@ include_once($root . '/private/Actions/Routing/Route.php');
 
 function DeleteValidation() {
 
-    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    $id = ValidateGet('id', FILTER_VALIDATE_INT);
 
-    if(empty($id)) {
-        ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
-    }
+    Required([$id]);
 
-    $query = "SELECT id, title FROM CAPTCHAS WHERE id = :id;";
-    $stmt = Connection()->prepare($query);
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
-
-    $captcha = $stmt->fetch(PDO::FETCH_OBJ);
-
-    if (!isset($captcha->id)) {
-        ToRoute(Back(), 'Le captcha choisie n\'existe pas.', 'error');
-    }
+    Exist('id', 'CAPTCHAS', $id, 'Le captcha choisie n\'existe pas.');
 
     return [
-        'id' => $captcha->id,
-        'title' => $captcha->title
+        'id' => $id,
     ];
 }
