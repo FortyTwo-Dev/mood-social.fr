@@ -1,4 +1,5 @@
 /node_modules
+/resources/css/style.css
 
 docker-compose.yml
 dockerfile
