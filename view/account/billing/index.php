@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$page_title?></title>
     <link href="/resources/css/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
 </head>
 <div class="mx-4  max-w-screen-xl sm:mx-8 xl:mx-auto">
   <h1 class="border-b py-6 text-4xl font-semibold">Settings</h1>
@@ -26,13 +24,30 @@
 
     <div class="col-span-2 hidden sm:block">
       <ul>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Accounts</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Users</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Profile</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Teams</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700">Billing</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Notifications</li>
-        <li class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Integrations</li>
+      <a
+          href='/account/profile/index.php'
+          class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+        >
+          Accounts
+        </a>
+        <a
+          href='/account/profile/profile.php'
+          class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+        >
+          Profile
+        </a>
+        <a
+          href='/account/profile/billing.php'
+          class="mt-5 block cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700"
+        >
+          Billing
+        </a>
+        <a
+          href='/account/profile/notification.php'
+          class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+        >
+          Notifications
+        </a>
       </ul>
     </div>
 
@@ -63,7 +78,7 @@
               <button class="ml-auto inline-flex text-sm font-semibold text-blue-600 underline decoration-2">Change</button>
             </div>
             <div class="flex items-center rounded-md border border-gray-100 bg-white py-3 shadow">
-              <img class="h-10 object-contain pl-4" src="/images/kt10d0A1TgzZpAoNM_YPX.png" alt="" />
+              <img class="h-10 object-contain pl-4" src="/images/kt10d0A1TghihbzZpAoNM_YPX.png" alt="logo carte" />
               <p class="ml-4 w-56">
                 <strong class="block text-lg font-medium">**** **** **** 453 </strong>
                 <strong class="block text-lg font-medium">ALBERT K. DANIEL </strong>

@@ -2,4 +2,4 @@
     session_start();
 	$root = $_SERVER['DOCUMENT_ROOT'];
 ?>
-<?php include_once($root . '/view/account/profile/notification.php');?>
+<?php include_once($root . '/view/account/notification/index.php');?>

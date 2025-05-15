@@ -6,208 +6,150 @@
     <title><?=$page_title?></title>
     <link href="/resources/css/style.css" rel="stylesheet">
 </head>
-
-<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 xl:mx-auto">
+<div class="mx-4  max-w-screen-xl sm:mx-8 xl:mx-auto">
   <h1 class="border-b py-6 text-4xl font-semibold">Settings</h1>
-  <div class="grid grid-cols-8 pt-3 sm:grid-cols-10">
+  <div class="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">
     <div class="relative my-4 w-56 sm:hidden">
-      <input
-        class="peer hidden"
-        type="checkbox"
-        name="select-1"
-        id="select-1"
-      />
-      <label
-        for="select-1"
-        class="flex w-full cursor-pointer select-none rounded-lg border p-2 px-3 text-sm text-gray-700 ring-blue-700 peer-checked:ring"
-        >Accounts
-      </label>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="pointer-events-none absolute right-0 top-3 ml-auto mr-5 h-4 text-slate-700 transition peer-checked:rotate-180"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M19 9l-7 7-7-7"
-        />
+      <input class="peer hidden" type="checkbox" name="select-1" id="select-1" />
+      <label for="select-1" class="flex w-full cursor-pointer select-none rounded-lg border p-2 px-3 text-sm text-gray-700 ring-blue-700 peer-checked:ring">Accounts </label>
+      <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-0 top-3 ml-auto mr-5 h-4 text-slate-700 transition peer-checked:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
       </svg>
-      <ul
-        class="max-h-0 select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3"
-      >
-        <li
-          class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white"
-        >
-          Accounts
-        </li>
-        <li
-          class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white"
-        >
-          Team
-        </li>
-        <li
-          class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white"
-        >
-          Others
-        </li>
+      <ul class="max-h-0 select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3">
+        <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">Accounts</li>
+        <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">Team</li>
+        <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">Others</li>
       </ul>
     </div>
-    <!-- ici la barre sur le coter  -->
-    <div class="col-span-2 hidden sm:block"> 
+
+    <div class="col-span-2 hidden sm:block">
       <ul>
-        <li
-          class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
-        >
-          Teams
-        </li>
-        <li
-          class="mt-5 cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700"
+      <a
+          href='/account/profile/index.php'
+          class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
         >
           Accounts
-        </li>
-        <li
-          class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
-        >
-          Users
-        </li>
-        <li
-          class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+        </a>
+        <a
+          href='/account/profile/billing.php'
+          class="mt-5 block cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700"
         >
           Profile
-        </li>
-        <li
-          class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+        </a>
+        <a
+          href='/account/profile/billing.php'
+          class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
         >
           Billing
-        </li>
-        <li
-          class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+        </a>
+        <a
+          href='/account/profile/notification.php'
+          class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
         >
           Notifications
-        </li>
-        <li
-          class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
-        >
-          Integrations
-        </li>
+        </a>
       </ul>
     </div>
 
-    <div
-      class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow"
-    >
+    <div class="col-span-8 rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
       <div class="pt-4">
-        <h1 class="py-2 text-2xl font-semibold">Account settings</h1>
+        <h1 class="py-2 text-2xl font-semibold">Billing settings</h1>
         <!-- <p class="font- text-slate-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> -->
       </div>
       <hr class="mt-4 mb-8" />
-      <p class="py-2 text-xl font-semibold">Email Address</p>
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-        <p class="text-gray-600">
-          Your email address is <strong>john.doe@company.com</strong>
-        </p>
-        <button
-          class="inline-flex text-sm font-semibold text-blue-600 underline decoration-2"
-        >
-          Change
-        </button>
-      </div>
-      <hr class="mt-4 mb-8" />
-      <p class="py-2 text-xl font-semibold">Password</p>
-      <div class="flex items-center">
-        <div
-          class="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-3"
-        >
-          <label for="login-password">
-            <span class="text-sm text-gray-500">Current Password</span>
-            <div
-              class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600"
-            >
-              <input
-                type="password"
-                id="login-password"
-                class="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
-                placeholder="***********"
-              />
+
+      <div class="mb-10 grid gap-y-8 lg:grid-cols-2 lg:gap-y-0">
+        <div class="space-y-8">
+          <div class="">
+            <div class="flex">
+              <p class="font-medium mb-1">Billing Period</p>
+              <button class="ml-auto inline-flex text-sm font-semibold text-blue-600 underline decoration-2">Change</button>
             </div>
+            <div class="flex items-center rounded-md border border-gray-100 bg-white py-3 shadow">
+              <p class="ml-4 w-56">
+                <strong class="block text-lg font-medium">MONTHLY</strong>
+                <span class="text-xs text-gray-400"> Next Renewal: 4 Jan 2022 </span>
+              </p>
+            </div>
+          </div>
+          <div class="">
+            <div class="flex">
+              <p class="font-medium mb-1">Payment Method</p>
+              <button class="ml-auto inline-flex text-sm font-semibold text-blue-600 underline decoration-2">Change</button>
+            </div>
+            <div class="flex items-center rounded-md border border-gray-100 bg-white py-3 shadow">
+              <img class="h-10 object-contain pl-4" src="/images/kt10d0A1TghihbzZpAoNM_YPX.png" alt="logo carte" />
+              <p class="ml-4 w-56">
+                <strong class="block text-lg font-medium">**** **** **** 453 </strong>
+                <strong class="block text-lg font-medium">ALBERT K. DANIEL </strong>
+                <span class="text-xs text-gray-400"> Expires on: Dec 2024 </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid gap-y-6 gap-x-3 sm:grid-cols-2 lg:px-8">
+          <label class="block" for="name">
+            <p class="text-sm">Name</p>
+            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="Shakir Ali" />
           </label>
-          <label for="login-password">
-            <span class="text-sm text-gray-500">New Password</span>
-            <div
-              class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600"
-            >
-              <input
-                type="password"
-                id="login-password"
-                class="w-full flex-shrink appearance-none border-gray-300 bg-white py-2 px-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none"
-                placeholder="***********"
-              />
-            </div>
+          <label class="block" for="name">
+            <p class="text-sm">Email Address</p>
+            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="shakir.ali@corpora.de" />
+          </label>
+          <label class="block sm:col-span-2" for="name">
+            <p class="text-sm">Billing Address</p>
+            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="82844 Boyle Extension Suite 541 - Covington, HI / 28013" />
+          </label>
+          <label class="block" for="name">
+            <p class="text-sm">VAT #</p>
+            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="6346322" />
+          </label>
+          <label class="block" for="name">
+            <p class="text-sm">Country</p>
+            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="Germany" />
           </label>
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="mt-5 ml-2 h-6 w-6 cursor-pointer text-sm font-semibold text-gray-600 underline decoration-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
-          />
-        </svg>
       </div>
-      <p class="mt-2">
-        Can't remember your current password.
-        <a
-          class="text-sm font-semibold text-blue-600 underline decoration-2"
-          href="#"
-          >Recover Account</a
-        >
-      </p>
-      <button class="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-white">
-        Save Password
-      </button>
-      <hr class="mt-4 mb-8" />
 
-      <div class="mb-10">
-        <p class="py-2 text-xl font-semibold">Delete Account</p>
-        <p
-          class="inline-flex items-center rounded-full bg-rose-100 px-4 py-1 text-rose-600"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="mr-2 h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          Proceed with caution
-        </p>
-        <p class="mt-2">
-          Make sure you have taken backup of your account in case you ever need
-          to get access to your data. We will completely wipe your data. There
-          is no way to access your account after this action.
-        </p>
-        <button
-          class="ml-auto text-sm font-semibold text-rose-600 underline decoration-2"
-        >
-          Continue with deletion
-        </button>
+      <div class="amx-auto mb-10 overflow-hidden rounded-lg border bg-white">
+        <p class="mb-6 bg-gray-100 py-1 text-center text-lg font-medium">Billing History</p>
+        <table class="w-full">
+          <thead>
+            <td class="text-center font-semibold">Date</td>
+            <td class="text-center font-semibold">Invoice #</td>
+            <td class="text-center font-semibold">Amount</td>
+            <td class="text-center font-semibold"></td>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border-b py-2 text-center text-sm">23 Nov 2021</td>
+              <td class="border-b py-2 text-center text-sm">X-543242</td>
+              <td class="border-b py-2 text-center text-sm">$99.00</td>
+              <td class="border-b py-2 text-center text-sm"><button class="text-sm text-blue-600 underline">PDF</button></td>
+            </tr>
+            <tr>
+              <td class="border-b py-2 text-center text-sm">23 Nov 2021</td>
+              <td class="border-b py-2 text-center text-sm">X-543242</td>
+              <td class="border-b py-2 text-center text-sm">$99.00</td>
+              <td class="border-b py-2 text-center text-sm"><button class="text-sm text-blue-600 underline">PDF</button></td>
+            </tr>
+            <tr>
+              <td class="border-b py-2 text-center text-sm">23 Nov 2021</td>
+              <td class="border-b py-2 text-center text-sm">X-543242</td>
+              <td class="border-b py-2 text-center text-sm">$99.00</td>
+              <td class="border-b py-2 text-center text-sm"><button class="text-sm text-blue-600 underline">PDF</button></td>
+            </tr>
+            <tr>
+              <td class="border-b py-2 text-center text-sm">23 Nov 2021</td>
+              <td class="border-b py-2 text-center text-sm">X-543242</td>
+              <td class="border-b py-2 text-center text-sm">$99.00</td>
+              <td class="border-b py-2 text-center text-sm"><button class="text-sm text-blue-600 underline">PDF</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 </div>
-</html> 
+
