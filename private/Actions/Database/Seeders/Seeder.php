@@ -14,4 +14,5 @@ function SeedAllTable() {
     SubscriptionSeeder($conn);
     UserSeeder($conn);
     CaptchaSeeder($conn);
+    ReactionSeeder($conn);
 }
