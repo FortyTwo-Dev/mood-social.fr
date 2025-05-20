@@ -15,4 +15,5 @@ function SeedAllTable() {
     UserSeeder($conn);
     CaptchaSeeder($conn);
     ReactionSeeder($conn);
+    TalkSeeder($conn);
 }
