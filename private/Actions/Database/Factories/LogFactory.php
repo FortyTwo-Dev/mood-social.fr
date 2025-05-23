@@ -1,5 +1,5 @@
 <?php
-function CreateLogsTable(PDO $conn) {
+function CreateLogTable(PDO $conn) {
     $query = "
         CREATE TABLE LOGS (
             id INT AUTO_INCREMENT PRIMARY KEY,

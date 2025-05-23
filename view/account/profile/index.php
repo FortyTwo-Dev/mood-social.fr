@@ -1,149 +1,147 @@
-<?php include( $root . '/resources/layout/account/head.php' );?>
+<?php include($root . '/resources/layout/account/head.php'); ?>
+<body class="text-black">
 
-<div class="mx-4  max-w-screen-xl sm:mx-8 xl:mx-auto">
+<div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 xl:mx-auto">
   <h1 class="border-b py-6 text-4xl font-semibold">Settings</h1>
-  <div class="grid grid-cols-8 pt-3 pb-10 sm:grid-cols-10">
-    <div class="relative my-4 w-56 sm:hidden">
-      <input class="peer hidden" type="checkbox" name="select-1" id="select-1" />
-      <label for="select-1" class="flex w-full cursor-pointer select-none rounded-lg border p-2 px-3 text-sm text-gray-700 ring-blue-700 peer-checked:ring">Accounts </label>
-      <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-0 top-3 ml-auto mr-5 h-4 text-slate-700 transition peer-checked:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-      </svg>
-      <ul class="max-h-0 select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3">
-        <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">Accounts</li>
-        <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">Team</li>
-        <li class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white">Others</li>
-      </ul>
-    </div>
-
+  <div class="grid grid-cols-8 pt-3 sm:grid-cols-10">
     <div class="col-span-2 hidden sm:block">
       <ul>
-      <a
-          href='/account/accounts/show/index.php'
-          class="mt-5 block cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700"
-        >
-          Accounts
-        </a>
-        <a
-          href='/account/profile/show/index.php'
-          class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
-        >
-          Profile
-        </a>
-        <a
-          href='/account/billing/show/index.php'
-          class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
-        >
-          Billing
-        </a>
-        <a
-          href='/account/notification/show/index.php'
-          class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
-        >
-          Notifications
-        </a>
+        <a href="/account/accounts/show/index.php" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Accounts</a>
+        <a href="/account/profile/show/index.php" class="mt-5 block cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700">Profile</a>
+        <a href="/account/billing/show/index.php" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Billing</a>
+        <a href="/account/notification/show/index.php" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Notification</a>
       </ul>
     </div>
 
-    <div class="col-span-8 rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
-      <div class="pt-4">
-        <h1 class="py-2 text-2xl font-semibold">Billing settings</h1>
-        <!-- <p class="font- text-slate-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> -->
+    <div class="col-span-8 overflow-hidden rounded-xl sm:bg-white sm:px-8 sm:shadow">
+      <div class="pt-6">
+        <h2 class="text-2xl font-semibold">Profile</h2>
       </div>
+
       <hr class="mt-4 mb-8" />
 
-      <div class="mb-10 grid gap-y-8 lg:grid-cols-2 lg:gap-y-0">
-        <div class="space-y-8">
-          <div class="">
-            <div class="flex">
-              <p class="font-medium mb-1">Billing Period</p>
-              <button class="ml-auto inline-flex text-sm font-semibold text-blue-600 underline decoration-2">Change</button>
-            </div>
-            <div class="flex items-center rounded-md border border-gray-100 bg-white py-3 shadow">
-              <p class="ml-4 w-56">
-                <strong class="block text-lg font-medium">MONTHLY</strong>
-                <span class="text-xs text-gray-400"> Next Renewal: 4 Jan 2022 </span>
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <div class="flex">
-              <p class="font-medium mb-1">Payment Method</p>
-              <button class="ml-auto inline-flex text-sm font-semibold text-blue-600 underline decoration-2">Change</button>
-            </div>
-            <div class="flex items-center rounded-md border border-gray-100 bg-white py-3 shadow">
-              <img class="h-10 object-contain pl-4" src="/images/kt10d0A1TghihbzZpAoNM_YPX.png" alt="logo carte" />
-              <p class="ml-4 w-56">
-                <strong class="block text-lg font-medium">**** **** **** 453 </strong>
-                <strong class="block text-lg font-medium">ALBERT K. DANIEL </strong>
-                <span class="text-xs text-gray-400"> Expires on: Dec 2024 </span>
-              </p>
-            </div>
-          </div>
+      <div class="flex flex-col items-center gap-4">
+        <div class="relative w-32 h-32">
+          <div class="w-full h-full rounded-full bg-gray-300 flex items-center justify-center"></div>
+          <button id="toggle-options" class="absolute bottom-1 right-1 bg-white rounded-full p-1 shadow hover:bg-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 class="text-gray-600">
+              <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
+              <path d="m15 5 4 4"/>
+            </svg>
+          </button>
         </div>
 
-        <div class="grid gap-y-6 gap-x-3 sm:grid-cols-2 lg:px-8">
-          <label class="block" for="name">
-            <p class="text-sm">Name</p>
-            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="Shakir Ali" />
-          </label>
-          <label class="block" for="name">
-            <p class="text-sm">Email Address</p>
-            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="shakir.ali@corpora.de" />
-          </label>
-          <label class="block sm:col-span-2" for="name">
-            <p class="text-sm">Billing Address</p>
-            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="82844 Boyle Extension Suite 541 - Covington, HI / 28013" />
-          </label>
-          <label class="block" for="name">
-            <p class="text-sm">VAT #</p>
-            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="6346322" />
-          </label>
-          <label class="block" for="name">
-            <p class="text-sm">Country</p>
-            <input class="w-full rounded-md border bg-white py-2 px-2 outline-none ring-blue-600 focus:ring-1" type="text" value="Germany" />
-          </label>
+        <div id="options" class="w-full max-w-md mt-6 hidden">
+          <div class="flex items-center justify-between px-8">
+            <button id="btn-hat" class="bg-ms-<?= $mood['color'] ?> hover:underline text-ms-<?= $mood['text_color'] ?> font-bold py-2 px-4 rounded">Hat</button>
+            <button id="btn-head" class="bg-ms-<?= $mood['color'] ?> hover:underline text-ms-<?= $mood['text_color'] ?> font-bold py-2 px-4 rounded">Head</button>
+            <button id="btn-beard" class="bg-ms-<?= $mood['color'] ?> hover:underline text-ms-<?= $mood['text_color'] ?> font-bold py-2 px-4 rounded">Beard</button>
+          </div>
         </div>
       </div>
 
-      <div class="amx-auto mb-10 overflow-hidden rounded-lg border bg-white">
-        <p class="mb-6 bg-gray-100 py-1 text-center text-lg font-medium">Billing History</p>
-        <table class="w-full">
-          <thead>
-            <td class="text-center font-semibold">Date</td>
-            <td class="text-center font-semibold">Invoice #</td>
-            <td class="text-center font-semibold">Amount</td>
-            <td class="text-center font-semibold"></td>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="border-b py-2 text-center text-sm">23 Nov 2021</td>
-              <td class="border-b py-2 text-center text-sm">X-543242</td>
-              <td class="border-b py-2 text-center text-sm">$99.00</td>
-              <td class="border-b py-2 text-center text-sm"><button class="text-sm text-blue-600 underline">PDF</button></td>
-            </tr>
-            <tr>
-              <td class="border-b py-2 text-center text-sm">23 Nov 2021</td>
-              <td class="border-b py-2 text-center text-sm">X-543242</td>
-              <td class="border-b py-2 text-center text-sm">$99.00</td>
-              <td class="border-b py-2 text-center text-sm"><button class="text-sm text-blue-600 underline">PDF</button></td>
-            </tr>
-            <tr>
-              <td class="border-b py-2 text-center text-sm">23 Nov 2021</td>
-              <td class="border-b py-2 text-center text-sm">X-543242</td>
-              <td class="border-b py-2 text-center text-sm">$99.00</td>
-              <td class="border-b py-2 text-center text-sm"><button class="text-sm text-blue-600 underline">PDF</button></td>
-            </tr>
-            <tr>
-              <td class="border-b py-2 text-center text-sm">23 Nov 2021</td>
-              <td class="border-b py-2 text-center text-sm">X-543242</td>
-              <td class="border-b py-2 text-center text-sm">$99.00</td>
-              <td class="border-b py-2 text-center text-sm"><button class="text-sm text-blue-600 underline">PDF</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div id="display-area" class="flex justify-center mt-6"></div>
+
+      <hr class="mt-8 mb-4" />
+      <div class="text-center"></div>
     </div>
   </div>
 </div>
 
+
+<!-- <script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("toggle-options");
+  const optionsContainer = document.getElementById("options");
+  const displayArea = document.getElementById("display-area");
+  
+  <?= VariableToJS("hat1") . ToJson(base64_encode(file_get_contents($root . '/storage/customs/hat/study_hat.png'))) ?>;
+  <?= VariableToJS("hat2") . ToJson(base64_encode(file_get_contents($root . '/storage/customs/hat/hard.png'))) ?>;
+  <?= VariableToJS("hat3") . ToJson(base64_encode(file_get_contents($root . '/storage/customs/hat/chef.png'))) ?>;
+
+  <?= VariableToJS("head1") . ToJson(base64_encode(file_get_contents($root . '/storage/customs/head/dog.png'))) ?>;
+  <?= VariableToJS("head2") . ToJson(base64_encode(file_get_contents($root . '/storage/customs/head/panda.png'))) ?>;
+  <?= VariableToJS("head3") . ToJson(base64_encode(file_get_contents($root . '/storage/customs/head/cat.png'))) ?>;
+
+  <?= VariableToJS("beard1") . ToJson(base64_encode(file_get_contents($root . '/storage/customs/beard/barbe_noel.png'))) ?>;
+  <?= VariableToJS("beard2") . ToJson(base64_encode(file_get_contents($root . '/storage/customs/beard/barbe_rue.png'))) ?>;
+  <?= VariableToJS("beard3") . ToJson(base64_encode(file_get_contents($root . '/storage/customs/beard/moustache.png'))) ?>;
+
+  
+
+
+
+  const hatContent = `      
+      <div class=" h-64 flex items-center justify-center gap-6 border-t border-b border-gray-300 border-dotted py-12 px-6 w-full max-w-3xl"> 
+        <button class="text-gray-600 hover:text-black text-xl">&lt;</button>
+          <div class="relative h-full flex flex-col justify-center items-center">
+            <div class=" absolute h-20 w-20" style="top:-8px;">
+              <img src="data:image/png;base64,${hat1}" alt="" />
+            </div>
+            <div class="w-20 h-20 bg-gray-300 rounded-full flex">
+            </div> 
+      </div>
+        <button class="text-gray-600 hover:text-black text-xl">&gt;</button>
+      </div>
+  `;
+
+  const headContent = `
+      <div class=" h-64 flex items-center justify-center gap-6 border-t border-b border-gray-300 border-dotted py-12 px-6 w-full max-w-3xl"> 
+        <button class="text-gray-600 hover:text-black text-xl">&lt;</button>
+          <div class="relative h-full flex flex-col justify-center items-center">
+            <div style="position: absolute; min-width: 110px; min-height: 110px;">
+              <img src="data:image/png;base64,${head2}" alt="" />
+            </div>
+            <div class="w-20 h-20 bg-gray-300 rounded-full flex">
+            </div> 
+      </div>
+        <button class="text-gray-600 hover:text-black text-xl">&gt;</button>
+      </div>
+  `;
+
+  // const beardContent = `
+  //     <div class=" h-64 flex items-center justify-center gap-6 border-t border-b border-gray-300 border-dotted py-12 px-6 w-full max-w-3xl"> 
+  //       <button class="text-gray-600 hover:text-black text-xl">&lt;</button>
+  //         <div class="relative h-full flex flex-col justify-center items-center">
+  //           <div class=" absolute" style="top: 82px;">
+  //             <img src="data:image/png;base64,${beard1}" alt=""/>
+  //           </div>
+  //           <div class="w-20 h-20 bg-gray-300 rounded-full flex">
+  //           </div> 
+  //     </div>
+  //       <button class="text-gray-600 hover:text-black text-xl">&gt;</button>
+  //     </div>
+  // `;
+
+
+
+  toggleBtn.addEventListener("click", function () {
+    const isHidden = optionsContainer.classList.contains("hidden");
+    if (isHidden) {
+      optionsContainer.classList.remove("hidden");
+    } else {
+      optionsContainer.classList.add("hidden");
+      displayArea.innerHTML = ""; 
+    }
+  });
+
+  document.getElementById("btn-hat").addEventListener("click", () => {
+    displayArea.innerHTML = hatContent;
+  });
+  document.getElementById("btn-head").addEventListener("click", () => {
+    displayArea.innerHTML = headContent;
+  });
+  document.getElementById("btn-beard").addEventListener("click", () => {
+    displayArea.innerHTML = beardContent;
+  });
+});
+
+</script> -->
+<script src="/resources/js/custom.js">
+</script>
+</body>
+</html>
