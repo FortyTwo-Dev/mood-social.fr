@@ -17,7 +17,7 @@ function Store() {
     $stmt->bindValue(':content', $request['content']);
     $stmt->bindValue(':question', $request['question']);
     $stmt->bindValue(':answer', $request['answer']);
-    $stmt->bindValue(':user_id', $request['user_id']);
+    $stmt->bindValue(':user_id', $request['user_id'], PDO::PARAM_INT);
     
     $stmt->execute();
 

@@ -18,7 +18,7 @@ function sleep(ms) {
 async function loadCaptcha() {
     const res = await fetch('/api/captcha/generate/');
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     
     $anwsers = data.options.map(opt =>
         `<li>
