@@ -51,14 +51,3 @@ function initLikeButtons() {
 document.addEventListener('DOMContentLoaded', () => {
     initLikeButtons();
 });
-
-
-item = 0;
-
-if (length(beards) - 1 < beards[item]) {
-    showBeard(beards[item]);
-    item++;
-} else {
-    item = 0;
-    showBeard(beards[item])
-}

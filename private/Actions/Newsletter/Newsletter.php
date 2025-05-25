@@ -113,7 +113,7 @@ function Store() {
     
     $stmt->execute();
 
-    SendEmail('test@exemple.com', 'MoodSocial', 'recipient@test.com', $request['object'], $email);
+    SendEmail('MoodSocial', 'recipient@test.com', $request['object'], $email);
 
     ToRoute('/dashboard/newsletter/', "Newsletter {$request['object']} créé et envoyé avec succès", 'success');
 }

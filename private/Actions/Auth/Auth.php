@@ -129,7 +129,7 @@ function Register() {
             </html>
             ';
 
-    SendEmail('test@exemple.com', 'MoodSocial', $request['email'] , 'Verification de votre compte', $body);
+    SendEmail('MoodSocial', $request['email'] , 'Verification de votre compte', $body);
 
     header('Location: /');
     die();

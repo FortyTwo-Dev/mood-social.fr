@@ -5,7 +5,7 @@ require $root . '/vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-function SendEmail(string $from, string $from_name, string $recipient, string $subject, string $body, string $recipient_name = '', bool $html = true, bool $expection = false) {
+function SendEmail(string $from_name, string $recipient, string $subject, string $body, string $from = 'no-reply@mood-social.ovh', string $recipient_name = '', bool $html = true, bool $expection = false) {
 
     $mail = new PHPMailer($expection);
 

@@ -14,12 +14,20 @@ function GetFeedMessages() {
             MAX(MESSAGE_LIKES.user_id = :current_user_id) AS liked_by_current_user
             FROM MESSAGES
             JOIN USERS ON MESSAGES.user_id = USERS.id
-            JOIN TALKS ON MESSAGES.talk_id = TALKS.id
+            JOIN TALKS ON MESSAGES.talk_id = 1
             LEFT JOIN MESSAGE_LIKES ON MESSAGES.id = MESSAGE_LIKES.message_id
             GROUP BY MESSAGES.id
             ORDER BY MESSAGES.created_at DESC";
     $stmt = Connection()->prepare($query);
     $stmt->bindValue(':current_user_id', GetUserId(), PDO::PARAM_INT); 
+    $stmt->execute();
+    return ($stmt->fetchAll(PDO::FETCH_OBJ));
+}
+
+function GetGroupMessages($talk_id) {
+    $query = "SELECT MESSAGES.content, MESSAGES.path, MESSAGES.user_id, USERS.username FROM MESSAGES JOIN USERS ON MESSAGES.user_id = USERS.id WHERE MESSAGES.talk_id = :talk_id ORDER BY MESSAGES.updated_at DESC;";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':talk_id', $talk_id, PDO::PARAM_INT); 
     $stmt->execute();
     return ($stmt->fetchAll(PDO::FETCH_OBJ));
 }
