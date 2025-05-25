@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $root = $_SERVER['DOCUMENT_ROOT'];
     $page_title = 'MoodSocial - 404';
 
@@ -8,7 +9,7 @@
 
 
     MethodVerify("GET");
-    $mood = RandomColor();
+    $mood = SelectedColor();
     LogAction();
 ?>
 

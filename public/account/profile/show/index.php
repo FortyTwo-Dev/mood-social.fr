@@ -9,7 +9,7 @@
 
     
     MethodVerify("GET");
-    $mood = RandomColor();
+    $mood = SelectedColor();
 ?>
 <?php include_once($root . '/view/account/profile/index.php');?>
 

@@ -2,8 +2,9 @@
 
 include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Request/Mood/StoreRequest.php');
-// include_once($root . '/private/Request/Captcha/UpdateRequest.php');
 include_once($root . '/private/Actions/Routing/Route.php');
+include_once($root . '/private/Actions/Database/Query/Mood.php');
+
 
 function Store() {
 
@@ -17,5 +18,9 @@ function Store() {
     
     $stmt->execute();
 
-    ToRoute('/');
+    $mood = GetMood();
+
+    $_SESSION['mood'] = [ 'color' => $mood->color, 'text_color' => $mood->text_color ];
+
+    ToRoute('/talk/feed/');
 }

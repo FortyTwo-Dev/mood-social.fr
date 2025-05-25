@@ -52,11 +52,6 @@ function GetEmail() {
     return ( isset($_SESSION['email']) ) ? $_SESSION['email'] : NULL;
 }
 
-
-function GetMood() {
-    
-}
-
 function GetLastUpdate(string $where = "email") {
     if ($where == "email") {
         return (SelectAuthUserWithEmail('updated_at'))->updated_at;

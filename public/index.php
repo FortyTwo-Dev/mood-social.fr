@@ -14,7 +14,7 @@
     // SeedAllTable();
 
     MethodVerify("GET");
-    $mood = RandomColor();
+    $mood = SelectedColor();
     LogAction();
 ?>
 

@@ -7,11 +7,14 @@
     include_once($root . '/private/Actions/Security/User.php');
     
     include_once($root . '/private/Actions/MoodColor.php');
+
     include_once($root . '/private/Actions/Database/Query/Message.php');
+    include_once($root . '/private/Actions/Database/Query/Mood.php');
+
     include_once($root . '/private/Actions/Logs/Logs.php');
 
     MethodVerify("GET");
-    $mood = RandomColor();
+    $mood = SelectedColor();
     LogAction();
 
     $messages = GetFeedMessages();

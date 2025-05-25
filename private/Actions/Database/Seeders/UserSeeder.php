@@ -13,15 +13,12 @@ function UserSeeder(PDO $conn) {
     
     foreach ($users as $user) {
         try {
-
             $stmt->bindParam(':username', $user['username']);
             $stmt->bindParam(':email', $user['email']);
             $stmt->bindValue(':password', password_hash($user['password'], 'argon2id'));
             $stmt->bindParam(':role_id', $user['role_id'], PDO::PARAM_INT);
             $stmt->bindParam(':subscription_id', $user['subscription_id'], PDO::PARAM_INT);
-    
             $stmt->execute();
-    
         } catch (Exception $e) {
             echo "Erreur lors de l'insertion pour le user " . $user['username'] . ": " . $e->getMessage();
         }

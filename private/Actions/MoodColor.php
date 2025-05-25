@@ -1,8 +1,9 @@
 <?php
-// include_once($root . '/config/app.php');
 include_once($root . '/private/Actions/Generic/Json.php');
 include_once($root . '/private/Actions/Generic/Javascript.php');
 require_once($root . '/private/Actions/Database/Database.php');
+include_once($root . '/private/Actions/Routing/Route.php');
+include_once($root . '/private/Actions/Database/Query/Mood.php');
 
 function RandomColor() : array {
 
@@ -18,6 +19,18 @@ function GetAllColor() : array {
     $stmt->execute();
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function SelectedColor() : array {
+
+    if (GetMood() == "") {
+        ToRoute('/mood/');
+    }
+
+    if (isset($_SESSION['mood'])) {
+        return $_SESSION['mood'];
+    }
+    return RandomColor();
 }
 
 function ColorToJS(string $name, array $color) {

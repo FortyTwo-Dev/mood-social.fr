@@ -5,6 +5,7 @@ include_once($root . '/private/Request/User/StoreRequest.php');
 include_once($root . '/private/Request/User/LoginRequest.php');
 include_once($root . '/private/Actions/Email/Email.php');
 include_once($root . '/private/Actions/Routing/Route.php');
+include_once($root . '/private/Actions/Database/Query/Mood.php');
 
 
 function Register() {
@@ -142,6 +143,14 @@ function Login() {
     $_SESSION['id'] = $request['id'];
     $_SESSION['email'] = $request['email'];
     $_SESSION['role'] = $request['role'];
+
+    $mood = GetMood();
+
+    if (!$mood) {
+        ToRoute('/mood/');
+    }
+    $_SESSION['mood'] = [ 'color' => $mood->color, 'text_color' => $mood->text_color ];
+    
 
     header('Location: /');
     die();

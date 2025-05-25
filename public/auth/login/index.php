@@ -4,11 +4,14 @@
 	$page_title = 'Login - MoodSocial';
     include_once($root . '/private/Actions/Security/Method.php');
     include_once($root . '/private/Actions/Security/User.php');
+    include_once($root . '/private/Actions/Auth/Auth.php');
     include_once($root . '/private/Actions/MoodColor.php');
     include_once($root . '/private/Actions/Logs/Logs.php');
 
     MethodVerify("GET");
-    $mood = RandomColor();
+    $mood = SelectedColor();
+
+    if (IsAuth()) { ToRoute('/talk/feed/'); }
 
     LogAction();
 ?>
