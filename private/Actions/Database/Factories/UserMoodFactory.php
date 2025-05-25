@@ -5,7 +5,7 @@ function CreateUserMoodTable(PDO $conn) {
             user_id INT REFERENCES USERS(id),
             mood_id INT REFERENCES MOODS(id),
             attached_at DATETIME DEFAULT NOW(),
-            PRIMARY KEY (user_id, mood_id)
+            PRIMARY KEY (user_id, mood_id, attached_at)
         );
     ";
     $conn->exec($query);
