@@ -2,8 +2,8 @@
 function CreateFollowerTable(PDO $conn) {
     $query = "
         Create TABLE FOLLOWERS (
-            sender_user_id INT REFERENCES USERS(id),
-            receiver_user_id INT REFERENCES USERS(id),
+            sender_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+            receiver_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
             state INT,
             updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
             created_at DATETIME DEFAULT NOW(),

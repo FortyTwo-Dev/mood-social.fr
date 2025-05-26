@@ -69,7 +69,7 @@ function Store() {
         <body>
         <table>
             <tr>
-                <td class=\"logo-container\"><img src=\"http://mood-social.test/resources/assets/svg/logo.svg\" alt=\"MoodSocial\" width=\"150\"></td>
+                <td class=\"logo-container\"><img src=\"http://". $_SERVER['HTTP_HOST'] ."/resources/assets/svg/logo.svg\" alt=\"MoodSocial\" width=\"150\"></td>
             </tr>
             ";
     $content = "
@@ -113,7 +113,7 @@ function Store() {
     
     $stmt->execute();
 
-    SendEmail('MoodSocial', 'recipient@test.com', $request['object'], $email);
+    SendEmail('MoodSocial', 'timeo.genna@gmail.com', $request['object'], $email);
 
     ToRoute('/dashboard/newsletter/', "Newsletter {$request['object']} créé et envoyé avec succès", 'success');
 }

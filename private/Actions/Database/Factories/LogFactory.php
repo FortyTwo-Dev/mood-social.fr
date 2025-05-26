@@ -6,7 +6,7 @@ function CreateLogTable(PDO $conn) {
             status VARCHAR(4),
             ip VARCHAR(45),
             requested_at DATETIME DEFAULT NOW(),
-            user_id INT NULL REFERENCES USERS(id),
+            user_id INT NULL REFERENCES USERS(id) ON DELETE CASCADE,
             script_name VARCHAR(255),
             http_referer VARCHAR(255),
             request_uri VARCHAR(255),

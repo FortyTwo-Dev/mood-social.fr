@@ -7,7 +7,7 @@ function CreateEventTable(PDO $conn) {
             description VARCHAR(255),
             updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
             created_at DATETIME DEFAULT NOW(),
-            talk_id INT UNIQUE NOT NULL REFERENCES TALKS(id)
+            talk_id INT UNIQUE NOT NULL REFERENCES TALKS(id) ON DELETE CASCADE
         );
     ";
     $conn->exec($query);

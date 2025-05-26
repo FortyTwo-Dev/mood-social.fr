@@ -6,7 +6,7 @@ function CreateNewsletterTable(PDO $conn) {
             object VARCHAR(255),
             content TEXT,
             created_at DATETIME DEFAULT NOW(),
-            user_id INT NOT NULL REFERENCES USERS(id)
+            user_id INT NOT NULL REFERENCES USERS(id) ON DELETE CASCADE
         )
     ";
     $conn->exec($query);

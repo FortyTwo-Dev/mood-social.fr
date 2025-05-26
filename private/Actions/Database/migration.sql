@@ -39,8 +39,8 @@ CREATE TABLE USERS (
     country VARCHAR(50),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
-    role_id INT NOT NULL DEFAULT 1 REFERENCES ROLES(id),
-    subscription_id INT NOT NULL DEFAULT 1 REFERENCES SUBSCRIPTIONS(id),
+    role_id INT NOT NULL DEFAULT 1 REFERENCES ROLES(id) ON DELETE CASCADE,
+    subscription_id INT NOT NULL DEFAULT 1 REFERENCES SUBSCRIPTIONS(id) ON DELETE CASCADE,
     subscription_updated_at INT CHECK(subscription_updated_at>=0),
     email_verified_at VARCHAR(255)
     email_verification_token VARCHAR(255),
@@ -62,7 +62,7 @@ CREATE TABLE EVENTS (
     description VARCHAR(255),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
-    talk_id INT UNIQUE NOT NULL REFERENCES TALKS(id)
+    talk_id INT UNIQUE NOT NULL REFERENCES TALKS(id) ON DELETE CASCADE
 );
 
 CREATE TABLE MESSAGES (
@@ -71,13 +71,13 @@ CREATE TABLE MESSAGES (
     path VARCHAR(255),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
-    user_id INT NOT NULL REFERENCES USERS(id),
-    talk_id INT NOT NULL REFERENCES TALKS(id)
+    user_id INT NOT NULL REFERENCES USERS(id) ON DELETE CASCADE,
+    talk_id INT NOT NULL REFERENCES TALKS(id) ON DELETE CASCADE
 );
 
 CREATE TABLE MESSAGE_LIKES (
-    user_id INT REFERENCES USERS(id),
-    message_id INT REFERENCES MESSAGES(id),
+    user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    message_id INT REFERENCES MESSAGES(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, message_id)
 );
 
@@ -90,15 +90,15 @@ CREATE TABLE REACTIONS (
 );
 
 CREATE TABLE USER_MESSAGE_REACTION (
-    user_id INT REFERENCES USERS(id),
-    message_id INT REFERENCES MESSAGES(id),
-    reaction_id INT REFERENCES REACTIONS(id),
+    user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    message_id INT REFERENCES MESSAGES(id) ON DELETE CASCADE,
+    reaction_id INT REFERENCES REACTIONS(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, message_id, reaction_id)
 );
 
 CREATE TABLE FRIENDS (
-    sender_user_id INT REFERENCES USERS(id),
-    receiver_user_id INT REFERENCES USERS(id),
+    sender_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    receiver_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
     state INT,
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
@@ -106,8 +106,8 @@ CREATE TABLE FRIENDS (
 );
 
 CREATE TABLE FOLLOWERS (
-    sender_user_id INT REFERENCES USERS(id),
-    receiver_user_id INT REFERENCES USERS(id),
+    sender_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    receiver_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
     state INT,
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
@@ -115,8 +115,8 @@ CREATE TABLE FOLLOWERS (
 );
 
 CREATE TABLE EXCHANGES (
-    sender_user_id INT REFERENCES USERS(id),
-    receiver_user_id INT REFERENCES USERS(id),
+    sender_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    receiver_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
     content TEXT,
     file_path VARCHAR(250),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
@@ -125,34 +125,21 @@ CREATE TABLE EXCHANGES (
 );
 
 CREATE TABLE USER_EXCHANGE_REACTION (
-    user_id INT REFERENCES USERS(id),
-    exchange_id INT REFERENCES EXCHANGES(id),
-    reaction_id INT REFERENCES REACTIONS(id),
+    user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    exchange_id INT REFERENCES EXCHANGES(id) ON DELETE CASCADE,
+    reaction_id INT REFERENCES REACTIONS(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, exchange_id, reaction_id)
 );
 
 CREATE TABLE USER_TALK (
-    user_id INT REFERENCES USERS(id),
-    talk_id INT REFERENCES TALKS(id),
+    user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    talk_id INT REFERENCES TALKS(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, talk_id)
 );
 
 CREATE TABLE USER_EVENT (
-    user_id INT REFERENCES USERS(id),
-    event_id INT REFERENCES EVENTS(id),
-    PRIMARY KEY (user_id, event_id)
-);
-
-CREATE TABLE USER_MOOD (
-    user_id INT REFERENCES USERS(id),
-    mood_id INT REFERENCES MOODS(id),
-    attached_at DATETIME DEFAULT NOW(),
-    PRIMARY KEY (user_id, mood_id, attached_at)
-);
-
-CREATE TABLE EVENT_LIKES (
-    user_id INT REFERENCES USERS(id),
-    event_id INT REFERENCES EVENTS(id),
+    user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    event_id INT REFERENCES EVENTS(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, event_id)
 );
 
@@ -165,6 +152,19 @@ CREATE TABLE MOODS (
     created_at DATETIME DEFAULT NOW()
 );
 
+CREATE TABLE USER_MOOD (
+    user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    mood_id INT REFERENCES MOODS(id) ON DELETE CASCADE,
+    attached_at DATETIME DEFAULT NOW(),
+    PRIMARY KEY (user_id, mood_id, attached_at)
+);
+
+CREATE TABLE EVENT_LIKES (
+    user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    event_id INT REFERENCES EVENTS(id) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, event_id)
+);
+
 CREATE TABLE CAPTCHAS (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(50),
@@ -173,7 +173,7 @@ CREATE TABLE CAPTCHAS (
     answer VARCHAR(200),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
-    user_id INT NOT NULL REFERENCES USERS(id)
+    user_id INT NOT NULL REFERENCES USERS(id) ON DELETE CASCADE
 );
 
 CREATE TABLE LOGS (
@@ -181,7 +181,7 @@ CREATE TABLE LOGS (
     status VARCHAR(4),
     ip VARCHAR(45),
     requested_at DATETIME DEFAULT NOW(),
-    user_id INT NULL REFERENCES USERS(id),
+    user_id INT NULL REFERENCES USERS(id) ON DELETE CASCADE,
     script_name VARCHAR(255),
     http_referer VARCHAR(255),
     request_uri VARCHAR(255),
@@ -195,7 +195,7 @@ CREATE TABLE NEWSLETTERS (
     object VARCHAR(255),
     content TEXT,
     created_at DATETIME DEFAULT NOW(),
-    user_id INT NOT NULL REFERENCES USERS(id)
+    user_id INT NOT NULL REFERENCES USERS(id) ON DELETE CASCADE
 );
 
 CREATE TABLE CUSTOMS (
@@ -204,12 +204,12 @@ CREATE TABLE CUSTOMS (
     category VARCHAR(50),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
-    user_id INT NOT NULL REFERENCES USERS(id)
+    user_id INT NOT NULL REFERENCES USERS(id) ON DELETE CASCADE
 );
 
 
 CREATE TABLE USER_CUSTOM (
-    user_id INT REFERENCES USERS(id),
-    custom_id INT REFERENCES CUSTOMS(id),
+    user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
+    custom_id INT REFERENCES CUSTOMS(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, custom_id)
 );
