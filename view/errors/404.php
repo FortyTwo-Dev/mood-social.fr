@@ -3,9 +3,9 @@
 <body class="w-screen h-screen">
     <main class="w-full h-full flex flex-col justify-center items-center gap-4 bg-ms-<?=$mood['color']?> text-ms-<?=$mood['text_color']?>">
         <h1 class="text-5xl font-bold">Not Found | 404</h1>
-        <? if (isset($_GET['error_message'])): ?>
+        <?php if (isset($_GET['error_message'])): ?>
         <p class="text-lg font-medium"><?= htmlspecialchars($_GET['error_message'])?></p>
-        <? endif ?>
+        <?php endif ?>
     </main>
 </body>
 </html>

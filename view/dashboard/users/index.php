@@ -6,7 +6,7 @@
         <section class="col-span-10 pb-24 overflow-auto">
             <h1 class="p-4 border-b mx-2 text-2xl font-medium">Utilisateurs</h1>
             <ul class="w-full h-full flex flex-col p-4 gap-5">
-                <? foreach($users as $user): ?>
+                <?php foreach($users as $user): ?>
                 <li class="group p-4 w-full h-min rounded-md border border-gray-300 hover:border-ms-blue">
                     <a href="/dashboard/users/show/?id=<?=$user->id?>" class="flex justify-between items-center">
                         <div class="flex items-center gap-5">
@@ -20,7 +20,7 @@
                         </div>
                     </a>
                 </li>
-                <? endforeach ?>
+                <?php endforeach ?>
             </ul>
         </section>
     </main>

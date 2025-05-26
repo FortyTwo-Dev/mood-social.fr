@@ -1,4 +1,4 @@
-<?
+<?php
 include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Database/Query/User.php');
 

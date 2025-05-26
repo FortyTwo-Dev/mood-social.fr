@@ -22,9 +22,9 @@
             
             <div class="w-full px-3 flex flex-col gap-4">
             
-            <? foreach($talks as $talk): ?>
+            <?php foreach($talks as $talk): ?>
 
-                <? if (isset($talk)): ?>
+                <?php if (isset($talk)): ?>
 
                 <a href="/talk/group/show/?talk_id=<?=$talk->id?>" class="border p-4 rounded-md last:mb-4">
                     <div class="w-full flex flex-row">
@@ -34,9 +34,9 @@
                         </div>
                     </div>
                 </a>
-                <? endif ?>
+                <?php endif ?>
 
-            <? endforeach ?>
+            <?php endforeach ?>
             </div>
         </section>
     </main>

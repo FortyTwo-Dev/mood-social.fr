@@ -21,10 +21,10 @@
             </div>
             
             <div class="w-full h-full px-3 flex flex-col-reverse justify-baseline gap-4 mb-14">
-                <? foreach($messages as $message): ?>
+                <?php foreach($messages as $message): ?>
 
-                    <? if (isset($message)): ?>
-                        <? if (GetUserId() == $message->user_id): ?>
+                    <?php if (isset($message)): ?>
+                        <?php if (GetUserId() == $message->user_id): ?>
                             <div class="w-full flex flex-row justify-end first:mb-8">
                                 <div class="w-fit border p-4 rounded-md">
                                     <div class="flex flex-col gap-2">
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                             </div>
-                        <? else: ?>
+                        <?php else: ?>
                             <div class="border p-4 rounded-md first:mb-8">
                                 <div class="flex flex-row">
                                     <div class="bg-ms-<?=$mood['color']?> h-6 w-6 p-8 rounded-full"></div>
@@ -42,10 +42,10 @@
                                     </div>
                                 </div>
                             </div>
-                        <? endif ?>
-                    <? endif ?>
+                        <?php endif ?>
+                    <?php endif ?>
 
-                <? endforeach ?>
+                <?php endforeach ?>
             </div>
 
             <div class="absolute w-full bottom-0 px-3 py-2">

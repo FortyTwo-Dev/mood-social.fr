@@ -22,9 +22,9 @@
             
             <div class="w-full px-3 flex flex-col gap-4">
             
-            <? foreach($messages as $message): ?>
+            <?php foreach($messages as $message): ?>
 
-                <? if (isset($message)): ?>
+                <?php if (isset($message)): ?>
 
                 <div class="border p-4 rounded-md last:mb-4">
                     <div class="flex flex-row">
@@ -53,9 +53,9 @@
                         <svg class="stroke-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
                     </div>
                 </div>
-                <? endif ?>
+                <?php endif ?>
 
-            <? endforeach ?>
+            <?php endforeach ?>
 
                 <!-- <div class="border p-4 rounded-md last:mb-4">
                     <div class="flex flex-row">

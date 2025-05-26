@@ -66,7 +66,7 @@
                                 <a href="#" class="text-ms-red font-medium hover:underline">Supprimer</a>
                             </td>
                         </tr> -->
-                        <? foreach($captchas as $captcha): ?>
+                        <?php foreach($captchas as $captcha): ?>
                             <tr class="hover:bg-ms-grey/10">
                                 <td class="px-6 py-4 whitespace-nowrap font-medium"><?=$captcha->title?></td>
                                 <td class="px-6 py-4 whitespace-nowrap"><?=$captcha->question?></td>
@@ -79,7 +79,7 @@
 
                                 </td>
                             </tr>
-                        <? endforeach ?>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>

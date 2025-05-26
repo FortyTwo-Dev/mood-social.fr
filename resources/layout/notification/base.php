@@ -14,7 +14,7 @@ if (isset($_COOKIE['flash_message_success'])) {
 }
 ?>
 
-<? if ( 
+<?php if ( 
     isset($_COOKIE['flash_message_success']) || 
     isset($_COOKIE['flash_message_error']) || 
     isset($_COOKIE['flash_message_info'])): 
@@ -32,4 +32,4 @@ if (isset($_COOKIE['flash_message_success'])) {
             document.getElementById('popup').classList.add('hidden');
         }, 7000);
     </script>
-<? endif; ?>
+<?php endif; ?>

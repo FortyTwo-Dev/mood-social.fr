@@ -9,7 +9,7 @@
                 <a href="/dashboard/newsletter/create/" class="p-2 bg-ms-purple text-ms-white rounded-md font-semibold">Ajouter une newsletter</a>
             </div>
             <ul class="w-full h-full flex flex-col p-4 gap-5">
-                <? foreach($newsletters as $newsletter): ?>
+                <?php foreach($newsletters as $newsletter): ?>
                 <li class="group p-4 w-full h-min rounded-md border border-gray-300 hover:border-ms-blue">
                     <a href="" class="flex justify-between items-center">
                         <div class="flex items-center gap-5">
@@ -21,7 +21,7 @@
                         </div>
                     </a>
                 </li>
-                <? endforeach ?>
+                <?php endforeach ?>
             </ul>
         </section>
     </main>
