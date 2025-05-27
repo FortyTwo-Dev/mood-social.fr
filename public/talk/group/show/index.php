@@ -17,6 +17,7 @@
     MethodVerify("GET");
     $mood = SelectedColor();
     LogAction();
+    if (!EmailVerified()) { ToRoute('/'); }
 
     $messages = GetGroupMessages($_GET['talk_id']);
     $talk = GetTalk($_GET['talk_id']);

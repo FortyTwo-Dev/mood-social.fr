@@ -11,7 +11,7 @@ function VerifyEmail() {
     }
 
     $user = SelectUserWithId('email_verification_token');
-    if (!$user) {
+    if (!$user->email_verification_token) {
         ToRoute('/auth/login/', 'Invalid token or email.', 'error');
     }
 

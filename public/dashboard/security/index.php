@@ -9,13 +9,11 @@
 
 
 	MethodVerify("GET");
-
-	if (!IsAuth()) { ToRoute('/'); }
-
-	if (!IsAdmin()) { print 'no'; }
-
-	$captchas = GetAllCaptchas("id, title, question, answer");
+	
 	LogAction();
+	if (!IsAdmin()) { ToRoute('/'); }
+	
+	$captchas = GetAllCaptchas("id, title, question, answer");
 ?>
 
 <?php require_once( $root . '/resources/layout/notification/base.php' ) ?>

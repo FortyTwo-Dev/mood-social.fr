@@ -5,7 +5,7 @@ include_once($root . '/private/Request/Newsletter/StoreRequest.php');
 // include_once($root . '/private/Request/Captcha/UpdateRequest.php');
 include_once($root . '/private/Actions/Routing/Route.php');
 include_once($root . '/private/Actions/Email/Email.php');
-
+include_once($root . '/private/Actions/Database/Query/User.php');
 
 function Store() {
 
@@ -98,7 +98,7 @@ function Store() {
                         <td class=\"paragraph\">L’équipe MoodSocial.</td>
                     </tr>
                 </table>
-                <p class=\"footer\">Envoyé par test@example.com</p>
+                <p class=\"footer\">Envoyé par no-reply@mood-social.com</p>
             </body>
         </html>
             ";
@@ -113,7 +113,7 @@ function Store() {
     
     $stmt->execute();
 
-    SendEmail('MoodSocial', 'timeo.genna@gmail.com', $request['object'], $email);
+    SendEmails('MoodSocial', GetAllUsers('email'), $request['object'], $email);
 
     ToRoute('/dashboard/newsletter/', "Newsletter {$request['object']} créé et envoyé avec succès", 'success');
 }

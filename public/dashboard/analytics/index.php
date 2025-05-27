@@ -8,7 +8,6 @@
 	include_once($root . '/private/Actions/Database/Query/Log.php');
 	include_once($root . '/private/Actions/Logs/Logs.php');
 
-
 	MethodVerify("GET");
 
 	if (!IsAdmin()) { ToRoute('/'); }

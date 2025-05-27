@@ -11,12 +11,10 @@
 
 	MethodVerify("GET");
 
+	LogAction();
 	if (!IsAuth()) { ToRoute('/'); }
 
-	if (!IsAdmin()) { print 'no'; }
-
 	$user = SelectUserWithId('username, email');
-	LogAction();
 ?>
 
 <?php include_once( $root . '/view/dashboard/users/show.php' ) ?>

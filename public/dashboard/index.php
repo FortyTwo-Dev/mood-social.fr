@@ -9,10 +9,8 @@
 
 	MethodVerify("GET");
 
-	if (!IsAuth()) { ToRoute('/'); }
-
-	if (!IsAdmin()) { print 'no'; }
 	LogAction();
+	if (!IsAuth()) { ToRoute('/'); }
 ?>
 
 <?php include_once( $root . '/view/dashboard.php' ) ?>

@@ -17,6 +17,8 @@
     $mood = SelectedColor();
     LogAction();
 
+    if (!EmailVerified()) { ToRoute('/'); }
+
     $messages = GetFeedMessages();
 ?>
 

@@ -13,6 +13,10 @@
         <?php include( $root . '/resources/layout/talk/sidebar.php' );?>
         <section class="relative overflow-auto w-4xl flex flex-col gap-4 border-x border-t">
             <h1 class="sticky top-0 p-4 text-3xl font-semibold text-center border-b">Messages</h1>
+            <div class="absolute left-0 top-0 ml-2">
+                <svg class="relative my-5 mx-2 stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>
+            </div>
+
             <div id="toggle-theme-button" class="absolute right-0 top-0 mr-8">
                 <div class="relative my-5 mx-2">
                     <svg id="moon" class="absolute stroke-[1.5px] mr-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>

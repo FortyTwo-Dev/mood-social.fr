@@ -3,7 +3,9 @@
 	$root = $_SERVER['DOCUMENT_ROOT'];
 	$page_title = 'Security';
     include_once($root . '/private/Actions/Logs/Logs.php');
+	include_once($root . '/private/Actions/Security/User.php');
 	
+	if (!IsAdmin()) { ToRoute('/'); }
 	LogAction();
 ?>
 

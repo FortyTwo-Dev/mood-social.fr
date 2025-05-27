@@ -6,10 +6,10 @@
     include_once($root . '/private/Actions/Security/User.php');
     include_once($root . '/private/Actions/Captcha/Captcha.php');
     include_once($root . '/private/Actions/Logs/Logs.php');
-
-
+	
+    LogAction();
+	if (!IsAdmin()) { ToRoute('/'); }
     MethodVerify("POST");
 
     Update();
-    LogAction();
 ?>

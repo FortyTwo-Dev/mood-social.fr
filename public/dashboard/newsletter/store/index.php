@@ -8,6 +8,7 @@
     include_once($root . '/private/Actions/Newsletter/Newsletter.php');
 
     MethodVerify("POST");
+    if (!IsAdmin()) { ToRoute('/'); }
 
     Store();
 ?>

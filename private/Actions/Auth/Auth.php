@@ -124,7 +124,7 @@ function Register() {
                         <td class="paragraph">L’équipe MoodSocial.</td>
                     </tr>
                 </table>
-                <p class="footer">Envoyé par test@example.com</p>
+                <p class="footer">Envoyé par no-reply@mood-social.com</p>
             </body>
             </html>
             ';

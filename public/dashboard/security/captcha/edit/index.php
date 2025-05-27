@@ -5,10 +5,12 @@
 
 	include_once($root . '/private/Actions/Database/Query/Captcha.php');
 	include_once($root . '/private/Actions/Logs/Logs.php');
-
+	include_once($root . '/private/Actions/Security/User.php');
+	
+	LogAction();
+	if (!IsAdmin()) { ToRoute('/'); }
 
 	$captcha = GetCaptcha('id, title, content, question, answer');
-	LogAction();
 ?>
 
 <?php require_once( $root . '/resources/layout/notification/base.php' ) ?>

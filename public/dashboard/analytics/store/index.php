@@ -6,7 +6,9 @@
     include_once($root . '/private/Actions/Routing/Route.php');
     include_once($root . '/private/Actions/Database/Query/Log.php');
     include_once($root . '/private/Actions/Logs/Logs.php');
-
+    include_once($root . '/private/Actions/Security/User.php');
+	
+	if (!IsAdmin()) { ToRoute('/'); }
 
     $logs = GetAllLogs("ip, script_name, http_referer, request_uri, request_method");
 	$all_status = GetStatusOccurrences();

@@ -9,6 +9,7 @@
 
     MethodVerify("POST");
     LogAction();
+    if (!EmailVerified()) { ToRoute('/'); }
 
     Store();
 ?>
