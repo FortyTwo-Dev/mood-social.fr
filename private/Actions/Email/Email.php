@@ -15,12 +15,7 @@ function SendEmail(string $from_name, string $recipient, string $subject, string
         $mail->Port = EMAIL_PORT;
         $mail->Username = EMAIL_USERNAME;
         $mail->SMTPAuth = EMAIL_SMTP_AUTH;
-        // $mail->Host = 'ssl0.ovh.net';
-        // $mail->SMTPAuth = true;
-        // $mail->Username = 'no-reply@mood-social.ovh';
-        // $mail->Password = 'SCXatG5J4JKEQnx3HxwJvNVM72J7F#';
-        // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        // $mail->Port = 587;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 
         $mail->setFrom($from, $from_name);
         $mail->addAddress($recipient, $recipient_name);

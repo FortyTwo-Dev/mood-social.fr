@@ -1,6 +1,10 @@
 /node_modules
 /resources/css/style.css
 
+/config/app.php
+/config/db.php
+/config/email.php
+
 docker-compose.yml
 dockerfile
 .dockerignore

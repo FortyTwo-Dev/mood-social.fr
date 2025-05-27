@@ -1,0 +1,6 @@
+<?php
+define("EMAIL_HOST", "mail");
+define('EMAIL_PORT', 999);
+define('EMAIL_SMTP_AUTH', false);
+define("EMAIL_USERNAME", "MoodSocial");
+define("EMAIL_PASSWORD", "password");
