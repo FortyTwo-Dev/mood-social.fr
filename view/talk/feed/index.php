@@ -12,7 +12,7 @@
     <main class="w-full h-full flex justify-center gap-8 px-4 pt-4">
         <?php include( $root . '/resources/layout/talk/sidebar.php' );?>
         <section class="relative overflow-auto w-4xl flex flex-col gap-4 border-x border-t">
-            <div class="sticky top-0 p-4 border-b dark:bg-ms-black bg-ms-white">
+            <div class="sticky z-10 top-0 p-4 border-b dark:bg-ms-black bg-ms-white">
                 <h1 class="text-3xl font-semibold text-center">Fil general</h1>
                 <div id="toggle-theme-button" class="absolute right-0 top-0 mr-8">
                     <div class="relative my-5 mx-2">
@@ -29,11 +29,11 @@
 
                 <?php if (isset($message)): ?>
 
-                <div class="border p-4 rounded-md last:mb-4">
-                    <div class="flex flex-row overflow-hidden">
+                <div class="relative border p-4 rounded-md last:mb-4">
+                    <div class="flex flex-row">
                         <div class="bg-ms-<?=$mood['color']?> h-6 w-6 p-8 rounded-full"></div>
-                        <div class="max-w-full flex flex-col gap-2 pl-4">
-                            <h2 class="text-lg font-medium"><?=$message->username?></h2>
+                        <div class="max-w-full flex flex-col gap-2 pl-4 overflow-hidden">
+                            <h2 class="text-lg font-medium hover:underline"><?=$message->username?></h2>
                             <p class="text-lg/8 break-words"><?= nl2br($message->content)?></p>
                         </div>
                     </div>

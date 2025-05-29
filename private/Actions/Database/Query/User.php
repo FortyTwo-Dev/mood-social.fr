@@ -71,3 +71,26 @@ function GetCreatedDate(string $where = "email") {
         return (SelectUserWithId('created_at'))->created_at;
     }
 }
+
+function GetAllUsersExcept(string $col, string $where, string $order = 'ORDER BY username ASC') {
+    $query = "SELECT $col FROM USERS $where $order;";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':id', GetUserId(), PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function CheckFriendExists(int $userId, int $friendId): bool {
+    $query = "SELECT sender_user_id FROM FRIENDS WHERE (sender_user_id = :uid AND receiver_user_id = :fid) OR (sender_user_id = :fid AND receiver_user_id = :uid)";
+    $stmt = Connection()->prepare($query);
+    $stmt->execute(['uid' => $userId, 'fid' => $friendId]);
+    return $stmt->fetchColumn() !== false;
+}
+
+function GetAllPendingFriendSend() {
+    $query = "SELECT USERS.id, USERS.username FROM USERS JOIN FRIENDS ON FRIENDS.sender_user_id = USERS.id WHERE FRIENDS.receiver_user_id = :id AND FRIENDS.state = 1;";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':id', GetUserId(), PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+}

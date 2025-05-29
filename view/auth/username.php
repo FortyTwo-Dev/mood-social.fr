@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <button type="submit" class="max-w-lg w-full py-2 bg-ms-<?=$mood['color']?> rounded-md hover:underline text-ms-<?=$mood['text_color']?>">Valider</button>
+        <button type="submit" class="max-w-lg w-full py-2 bg-ms-<?=$mood['color']?> rounded-md hover:underline text-ms-<?=$mood['text_color']?> cursor-pointer">Valider</button>
     </form>
 
 </main>

@@ -7,7 +7,6 @@ function UserSeeder(PDO $conn) {
         [ 'username' => "jikuji", 'email' => "lefortjiji@gmail.com", 'password' => "password", 'role_id' => 2, 'subscription_id' => 2 ],
         [ 'username' => "adems93", 'email' =>"adamgalou938@gmail.com" , 'password' => "password", 'role_id' => 2, 'subscription_id' => 2 ]
     ];
-
     $query = "INSERT INTO USERS (username, email, password, role_id, subscription_id) VALUES (:username, :email, :password, :role_id, :subscription_id)";
     $stmt = $conn->prepare($query);
     

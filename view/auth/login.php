@@ -58,7 +58,7 @@
             </label>
         </div>
 
-        <button class="max-w-lg w-full py-2 bg-ms-<?=$mood['color']?> rounded-md hover:underline text-ms-<?=$mood['text_color']?>">Se connecter</button>
+        <button class="max-w-lg w-full py-2 bg-ms-<?=$mood['color']?> rounded-md hover:underline text-ms-<?=$mood['text_color']?> cursor-pointer">Se connecter</button>
         <a href="#" class=" underline">Mot de passe oubliée</a>
     </form>
 
