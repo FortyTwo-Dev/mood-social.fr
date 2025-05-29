@@ -8,13 +8,18 @@ include_once($root . '/private/Actions/Logs/Logs.php');
 
 LogAction();
 
-$stmt = Connection()->query("SELECT image FROM CUSTOMS WHERE category = 'beard';");
+$stmt = Connection()->query("SELECT image, id FROM CUSTOMS WHERE category = 'beard';");
 $beards = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $result = [];
 
 foreach ($beards as $beard){
-    array_push($result, (base64_encode(file_get_contents($root . '/storage/customs/beard/' .$beard['image']))));
+    array_push($result, 
+        [ 
+            'image' => (base64_encode(file_get_contents($root . '/storage/customs/beard/' .$beard['image']))),
+            'id' => $beard['id']
+        ]
+    );
 }
 
 
