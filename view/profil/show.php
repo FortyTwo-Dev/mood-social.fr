@@ -32,7 +32,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="w-full px-3 flex flex-col">
                 <div class="relative border p-4 rounded-md pt-12">
                     <div class="flex flex-col items-center justify-center gap-8">
@@ -48,22 +47,60 @@
                     </div>
                     <div class="w-full flex pt-4">
                         <div class="w-full flex flex-row justify-between items-center">
-
                             <div class="flex gap-4 items-center">
                                 <p class=" text-xl font-semibold">Suivis : <?=$user->followed?></p>
                                 <p class=" text-xl font-semibold">Followers : <?=$user->follower?></p>
                             </div>
+                            <?php if ($user->id !== GetUserId()): ?>
+                                <div class="flex gap-4 items-center">
 
-                            <div class="flex gap-4 items-center">
-                                <div class="flex gap-2 text-xl font-semibold px-3 py-1.5 border-2 border-ms-<?= $mood['color'] ?> rounded-md box-border hover:underline"> 
-                                    <p>Follow</p>
+                                    <?php if (isset($user->isfollower)): ?>
+                                        <form action="/profil/follow/delete/" method="POST" class="flex gap-2 text-xl font-semibold px-3 py-1.5 border-2 border-ms-<?= $mood['color'] ?> rounded-md box-border hover:underline"> 
+                                            <input type="hidden" name="user_id" value="<?=$user->id?>">
+                                            <button type="submit" class="cursor-pointer">Unfollow</button>
+                                        </form>
+                                    <?php elseif (isset($user->pendingfollower)): ?>  
+                                        <div class="flex gap-2 text-xl font-semibold px-3 py-1.5 border-2 border-ms-<?= $mood['color'] ?> rounded-md box-border hover:underline"> 
+                                            <p class="cursor-pointer">En attente</p>
+                                        </div>
+                                    <?php elseif (isset($user->nofollower)): ?>  
+                                        <form action="/profil/follow/update/" method="POST" class="flex gap-2 text-xl font-semibold px-3 py-1.5 border-2 border-ms-<?= $mood['color'] ?> rounded-md box-border hover:underline"> 
+                                            <input type="hidden" name="user_id" value="<?=$user->id?>">
+                                            <button type="submit" class="cursor-pointer">Follow</button>
+                                        </form>
+                                    <?php else: ?>  
+                                        <form action="/profil/follow/store/" method="POST" class="flex gap-2 text-xl font-semibold px-3 py-1.5 border-2 border-ms-<?= $mood['color'] ?> rounded-md box-border hover:underline"> 
+                                            <input type="hidden" name="user_id" value="<?=$user->id?>">
+                                            <button type="submit" class="cursor-pointer">Follow</button>
+                                        </form>
+                                    <?php endif ?>
+
+                                    <?php if (isset($user->isfriend)): ?>
+                                        <form action="/profil/friend/delete/" method="POST" class="flex gap-2 text-xl font-semibold px-3 py-2 bg-ms-<?= $mood['color'] ?> text-ms-<?= $mood['text_color'] ?> rounded-md hover:underline cursor-pointer">
+                                            <svg class="stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg> 
+                                            <input type="hidden" name="user_id" value="<?=$user->id?>">
+                                            <button type="submit" class="cursor-pointer">Supprimer</button>
+                                        </form>
+                                    <?php elseif (isset($user->pendingfriend)): ?>
+                                        <div class="flex gap-2 text-xl font-semibold px-3 py-2 bg-ms-<?= $mood['color'] ?> text-ms-<?= $mood['text_color'] ?> rounded-md cursor-not-allowed">
+                                            <svg class="stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                            <p>En attente</p>
+                                        </div>
+                                    <?php elseif (isset($user->nofriend)): ?>
+                                        <form action="/profil/friend/update/" method="POST" class="flex gap-2 text-xl font-semibold px-3 py-2 bg-ms-<?= $mood['color'] ?> text-ms-<?= $mood['text_color'] ?> rounded-md hover:underline cursor-pointer">
+                                            <svg class="stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg> 
+                                            <input type="hidden" name="user_id" value="<?=$user->id?>">
+                                            <button type="submit" class="cursor-pointer">Ajouter</button>
+                                        </form>
+                                    <?php else: ?>  
+                                        <form action="/profil/friend/store/" method="POST" class="flex gap-2 text-xl font-semibold px-3 py-2 bg-ms-<?= $mood['color'] ?> text-ms-<?= $mood['text_color'] ?> rounded-md hover:underline cursor-pointer">
+                                            <svg class="stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg> 
+                                            <input type="hidden" name="user_id" value="<?=$user->id?>">
+                                            <button type="submit" class="cursor-pointer">Ajouter</button>
+                                        </form>
+                                    <?php endif ?>
                                 </div>
-                                <div class="flex gap-2 text-xl font-semibold px-3 py-2 bg-ms-<?= $mood['color'] ?> text-ms-<?= $mood['text_color'] ?> rounded-md hover:underline">
-                                    <svg class="stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg> 
-                                    <p>Ajouter</p>
-                                </div>
-                            </div>
-                            
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>

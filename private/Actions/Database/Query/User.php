@@ -89,10 +89,12 @@ function GetAllUsersExcept(string $col, string $where, string $order = 'ORDER BY
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function CheckFriendExists(int $userId, int $friendId): bool {
+function CheckFriendExists(int $user_id, int $friend_id): bool {
     $query = "SELECT sender_user_id FROM FRIENDS WHERE (sender_user_id = :uid AND receiver_user_id = :fid) OR (sender_user_id = :fid AND receiver_user_id = :uid)";
     $stmt = Connection()->prepare($query);
-    $stmt->execute(['uid' => $userId, 'fid' => $friendId]);
+    $stmt->bindValue(':uid', $user_id, PDO::PARAM_INT);
+    $stmt->bindValue(':fid', $friend_id, PDO::PARAM_INT);
+    $stmt->execute();
     return $stmt->fetchColumn() !== false;
 }
 
@@ -116,9 +118,19 @@ function GetAllAcceptFriend() {
 }
 
 function GetUserProfile(int $user_id) {
-    $query = "SELECT USERS.username, USERS.description, (SELECT COUNT(sender_user_id) FROM FOLLOWERS WHERE sender_user_id = USERS.id) AS followed, (SELECT COUNT(receiver_user_id) FROM FOLLOWERS WHERE receiver_user_id = USERS.id) AS follower FROM USERS WHERE USERS.id = :id;";
+    $query = "SELECT USERS.id, USERS.username, USERS.description, 
+    (SELECT COUNT(sender_user_id) FROM FOLLOWERS WHERE sender_user_id = USERS.id) AS followed,
+    (SELECT COUNT(receiver_user_id) FROM FOLLOWERS WHERE receiver_user_id = USERS.id) AS follower,
+    (SELECT sender_user_id FROM FOLLOWERS WHERE sender_user_id = :current_user_id AND receiver_user_id = USERS.id AND state = 2) AS isfollower,
+    (SELECT sender_user_id FROM FOLLOWERS WHERE sender_user_id = :current_user_id AND receiver_user_id = USERS.id AND state = 1) AS pendingfollower,
+    (SELECT sender_user_id FROM FOLLOWERS WHERE sender_user_id = :current_user_id AND receiver_user_id = USERS.id AND state = 0) AS nofollower,
+    (SELECT sender_user_id FROM FRIENDS WHERE (sender_user_id = :current_user_id AND receiver_user_id = USERS.id) OR (sender_user_id = USERS.id AND receiver_user_id = :current_user_id) AND state = 2) AS isfriend,
+    (SELECT sender_user_id FROM FRIENDS WHERE (sender_user_id = :current_user_id AND receiver_user_id = USERS.id) OR (sender_user_id = USERS.id AND receiver_user_id = :current_user_id) AND state = 1) AS pendingfriend,
+    (SELECT sender_user_id FROM FRIENDS WHERE (sender_user_id = :current_user_id AND receiver_user_id = USERS.id) OR (sender_user_id = USERS.id AND receiver_user_id = :current_user_id) AND state = 0) AS nofriend
+    FROM USERS WHERE USERS.id = :user_id;";
     $stmt = Connection()->prepare($query);
-    $stmt->bindValue(':id', $user_id, PDO::PARAM_INT);
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->bindValue(':current_user_id', GetUserId(), PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_OBJ);
 }

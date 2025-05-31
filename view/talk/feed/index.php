@@ -33,7 +33,7 @@
                     <div class="flex flex-row">
                         <div class="bg-ms-<?=$mood['color']?> h-6 w-6 p-8 rounded-full"></div>
                         <div class="max-w-full flex flex-col gap-2 pl-4 overflow-hidden">
-                            <h2 class="text-lg font-medium hover:underline"><?=$message->username?></h2>
+                            <h2 class="text-lg font-medium hover:underline"><a href="/profil/show/?id=<?=$message->user_id?>"><?=$message->username?></a></h2>
                             <p class="text-lg/8 break-words"><?= nl2br($message->content)?></p>
                         </div>
                     </div>

@@ -20,7 +20,7 @@
     // if (!EmailVerified()) { ToRoute('/'); }
 
     // $messages = GetFeedMessages();
-    $user = GetUserProfile(GetUserId());
+    $user = GetUserProfile( isset($_GET['id']) ? $_GET['id'] : GetUserId());
 ?>
 
 <?php include( $root . '/view/profil/show.php' ) ?>
