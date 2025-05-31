@@ -37,6 +37,7 @@ CREATE TABLE USERS (
     street VARCHAR(100),
     city VARCHAR(50),
     country VARCHAR(50),
+    description VARCHAR(255),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
     role_id INT NOT NULL DEFAULT 1 REFERENCES ROLES(id) ON DELETE CASCADE,
@@ -115,13 +116,14 @@ CREATE TABLE FOLLOWERS (
 );
 
 CREATE TABLE EXCHANGES (
+    id INT AUTO_INCREMENT,
     sender_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
     receiver_user_id INT REFERENCES USERS(id) ON DELETE CASCADE,
     content TEXT,
     file_path VARCHAR(250),
     updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
     created_at DATETIME DEFAULT NOW(),
-    PRIMARY KEY (sender_user_id, receiver_user_id)
+    PRIMARY KEY (id, sender_user_id, receiver_user_id)
 );
 
 CREATE TABLE USER_EXCHANGE_REACTION (

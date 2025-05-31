@@ -12,6 +12,7 @@ function CreateUserTable(PDO $conn) {
             street VARCHAR(100),
             city VARCHAR(50),
             country VARCHAR(50),
+            description VARCHAR(255),
             updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
             created_at DATETIME DEFAULT NOW(),
             role_id INT NOT NULL DEFAULT 1 REFERENCES ROLES(id) ON DELETE CASCADE,

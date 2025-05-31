@@ -4,12 +4,12 @@
 	$page_title = 'Register - MoodSocial';
 	include_once($root . '/private/Actions/Security/Method.php');
     include_once($root . '/private/Actions/Security/User.php');
-    include_once($root . '/private/Actions/Message/Feed.php');
+    include_once($root . '/private/Actions/Exchange/Exchange.php');
     include_once($root . '/private/Actions/Logs/Logs.php');
 
     MethodVerify("POST");
     LogAction();
-    // if (!EmailVerified()) { ToRoute('/'); }
 
+    //if (!EmailVerified()) { ToRoute('/'); }
     Store();
 ?>

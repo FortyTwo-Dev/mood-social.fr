@@ -85,6 +85,27 @@
             
             <div class="w-full px-3 flex flex-col gap-4">
 
+                <?php foreach($exchanges as $exchange): ?>
+
+                    <?php if (isset($exchange)): ?>
+
+                    <a href="/talk/exchange/show/?exchange_id=<?=$exchange->id?>" class="border p-4 rounded-md last:mb-4">
+                        <div class="w-full flex flex-row">
+                            <div class="bg-ms-<?=$mood['color']?> h-6 w-6 p-8 rounded-full flex items-center justify-center text-4xl font-semibold text-ms-<?=$mood['text_color']?>">A</div>
+                            <div class="w-full flex flex-col items-start justify-center gap-2 pl-4 overflow-hidden">
+                                <h2 class="w-full text-lg font-medium truncate"><?=$exchange->username?></h2>
+                            </div>
+                        </div>
+                    </a>
+
+                    <?php endif ?>
+
+                <?php endforeach ?>
+
+            </div>
+            
+            <div class="w-full px-3 flex flex-col gap-4">
+
                 <?php foreach($talks as $talk): ?>
 
                     <?php if (isset($talk)): ?>

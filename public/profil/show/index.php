@@ -8,9 +8,8 @@
     
     include_once($root . '/private/Actions/MoodColor.php');
 
-    include_once($root . '/private/Actions/Database/Query/Talk.php');
-    include_once($root . '/private/Actions/Database/Query/Mood.php');
     include_once($root . '/private/Actions/Database/Query/User.php');
+    include_once($root . '/private/Actions/Database/Query/Mood.php');
 
     include_once($root . '/private/Actions/Logs/Logs.php');
 
@@ -18,11 +17,10 @@
     $mood = SelectedColor();
     LogAction();
 
-    // if (EmailVerified()) { ToRoute('/'); }
+    // if (!EmailVerified()) { ToRoute('/'); }
 
-    $talks = GetTalks();
-    $friends = GetAllPendingFriendSend();
-    $exchanges = GetAllAcceptFriend();
+    // $messages = GetFeedMessages();
+    $user = GetUserProfile(GetUserId());
 ?>
 
-<?php include( $root . '/view/talk/index.php' ) ?>
+<?php include( $root . '/view/profil/show.php' ) ?>

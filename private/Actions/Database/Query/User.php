@@ -2,7 +2,7 @@
 include_once($root . '/private/Actions/Database/Database.php');
 
 function SelectAuthUserWithEmail(string $col) {
-    $query = "SELECT {$col} FROM USERS WHERE email = :email";
+    $query = "SELECT $col FROM USERS WHERE email = :email";
     $stmt = Connection()->prepare($query);
     $stmt->bindValue(':email', GetEmail(), is_null(GetEmail()) ? PDO::PARAM_NULL : PDO::PARAM_STR);
     $stmt->execute();
@@ -10,15 +10,15 @@ function SelectAuthUserWithEmail(string $col) {
 }
 
 function SelectUserWithId(string $col) {
-    $query = "SELECT {$col} FROM USERS WHERE id = :id";
+    $query = "SELECT $col FROM USERS WHERE id = :id";
     $stmt = Connection()->prepare($query);
-    $stmt->bindValue(':id', $_GET['id'], is_null($_GET['id']) ? PDO::PARAM_NULL : PDO::PARAM_INT);
+    $stmt->bindValue(':id', GetUserId(), is_null(GetUserId()) ? PDO::PARAM_NULL : PDO::PARAM_INT);
     $stmt->execute();
     return ($stmt->fetch(PDO::FETCH_OBJ));
 }
 
 function GetAllUsers(string $col) {
-    $query = "SELECT {$col} FROM USERS";
+    $query = "SELECT $col FROM USERS";
     $stmt = Connection()->prepare($query);
     $stmt->execute();
     return ($stmt->fetchAll(PDO::FETCH_OBJ));
@@ -32,6 +32,15 @@ function GetUsername(string $where = "email") {
     if ($where == "id") {
         return (SelectUserWithId('username'))->username;
     }
+}
+
+function GetUserWithId(string $col, int $id) {
+    $query = "SELECT $col FROM USERS WHERE id = :id;";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':id', $id, is_null($id) ? PDO::PARAM_NULL : PDO::PARAM_INT);
+    $stmt->execute();
+    return ($stmt->fetch(PDO::FETCH_OBJ));
+
 }
 
 function GetUserId() {
@@ -93,4 +102,23 @@ function GetAllPendingFriendSend() {
     $stmt->bindValue(':id', GetUserId(), PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
+
+function GetAllAcceptFriend() {
+    $query = "SELECT USERS.id, USERS.username FROM USERS 
+    JOIN FRIENDS ON ((FRIENDS.sender_user_id = USERS.id AND FRIENDS.receiver_user_id = :id) 
+    OR (FRIENDS.receiver_user_id = USERS.id AND FRIENDS.sender_user_id = :id)) 
+    WHERE FRIENDS.state = 2 AND USERS.id <> :id;";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':id', GetUserId(), PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
+
+function GetUserProfile(int $user_id) {
+    $query = "SELECT USERS.username, USERS.description, (SELECT COUNT(sender_user_id) FROM FOLLOWERS WHERE sender_user_id = USERS.id) AS followed, (SELECT COUNT(receiver_user_id) FROM FOLLOWERS WHERE receiver_user_id = USERS.id) AS follower FROM USERS WHERE USERS.id = :id;";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_OBJ);
 }
