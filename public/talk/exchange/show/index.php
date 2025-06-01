@@ -19,6 +19,7 @@
     LogAction();
 
     // if (EmailVerified()) { ToRoute('/'); }
+    if (!IsAuth()) { ToRoute('/auth/login/'); }
 
     $exchanges = GetExchangeMessages($_GET['exchange_id']);
     $receiver_user = GetUserWithId('id, username', $_GET['exchange_id']);

@@ -19,6 +19,7 @@
     LogAction();
 
     // if (EmailVerified()) { ToRoute('/'); }
+    if (!IsAuth()) { ToRoute('/auth/login/'); }
 
     $talks = GetTalks();
     $friends = GetAllPendingFriendSend();

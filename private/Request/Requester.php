@@ -51,3 +51,31 @@ function ValidatePost(string $value, int $validate = FILTER_SANITIZE_FULL_SPECIA
 function ValidateGet(string $value, int $validate = FILTER_SANITIZE_FULL_SPECIAL_CHARS): string|int {
     return filter_input(INPUT_GET, $value, $validate);
 }
+
+function FileExist(string $name): bool {
+    return isset($_FILES[$name]) && ($_FILES[$name]['error'] === UPLOAD_ERR_OK);
+}
+
+function FileMaxSize(array $file, int $size = 1): void {
+    if ($file['size'] > $size * 1024 * 1024) {
+        ToRoute(Back(), 'Le fichier fait plus de ' . $size . ' Mo', 'error');
+    }
+}
+
+function AllowedFilesTypes(array $file, array $type): void {
+    if (!in_array($file['type'], $type)) {
+        ToRoute(Back(), 'Le fichier n\'est pas du bon type.', 'error');
+    }
+}
+
+function UniqueFileName(array $file, string $prefix): string {
+
+    return uniqid($prefix, true) . '.' . pathinfo($file['name'], PATHINFO_EXTENSION);
+}
+
+function UploadFile(array $file, string $path) {
+    if (!move_uploaded_file($file['tmp_name'], $path)) {
+        http_response_code(500);
+        ToRoute(Back(), 'Erreur lors de l\'enregistrement', 'error');
+    }
+}

@@ -20,7 +20,7 @@
                     <label for="red" class="relative flex items-center justify-center w-20 h-20 overflow-hidden cursor-pointer bg-ms-red rounded-full peer-checked:border-2 box-border"></label>
                 </li>
             </ul>
-            <button type="submit" id="choose-button" class="max-w-xl w-full py-2 bg-ms-grey rounded-md hover:underline text-ms-white">Je valide</button>
+            <button type="submit" id="choose-button" class="max-w-xl w-full py-2 bg-ms-grey rounded-md hover:underline text-ms-white cursor-pointer">Je valide</button>
         </form>
     </section>
     <script>

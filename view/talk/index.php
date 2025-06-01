@@ -8,10 +8,10 @@
             <input type="text" name="friend" id="friend" class="border-2 p-2 border-ms-<?=$mood['color']?> rounded-md" placeholder="user"/>
 
             <ul class="w-full h-72 p-3 flex flex-col gap-3 border border-ms-<?=$mood['color']?> rounded-md overflow-y-scroll">
-                    <li class="flex rounded-md hover:underline w-full p-2 items-center justify-between gap-4 bg-ms-<?=$mood['color']?> text-ms-<?=$mood['text_color']?>">
-                        <p></p>
-                        <svg class="stroke-[1.5px] add-friend-action" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>    
-                    </li>
+                <li class="flex rounded-md hover:underline w-full p-2 items-center justify-between gap-4 bg-ms-<?=$mood['color']?> text-ms-<?=$mood['text_color']?>">
+                    <p></p>
+                    <svg class="stroke-[1.5px] add-friend-action" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>    
+                </li>
             </ul>
         </div>
     </dialog>
@@ -29,15 +29,15 @@
         <?php include( $root . '/resources/layout/talk/sidebar.php' );?>
         <section class="relative overflow-auto w-4xl flex flex-col gap-4 border-x border-t">
             <h1 class="sticky top-0 p-4 text-3xl font-semibold text-center border-b">Messages</h1>
-            <div class="absolute left-0 top-0 ml-2">
+            <div class="absolute left-0 top-0 ml-2 cursor-pointer">
                 <svg class="relative my-5 mx-2 stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"  stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
             </div>
-            <div id="button-add-friend" class="absolute left-0 top-0 ml-12">
+            <div id="button-add-friend" class="absolute left-0 top-0 ml-12 cursor-pointer">
                 <svg class="relative my-5 mx-2 stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
             </div>
 
             <div id="toggle-theme-button" class="absolute right-0 top-0 mr-8">
-                <div class="relative my-5 mx-2">
+                <div class="relative my-5 mx-2 cursor-pointer">
                     <svg id="moon" class="absolute stroke-[1.5px] mr-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
                     <svg id="sun" class="absolute stroke-[1.5px] mr-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
                 </div>

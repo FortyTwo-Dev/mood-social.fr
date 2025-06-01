@@ -3,7 +3,7 @@
 
     <main class="w-full h-full flex justify-center gap-8 px-4 pt-4">
         <?php include( $root . '/resources/layout/talk/sidebar.php' );?>
-        <section class="relative overflow-auto w-4xl flex flex-col gap-4 border-x border-t">
+        <section class="relative w-4xl flex flex-col gap-4 border-x border-t">
             <h1 class="sticky top-0 p-4 text-3xl font-semibold text-center border-b"><?=$receiver_user->username?></h1>
             <div id="toggle-theme-button" class="absolute right-0 top-0 mr-8">
                 <div class="relative my-5 mx-2">
@@ -12,7 +12,7 @@
                 </div>
             </div>
             
-            <div class="w-full h-full px-3 flex flex-col-reverse justify-baseline gap-4 mb-14">
+            <div class="w-full h-full px-3 flex flex-col-reverse justify-baseline gap-4 mb-8 overflow-auto">
                 <?php foreach($exchanges as $exchange): ?>
 
                     <?php if (isset($exchange)): ?>
@@ -21,8 +21,17 @@
 
                             <div class="w-full flex flex-row justify-end first:mb-8">
                                 <div class="w-fit border p-4 rounded-md">
-                                    <div class="flex flex-col gap-2">
-                                        <p class="text-lg/8"><?= nl2br($exchange->content)?></p>
+                                    <div class="w-full flex flex-col gap-2">
+                                        
+                                        <div class="w-full">
+                                            <?php if (isset($exchange->file_path)): ?>
+                                                <img src="data:image/png;base64,<?=base64_encode(file_get_contents($root . '/storage/exchange/' . $exchange->file_path))?>">
+                                            <?php endif ?>
+                                        </div>
+
+                                        <div class="w-full">
+                                            <p class="text-lg/8"><?= nl2br($exchange->content)?></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -30,11 +39,19 @@
                         <?php else: ?>
 
                             <div class="border p-4 rounded-md first:mb-8">
-                                <div class="flex flex-row">
+                                <div class="w-full flex flex-row">
                                     <div class="bg-ms-<?=$mood['color']?> h-6 w-6 p-8 rounded-full"></div>
-                                    <div class="flex flex-col gap-2 pl-4">
+                                    <div class="w-full flex flex-col gap-2 pl-4">
                                         <h2 class="text-lg font-medium"><?=$receiver_user->username?></h2>
-                                        <p class="text-lg/8"><?= nl2br($exchange->content)?></p>
+                                        <div class="w-full">
+                                            <?php if (isset($exchange->file_path)): ?>
+                                                <img src="data:image/png;base64,<?=base64_encode(file_get_contents($root . '/storage/exchange/' . $exchange->file_path))?>">
+                                            <?php endif ?>
+                                        </div>
+
+                                        <div class="w-full">
+                                            <p class="text-lg/8"><?= nl2br($exchange->content)?></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -46,15 +63,15 @@
                 <?php endforeach ?>
             </div>
 
-            <div class="absolute w-full bottom-0 px-3 py-2">
+            <div class="absolute w-full bg-ms-white dark:bg-ms-black bottom-0 px-3 py-2">
                 <form action="/talk/exchange/store/" method="POST" class="w-full p-2 flex border rounded-md" enctype="multipart/form-data">
-                    <label for="image-upload" class="flex justify-center items-center">
+                    <label for="image-upload" class="flex justify-center items-center cursor-pointer">
                         <svg class="stroke-2 stroke-ms-<?=$mood['color']?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5h6"/><path d="M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/><circle cx="9" cy="9" r="2"/></svg>
                     </label>
                     <input id="image-upload" name="image" type="file" class="hidden">
                     <input type="hidden" name="receiver_user_id" value="<?=$_GET['exchange_id']?>">
                     <textarea class="w-full mx-2 outline-none focus:ring-0 min-h-6 max-h-12 resize-none" type="text" placeholder="message . . ." name="content" id="content" rows="1"></textarea>
-                    <button type="submit"><svg class="stroke-2 stroke-ms-<?=$mood['color']?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z"/><path d="M6 12h16"/></svg></button> 
+                    <button type="submit" class="cursor-pointer"><svg class="stroke-2 stroke-ms-<?=$mood['color']?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z"/><path d="M6 12h16"/></svg></button> 
                 </form>
             </div>
 

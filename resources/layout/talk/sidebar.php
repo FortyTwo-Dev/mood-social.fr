@@ -30,9 +30,11 @@
                 <p class="max-md:hidden">Likes</p>
             </a>
         </li>
-        <li class="w-full py-2 md:px-8 text-xl font-semibold max-md:hidden">
-            <button id="button-post" type="button" class="flex rounded-md hover:underline w-full py-2 items-center justify-center gap-4 bg-ms-<?=$mood['color']?> text-ms-<?=$mood['text_color']?> cursor-pointer">Share your mood
-            </button>
-        </li>
+        <?php if ($_SERVER['REQUEST_URI'] == '/talk/feed/'): ?>
+            <li class="w-full py-2 md:px-8 text-xl font-semibold max-md:hidden">
+                <button id="button-post" type="button" class="flex rounded-md hover:underline w-full py-2 items-center justify-center gap-4 bg-ms-<?=$mood['color']?> text-ms-<?=$mood['text_color']?> cursor-pointer">Share your mood
+                </button>
+            </li>
+        <?php endif ?>
     </ul>
 </nav>

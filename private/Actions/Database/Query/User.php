@@ -119,8 +119,8 @@ function GetAllAcceptFriend() {
 
 function GetUserProfile(int $user_id) {
     $query = "SELECT USERS.id, USERS.username, USERS.description, 
-    (SELECT COUNT(sender_user_id) FROM FOLLOWERS WHERE sender_user_id = USERS.id) AS followed,
-    (SELECT COUNT(receiver_user_id) FROM FOLLOWERS WHERE receiver_user_id = USERS.id) AS follower,
+    (SELECT COUNT(sender_user_id) FROM FOLLOWERS WHERE sender_user_id = USERS.id AND state = 2) AS followed,
+    (SELECT COUNT(receiver_user_id) FROM FOLLOWERS WHERE receiver_user_id = USERS.id AND state = 2) AS follower,
     (SELECT sender_user_id FROM FOLLOWERS WHERE sender_user_id = :current_user_id AND receiver_user_id = USERS.id AND state = 2) AS isfollower,
     (SELECT sender_user_id FROM FOLLOWERS WHERE sender_user_id = :current_user_id AND receiver_user_id = USERS.id AND state = 1) AS pendingfollower,
     (SELECT sender_user_id FROM FOLLOWERS WHERE sender_user_id = :current_user_id AND receiver_user_id = USERS.id AND state = 0) AS nofollower,

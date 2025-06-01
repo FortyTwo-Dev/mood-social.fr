@@ -18,6 +18,7 @@
     $mood = SelectedColor();
     LogAction();
     if (!EmailVerified()) { ToRoute('/'); }
+    if (!IsAuth()) { ToRoute('/auth/login/'); }
 
     $messages = GetGroupMessages($_GET['talk_id']);
     $talk = GetTalk($_GET['talk_id']);
