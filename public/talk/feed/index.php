@@ -17,7 +17,7 @@
     $mood = SelectedColor();
     LogAction();
 
-    if (!EmailVerified()) { ToRoute('/auth/login/'); }
+    // if (!EmailVerified()) { ToRoute('/auth/login/'); }
     if (!IsAuth()) { ToRoute('/auth/login/'); }
 
     $messages = GetFeedMessages();

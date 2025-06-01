@@ -5,7 +5,6 @@ include_once($root . '/private/Actions/Database/Query/User.php');
 
 
 function Store() {
-
     $request = StoreValidation();
 
     $query = "UPDATE USERS SET username = :username WHERE id = :id";

@@ -7,7 +7,6 @@ include_once($root . '/private/Actions/Routing/Route.php');
 
 function Update()
 {
-
     $request = UpdateValidation();
 
     $query = "UPDATE USERS SET description = :description WHERE id = :id";
