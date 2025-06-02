@@ -12,6 +12,7 @@ function CreateAllTables(PDO $conn): bool {
         CreateRoleRightTable($conn);
         CreateSubscriptionTable($conn);
         CreateUserTable($conn);
+        CreateMoodTable($conn);
         CreateTalkTable($conn);
         CreateEventTable($conn);
         CreateMessageTable($conn);
@@ -26,7 +27,6 @@ function CreateAllTables(PDO $conn): bool {
         CreateUserEventTable($conn);
         CreateUserMoodTable($conn);
         CreateEventLikeTable($conn);
-        CreateMoodTable($conn);
         CreateCaptchaTable($conn);
         CreateLogTable($conn);
         CreateNewsletterTable($conn);
