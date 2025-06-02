@@ -11,9 +11,7 @@
 
 	MethodVerify("GET");
 
-	if (!IsAuth()) { ToRoute('/'); }
-
-	if (!IsAdmin()) { print 'no'; }
+	if (!IsAdmin()) { ToRoute('/'); }
 	$users = GetAllUsers("id, username");
 	LogAction();
 ?>

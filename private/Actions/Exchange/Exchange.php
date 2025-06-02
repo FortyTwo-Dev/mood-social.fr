@@ -5,7 +5,6 @@ include_once($root . '/private/Actions/Routing/Route.php');
 include_once($root . '/private/Request/Exchange/StoreRequest.php');
 
 function Store() {
-
     $request = StoreValidation();
 
     $query = "INSERT INTO EXCHANGES (sender_user_id, receiver_user_id, content, file_path) VALUES (:sender_user_id, :receiver_user_id, :content, :file_path)";

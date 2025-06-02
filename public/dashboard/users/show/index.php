@@ -12,7 +12,7 @@
 	MethodVerify("GET");
 
 	LogAction();
-	if (!IsAuth()) { ToRoute('/'); }
+	if (!IsAdmin()) { ToRoute('/'); }
 
 	$user = SelectUserWithId('username, email');
 ?>

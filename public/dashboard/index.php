@@ -10,7 +10,7 @@
 	MethodVerify("GET");
 
 	LogAction();
-	if (!IsAuth()) { ToRoute('/'); }
+	if (!IsAdmin()) { ToRoute('/'); }
 ?>
 
 <?php include_once( $root . '/view/dashboard.php' ) ?>

@@ -18,7 +18,7 @@
     $mood = SelectedColor();
     LogAction();
 
-    if (EmailVerified()) { ToRoute('/'); }
+    if (!EmailVerified()) { ToRoute('/'); }
     if (!IsAuth()) { ToRoute('/auth/login/'); }
 
     $exchanges = GetExchangeMessages($_GET['exchange_id']);

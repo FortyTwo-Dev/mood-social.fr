@@ -11,17 +11,26 @@ function StoreValidation() {
     $receiver_user_id = ValidatePost('receiver_user_id');
     $sender_user_id = GetUserId();
     $content = ValidatePost('content');
-    $image = $_FILES['image'];
 
-    FileExist('image');
-    FileMaxSize($image, 5);
-    AllowedFilesTypes($image, $allowedFilesTypes);
+    if ($_FILES['image']['error'] != 4) {
+    	$image = $_FILES['image'];
+    }
+
+    $filename = NULL;
+    
+    if ($_FILES['image']['error'] != 4) {
+        FileExist('image');
+    	FileMaxSize($image, 5);
+    	AllowedFilesTypes($image, $allowedFilesTypes);
+    }
 
     Required([$content, $receiver_user_id, $sender_user_id]);
 
-    $filename = UniqueFileName($image, 'exch_' . $sender_user_id . '_' . $receiver_user_id . '_');
-
-    UploadFile($image, $_SERVER['DOCUMENT_ROOT'] . '/storage/exchange/' . $filename);
+    if ($_FILES['image']['error'] != 4) {
+        $filename = UniqueFileName($image, 'exch_' . $sender_user_id . '_' . $receiver_user_id . '_');
+    
+        UploadFile($image, $_SERVER['DOCUMENT_ROOT'] . '/storage/exchange/' . $filename);
+    }
 
     return [
         'receiver_user_id' => $receiver_user_id,
