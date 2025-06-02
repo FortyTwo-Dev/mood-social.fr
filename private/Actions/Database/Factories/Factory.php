@@ -45,7 +45,8 @@ function DropAllTables(PDO $conn) {
 
 function ResetDatabase() {
     DropAllTables(Connection());
-    print "All tables are delete.\n";
+    print "All tables are deleted.\n";
     sleep(1);
     CreateAllTables(Connection());
+    print "All tables are created.\n";
 }
