@@ -5,7 +5,6 @@ foreach (glob(__DIR__ . '/*Factory.php') as $file) {
 }
 
 function CreateAllTables(PDO $conn): bool {
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
         CreateRightTable($conn);
         CreateRoleTable($conn);
