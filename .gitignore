@@ -5,6 +5,9 @@
 /config/db.php
 /config/email.php
 
+/storage/exchange/
+/storage/feed/
+
 docker-compose.yml
 dockerfile
 .dockerignore
