@@ -1,0 +1,8 @@
+<?php 
+$root = __DIR__ . '/../';
+
+include_once($root . '/private/Actions/Database/Seeders/Seeder.php');
+include_once($root . '/private/Actions/Database/Factories/Factory.php');
+
+ResetDatabase();
+SeedAllTable();

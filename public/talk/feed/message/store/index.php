@@ -9,7 +9,8 @@
 
     MethodVerify("POST");
     LogAction();
-    // if (!EmailVerified()) { ToRoute('/'); }
+    
+    if (!EmailVerified()) { ToRoute('/'); }
     if (!IsAuth()) { ToRoute('/auth/login/'); }
 
     Store();

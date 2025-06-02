@@ -17,6 +17,7 @@
     MethodVerify("GET");
     $mood = SelectedColor();
     LogAction();
+    
     if (!EmailVerified()) { ToRoute('/'); }
     if (!IsAuth()) { ToRoute('/auth/login/'); }
 
