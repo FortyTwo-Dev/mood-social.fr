@@ -14,3 +14,5 @@ dockerfile
 
 package-lock.json
 package.json
+
+php.ini

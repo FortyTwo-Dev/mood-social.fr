@@ -12,13 +12,13 @@ function StoreValidation() {
     $sender_user_id = GetUserId();
     $content = ValidatePost('content');
 
-    if ($_FILES['image']['error'] != 4) {
+    if ($_FILES['image']['error'] == 0) {
     	$image = $_FILES['image'];
     }
 
     $filename = NULL;
     
-    if ($_FILES['image']['error'] != 4) {
+    if ($_FILES['image']['error'] == 0) {
         FileExist('image');
     	FileMaxSize($image, 5);
     	AllowedFilesTypes($image, $allowedFilesTypes);
@@ -26,7 +26,7 @@ function StoreValidation() {
 
     Required([$content, $receiver_user_id, $sender_user_id]);
 
-    if ($_FILES['image']['error'] != 4) {
+    if ($_FILES['image']['error'] == 0) {
         $filename = UniqueFileName($image, 'exch_' . $sender_user_id . '_' . $receiver_user_id . '_');
     
         UploadFile($image, $_SERVER['DOCUMENT_ROOT'] . '/storage/exchange/' . $filename);

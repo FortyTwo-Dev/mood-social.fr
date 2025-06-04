@@ -1,5 +1,6 @@
 <?php include( $root . '/resources/layout/talk/head.php' );?>
 <body class="w-screen h-screen overflow-hidden bg-ms-white dark:bg-ms-black text-ms-black dark:text-ms-white">
+    <?php require_once( $root . '/resources/layout/notification/base.php' ) ?>
     <dialog id="post-dialog">
         <form method="POST" action="/talk/feed/message/store/" enctype="multipart/form-data" class="max-w-4xl w-full mx-4 p-6 fixed flex flex-col gap-6 justify-center z-50 left-1/2 top-1/2 -translate-1/2 rounded-md bg-ms-white dark:bg-ms-black border-1 border-ms-<?=$mood['color']?> dark:border-ms-white text-ms-black dark:text-ms-white">
             <p class="font-semibold text-2xl text-start">Nouveau post</p>
@@ -39,11 +40,11 @@
                     <div class="flex flex-row">
                         <div class="bg-ms-<?=$mood['color']?> h-6 w-6 p-8 rounded-full"></div>
                         <div class="max-w-full flex flex-col gap-2 pl-4 overflow-hidden">
-                            <h2 class="text-lg font-medium hover:underline"><a href="/profil/show/?id=<?=$message->user_id?>"><?=$message->username?></a></h2>
+                            <h2 class="text-lg font-medium hover:underline"><a href="/profil/show/?username=<?=$message->username?>"><?=$message->username?></a></h2>
 
                             <?php if (isset($message->path)): ?>
                                 <div class="w-full">
-                                    <img src="data:image/png;base64,<?=base64_encode(file_get_contents($root . '/storage/feed/' . $message->path))?>">
+                                    <img src="data:image/png;base64,<?=base64_encode(file_get_contents($root . '/storage/feed/' . $message->path))?>" loading="lazy">
                                 </div>
                             <?php endif ?>
 

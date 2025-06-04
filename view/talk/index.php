@@ -1,6 +1,6 @@
 <?php include( $root . '/resources/layout/talk/head.php' );?>
 <body class="w-screen h-screen overflow-hidden bg-ms-white dark:bg-ms-black text-ms-black dark:text-ms-white">
-    
+    <?php require_once( $root . '/resources/layout/notification/base.php' ) ?>
     <dialog id="friend-dialog">
         <div class="max-w-xl w-full mx-4 p-6 fixed flex flex-col gap-6 justify-center z-50 left-1/2 top-1/2 -translate-1/2 rounded-md bg-ms-white dark:bg-ms-black border-1 border-ms-<?=$mood['color']?> dark:border-ms-white text-ms-black dark:text-ms-white">
             <p class="font-semibold text-2xl text-start">Ajouter un ami</p>
@@ -89,14 +89,18 @@
 
                     <?php if (isset($exchange)): ?>
 
-                    <a href="/talk/exchange/show/?exchange_id=<?=$exchange->id?>" class="border p-4 rounded-md last:mb-4">
-                        <div class="w-full flex flex-row">
+                    <form action="/talk/exchange/show/" method="GET" class="w-full border p-4 rounded-md last:mb-4">
+                        <input type="hidden" name="exchange_id" value="<?=$exchange->id?>">
+                        <button class="w-full flex flex-row gap-4">
+
                             <div class="bg-ms-<?=$mood['color']?> h-6 w-6 p-8 rounded-full flex items-center justify-center text-4xl font-semibold text-ms-<?=$mood['text_color']?>">A</div>
-                            <div class="w-full flex flex-col items-start justify-center gap-2 pl-4 overflow-hidden">
-                                <h2 class="w-full text-lg font-medium truncate"><?=$exchange->username?></h2>
+
+                            <div class="w-full flex items-center overflow-hidden">
+                                <h2 class="text-lg font-medium truncate"><?=$exchange->username?></h2>
                             </div>
-                        </div>
-                    </a>
+
+                        </button>
+                    </form>
 
                     <?php endif ?>
 

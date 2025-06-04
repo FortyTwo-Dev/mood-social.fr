@@ -12,15 +12,15 @@
     include_once($root . '/private/Actions/Database/Query/Mood.php');
 
     include_once($root . '/private/Actions/Logs/Logs.php');
+    include_once($root . '/private/Actions/Profil/Profil.php');
 
     MethodVerify("GET");
     $mood = SelectedColor();
     LogAction();
 
-    // if (!EmailVerified()) { ToRoute('/'); }
+    if (!EmailVerified()) { ToRoute('/'); }
 
-    // $messages = GetFeedMessages();
-    $user = GetUserProfile( isset($_GET['id']) ? $_GET['id'] : GetUserId());
+    $user = Show();
 ?>
 
 <?php include( $root . '/view/profil/show.php' ) ?>

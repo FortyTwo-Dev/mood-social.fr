@@ -13,6 +13,7 @@
     include_once($root . '/private/Actions/Database/Query/Message.php');
 
     include_once($root . '/private/Actions/Logs/Logs.php');
+    include_once($root . '/private/Actions/Exchange/Exchange.php');
 
     MethodVerify("GET");
     $mood = SelectedColor();
@@ -21,9 +22,7 @@
     if (!EmailVerified()) { ToRoute('/'); }
     if (!IsAuth()) { ToRoute('/auth/login/'); }
 
-    $exchanges = GetExchangeMessages($_GET['exchange_id']);
-    $receiver_user = GetUserWithId('id, username', $_GET['exchange_id']);
-    $sender_user_id = GetUserId();
+    $data = Show();
 ?>
 
 <?php include( $root . '/view/talk/exchange/show.php' ) ?>

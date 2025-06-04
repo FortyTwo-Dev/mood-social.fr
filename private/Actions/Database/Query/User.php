@@ -98,6 +98,15 @@ function CheckFriendExists(int $user_id, int $friend_id): bool {
     return $stmt->fetchColumn() !== false;
 }
 
+function CheckExhangeExists(int $user_id, int $friend_id): bool {
+    $query = "SELECT sender_user_id FROM EXCHANGES WHERE (sender_user_id = :uid AND receiver_user_id = :fid) OR (sender_user_id = :fid AND receiver_user_id = :uid)";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':uid', $user_id, PDO::PARAM_INT);
+    $stmt->bindValue(':fid', $friend_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchColumn() !== false;
+}
+
 function GetAllPendingFriendSend() {
     $query = "SELECT USERS.id, USERS.username FROM USERS JOIN FRIENDS ON FRIENDS.sender_user_id = USERS.id WHERE FRIENDS.receiver_user_id = :id AND FRIENDS.state = 1;";
     $stmt = Connection()->prepare($query);

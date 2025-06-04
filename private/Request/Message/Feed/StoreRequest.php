@@ -12,11 +12,13 @@ function StoreValidation()
     $content = ValidatePost('content');
     $user_id = GetUserId();
 
-    if ($_FILES['image']['error'] != 4) {
+    if ($_FILES['image']['error'] == 0) {
         $image = $_FILES['image'];
     }
 
-    if ($_FILES['image']['error'] != 4) {
+    $filename = NULL;
+
+    if ($_FILES['image']['error'] == 0) {
         FileExist('image');
         FileMaxSize($image, 5);
         AllowedFilesTypes($image, $allowedFilesTypes);
@@ -24,7 +26,7 @@ function StoreValidation()
 
     Required([$content, $user_id]);
 
-    if ($_FILES['image']['error'] != 4) {
+    if ($_FILES['image']['error'] == 0) {
         $filename = UniqueFileName($image, 'feed_' . $user_id . '_');
 
         UploadFile($image, $_SERVER['DOCUMENT_ROOT'] . '/storage/feed/' . $filename);

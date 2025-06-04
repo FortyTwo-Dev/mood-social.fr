@@ -3,6 +3,8 @@ include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Routing/Route.php');
 
 include_once($root . '/private/Request/Exchange/StoreRequest.php');
+include_once($root . '/private/Request/Exchange/ShowRequest.php');
+
 
 function Store() {
     $request = StoreValidation();
@@ -18,4 +20,19 @@ function Store() {
     $stmt->execute();
 
     ToRoute(Back());
+}
+
+function Show() {
+
+    $request = ShowValidation();
+
+    $exchanges = GetExchangeMessages($request['id']);
+    $receiver_user = GetUserWithId('id, username', $request['id']);
+    $sender_user_id = GetUserId();
+
+    return [
+        'exchanges' => $exchanges,
+        'receiver_user' => $receiver_user,
+        'sender_user_id' => $sender_user_id
+    ];
 }

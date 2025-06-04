@@ -30,6 +30,12 @@
                 <p class="max-md:hidden">Likes</p>
             </a>
         </li>
+        <li class="w-full py-2 md:px-8 text-3xl font-semibold hover:underline">
+            <form action="/auth/logout/" method="POST" class="flex items-center gap-4">
+                <svg class="stroke-2 size-8 stroke-ms-<?=$mood['color']?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>
+                <button type="submit" class="cursor-pointer">Déconnexion</button>
+            </form>
+        </li>
         <?php if ($_SERVER['REQUEST_URI'] == '/talk/feed/'): ?>
             <li class="w-full py-2 md:px-8 text-xl font-semibold max-md:hidden">
                 <button id="button-post" type="button" class="flex rounded-md hover:underline w-full py-2 items-center justify-center gap-4 bg-ms-<?=$mood['color']?> text-ms-<?=$mood['text_color']?> cursor-pointer">Share your mood
