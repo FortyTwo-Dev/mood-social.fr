@@ -79,3 +79,21 @@ function UploadFile(array $file, string $path) {
         ToRoute(Back(), 'Erreur lors de l\'enregistrement', 'error');
     }
 }
+
+
+function Banned(string $email, string $message ='Banned.') {
+    $query = "SELECT status FROM USERS WHERE email = :email AND status = 'banned'";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':email',$email, PDO::PARAM_INT);
+    $stmt->execute();
+    $banned_user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+ 
+    if (!empty($banned_user["status"]) ) {
+        if ($banned_user["status"] == 'banned') {
+            session_destroy();
+            ToRoute('/auth/login/', $message, 'error');
+            die();
+        }
+    } 
+}

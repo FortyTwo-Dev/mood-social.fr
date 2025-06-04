@@ -139,6 +139,8 @@ function Login() {
 
     $request = LoginValidation();
 
+    Banned($request['email'], "Votre compte a été banni.");
+
     $_SESSION['auth'] = 1;
     $_SESSION['id'] = $request['id'];
     $_SESSION['email'] = $request['email'];

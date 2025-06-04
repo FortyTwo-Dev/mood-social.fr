@@ -6,6 +6,8 @@ include_once($root . '/private/Actions/Routing/Route.php');
 include_once($root . '/private/Actions/Database/Query/Mood.php');
 
 
+
+
 function Store() {
 
     $request = StoreValidation();

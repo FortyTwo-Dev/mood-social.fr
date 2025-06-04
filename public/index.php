@@ -9,8 +9,12 @@
     include_once($root . '/private/Actions/Logs/Logs.php');
 
     MethodVerify("GET");
+
+
     $mood = SelectedColor();
     LogAction();
+
+
 ?>
 
 

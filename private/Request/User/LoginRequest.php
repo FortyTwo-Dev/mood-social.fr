@@ -1,7 +1,8 @@
 <?php
+include_once($root . '/private/Request/Requester.php');
+
 include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Routing/Route.php');
-
 
 function LoginValidation() {
 
@@ -17,6 +18,8 @@ function LoginValidation() {
     if(empty($email) OR empty($password) OR empty($captcha)) {
         ToRoute(Back(), 'Veuillez remplir tous les champs obligatoires.', 'error');
     }
+
+    Banned($email, "Votre compte a été banni.");
 
     $query = "SELECT id, role_id, password FROM USERS WHERE email = :email;";
     $stmt = Connection()->prepare($query);
