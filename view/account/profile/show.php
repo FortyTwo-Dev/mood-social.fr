@@ -11,7 +11,7 @@
                     <a href="/account/show/" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Accounts</a>
                     <a href="/account/profile/show/" class="mt-5 block cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700">Profile</a>
                     <a href="/account/billing/show/" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Billing</a>
-                    <a href="/account/notification/show/" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Notification</a>
+                    <a href="/account/notification/show/" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Notifications</a>
                 </ul>
             </div>
             <div id="toggle-theme-button" class="fixed right-0 top-0 mr-8 max-2xl:hidden">
