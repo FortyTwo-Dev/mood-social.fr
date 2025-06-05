@@ -29,6 +29,6 @@ foreach ($customs as $custom) {
     $image[$custom['category']] = base64_encode(file_get_contents($root . '/storage/customs/' . $custom['category'] . '/' . $custom['image']));
 }
 ?>
-<?php include_once($root . '/view/account/profile/index.php'); ?>
+<?php include_once($root . '/view/account/profile/show.php'); ?>
 
 
