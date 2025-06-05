@@ -27,7 +27,12 @@ function Exist(string $column, string $table, $value, string $message = "Does no
     $stmt->bindParam(':value', $value, $pdo_param);
     $stmt->execute();
     $assoc = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($assoc[$column] != $value) {
+    if (!empty($assoc)) {
+        if ($assoc[$column] != $value) {
+            ToRoute(Back(), $message, 'error');
+        }
+    }
+    else {
         ToRoute(Back(), $message, 'error');
     }
 }

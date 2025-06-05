@@ -23,7 +23,7 @@
 
     $talks = GetTalks();
     $friends = GetAllPendingFriendSend();
-    $exchanges = GetAllAcceptFriend();
+    $exchanges = GetAllAcceptFriend(GetUserId());
 ?>
 
 <?php include( $root . '/view/talk/index.php' ) ?>

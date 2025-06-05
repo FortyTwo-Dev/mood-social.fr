@@ -5,9 +5,6 @@ include_once($root . '/private/Request/Mood/StoreRequest.php');
 include_once($root . '/private/Actions/Routing/Route.php');
 include_once($root . '/private/Actions/Database/Query/Mood.php');
 
-
-
-
 function Store() {
 
     $request = StoreValidation();
@@ -20,7 +17,7 @@ function Store() {
     
     $stmt->execute();
 
-    $mood = GetMood();
+    $mood = GetMood($request['user_id']);
 
     $_SESSION['mood'] = [ 'color' => $mood->color, 'text_color' => $mood->text_color ];
 

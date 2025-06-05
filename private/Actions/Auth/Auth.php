@@ -1,10 +1,14 @@
 <?php
 
 include_once($root . '/private/Actions/Database/Database.php');
+include_once($root . '/private/Actions/Routing/Route.php');
+
 include_once($root . '/private/Request/User/StoreRequest.php');
 include_once($root . '/private/Request/User/LoginRequest.php');
+
 include_once($root . '/private/Actions/Email/Email.php');
-include_once($root . '/private/Actions/Routing/Route.php');
+
+include_once($root . '/private/Actions/Database/Query/User.php');
 include_once($root . '/private/Actions/Database/Query/Mood.php');
 
 
@@ -146,7 +150,7 @@ function Login() {
     $_SESSION['email'] = $request['email'];
     $_SESSION['role'] = $request['role'];
 
-    $mood = GetMood();
+    $mood = GetMood(GetUserId());
 
     if (!$mood) {
         ToRoute('/mood/');

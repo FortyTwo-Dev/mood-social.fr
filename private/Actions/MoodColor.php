@@ -1,10 +1,15 @@
 <?php
 include_once($root . '/private/Actions/Generic/Json.php');
 include_once($root . '/private/Actions/Generic/Javascript.php');
+
+include_once($root . '/private/Actions/Security/User.php');
+
 require_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Routing/Route.php');
+
+include_once($root . '/private/Actions/Database/Query/User.php');
 include_once($root . '/private/Actions/Database/Query/Mood.php');
-include_once($root . '/private/Actions/Security/User.php');
+
 
 function RandomColor() : array {
 
@@ -25,7 +30,7 @@ function GetAllColor() : array {
 function SelectedColor() : array {
 
     if (IsAuth()) {
-        if (GetMood() == "") {
+        if (GetMood(GetUserId()) == "") {
             ToRoute('/mood/');
         }
     }
