@@ -5,11 +5,14 @@ include_once($root . '/private/Actions/Routing/Route.php');
 
 include_once($root . '/private/Request/User/StoreRequest.php');
 include_once($root . '/private/Request/User/LoginRequest.php');
+include_once($root . '/private/Request/User/DeleteRequest.php');
 
 include_once($root . '/private/Actions/Email/Email.php');
 
 include_once($root . '/private/Actions/Database/Query/User.php');
 include_once($root . '/private/Actions/Database/Query/Mood.php');
+
+
 
 
 function Register() {
@@ -163,7 +166,20 @@ function Login() {
 }
 
 function Logout() {
+    $_SESSION = [];
     session_destroy();
-    header('Location: /');
-    die();
+    ToRoute('/');
 }
+function Delete() {
+
+    $request = DeleteValidation();
+
+    $stmt = Connection()->prepare("DELETE FROM USERS WHERE id = :id");
+    $stmt->bindParam(':id', $request['id'], PDO::PARAM_INT);
+    $stmt->execute();
+    $_SESSION = [];
+    session_destroy();
+
+    ToRoute('/');
+}
+
