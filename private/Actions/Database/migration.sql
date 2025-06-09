@@ -47,6 +47,7 @@ CREATE TABLE USERS (
     email_verification_token VARCHAR(255),
     email_verification_expiration INT CHECK(email_verification_expiration>=0),
     status VARCHAR(15)
+    banned_until INT NULL
 );
 
 CREATE TABLE TALKS (

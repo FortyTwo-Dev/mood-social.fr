@@ -8,7 +8,7 @@ function Show() {
 
     $request = ShowValidation();
 
-    $user = GetUserWithId('username, email, state, street, city, country, description, updated_at, created_at, email_verified_at', $request['user_id']);
+    $user = GetUserWithId('username, email, state, street, city, country, description, updated_at, created_at, email_verified_at, status, banned_until', $request['user_id']);
 
     $moods = GetAllUserMood($request['user_id']);
 

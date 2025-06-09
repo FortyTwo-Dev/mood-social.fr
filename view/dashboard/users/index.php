@@ -1,4 +1,5 @@
-<?php include( $root . '/resources/layout/dashboard/head.php' );?>
+<?php
+ include( $root . '/resources/layout/dashboard/head.php' );?>
 <body class="w-screen h-screen overflow-hidden bg-ms-white">
     <?php include( $root . '/resources/layout/dashboard/header.php' );?>
     <main class="w-full h-full grid grid-cols-12">

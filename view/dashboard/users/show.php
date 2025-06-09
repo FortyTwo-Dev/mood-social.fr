@@ -104,10 +104,28 @@
                         <li class="flex justify-center items-center p-4 border-ms-red border rounded-md text-ms-red bg-ms-white hover:text-ms-white hover:bg-ms-red">
                             <span class="text-2xl font-medium uppercase">Supprimer le compte</span>
                         </li>
-                        <li class="flex justify-center items-center p-4 border-ms-red border rounded-md text-ms-red bg-ms-white hover:text-ms-white hover:bg-ms-red">
-                            <span class="text-2xl font-medium uppercase">Bannir le compte</span>
+                        <?php if ($data['user']->status === 'banned'): ?>
+                        <li class="flex justify-center items-center p-4 border-ms-green border rounded-md text-ms-green bg-ms-white hover:text-ms-white hover:bg-ms-green">
+                            <form action="/dashboard/users/unban/" method="POST" onsubmit="return confirm('Débannir cet utilisateur ?');">
+                                <input type="hidden" name="email" value="<?= $data['user']->email ?>">
+                                <button type="submit" class="text-2xl font-medium uppercase bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-green hover:text-ms-white">
+                                    Débannir le compte
+                                </button>
+                            </form>
                         </li>
-                    </ul>
+                    <?php else: ?>
+                        <li class="flex justify-center items-center p-4 border-ms-red border rounded-md text-ms-red bg-ms-white hover:text-ms-white hover:bg-ms-red">
+                            <form action="/dashboard/users/ban/" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir bannir cet utilisateur ?');">
+                                <input type="hidden" name="email" value="<?= $data['user']->email ?>">
+                                <label for="ban_duration" class="mr-2">Durée (heures) :</label>
+                                <input type="number" name="ban_duration" id="ban_duration" min="1" value="1" required class="w-24 mr-2 p-1 border rounded">
+                                <button type="submit" class="text-2xl font-medium uppercase bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-red hover:text-ms-white">
+                                    Bannir le compte
+                                </button>
+                            </form>
+                        </li>
+                    <?php endif; ?>
+            </ul>
                 </section>
             </div>
         </section>
