@@ -14,7 +14,6 @@
 	LogAction();
 	if (!IsAdmin()) { ToRoute('/'); }
 
-	// $user = GetUserWithId('username, email', $_GET['id']);
 	$data = Show();
 ?>
 
