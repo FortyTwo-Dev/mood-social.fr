@@ -2,6 +2,7 @@
 
 include_once($root . '/private/Actions/Routing/Route.php');
 include_once($root . '/private/Actions/Database/Database.php');
+include_once($root . '/private/Request/Requester.php');
 
 function BanUser() {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
