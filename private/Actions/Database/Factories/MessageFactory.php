@@ -8,7 +8,8 @@ function CreateMessageTable(PDO $conn) {
             updated_at DATETIME DEFAULT NOW() ON UPDATE NOW(),
             created_at DATETIME DEFAULT NOW(),
             user_id INT NOT NULL REFERENCES USERS(id) ON DELETE CASCADE,
-            talk_id INT NOT NULL REFERENCES TALKS(id) ON DELETE CASCADE
+            talk_id INT NOT NULL REFERENCES TALKS(id) ON DELETE CASCADE,
+            message_id INT NULL REFERENCES MESSAGES(id) ON DELETE CASCADE
         );
     ";
     $conn->exec($query);

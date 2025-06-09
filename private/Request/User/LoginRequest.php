@@ -27,6 +27,10 @@ function LoginValidation() {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    if(empty($user['password'])) {
+        ToRoute(Back(), 'Identifiants incorrects.', 'error');
+    }
+
     if (!password_verify($password, $user['password'])) {
         ToRoute(Back(), 'Identifiants incorrects.', 'error');
     }

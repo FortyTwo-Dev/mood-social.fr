@@ -27,6 +27,7 @@ function GetFeedMessages() {
                 LIMIT 1
                 )
             )
+            AND MESSAGES.message_id IS NULL
             GROUP BY MESSAGES.id
             ORDER BY MESSAGES.created_at DESC";
     $stmt = Connection()->prepare($query);

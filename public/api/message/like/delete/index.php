@@ -14,10 +14,10 @@ MethodVerify("POST");
 
 LogAction();
 
-$userId = GetUserId();
-$messageId = ValidatePost('id');
+$user_id = GetUserId();
+$message_id = ValidatePost('id');
 
-if (!$messageId) {
+if (!$message_id) {
     echo json_encode(['success' => false, 'error' => 'ID manquant']);
     exit;
 }
@@ -25,8 +25,8 @@ if (!$messageId) {
 try {
     $stmt = Connection()->prepare("DELETE FROM MESSAGE_LIKES WHERE user_id = :user_id AND message_id = :message_id");
     $stmt->execute([
-        'user_id' => $userId,
-        'message_id' => $messageId
+        'user_id' => $user_id,
+        'message_id' => $message_id
     ]);
     echo json_encode(['success' => true]);
 } catch (Exception $e) {

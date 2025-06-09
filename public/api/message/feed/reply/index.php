@@ -14,19 +14,18 @@ MethodVerify("POST");
 
 LogAction();
 
-$message_id = ValidatePost('id');
+$message_id = ValidatePost('message_id');
 
 if ($message_id) {
 
-    $query = "INSERT INTO MESSAGE_LIKES (message_id, user_id) VALUES (:message_id, :user_id)";
+    $query = "SELECT MESSAGES.id, content, USERS.username AS username FROM MESSAGES JOIN USERS ON MESSAGES.user_id = USERS.id WHERE message_id = :message_id;";
     $stmt = Connection()->prepare($query);
 
     $stmt->bindValue(':message_id', $message_id, PDO::PARAM_INT);
-    $stmt->bindValue(':user_id', GetUserId(), PDO::PARAM_INT);
     
     $stmt->execute();
 
-    echo json_encode(['success' => true]);
+    echo json_encode(['success' => true, 'messages' => $stmt->fetchAll(PDO::FETCH_ASSOC)]);
 } else {
     echo json_encode(['success' => false, 'error' => 'ID manquant']);
 }
