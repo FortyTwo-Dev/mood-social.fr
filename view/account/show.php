@@ -3,6 +3,17 @@
 <body class="dark:text-ms-white dark:bg-ms-black text-ms-black bg-ms-white">
     <?php require_once($root . '/resources/layout/notification/base.php') ?>
 
+    <dialog id="email-dialog">
+        <form method="POST" action="/account/store/" class="max-w-4xl w-full mx-4 p-6 fixed flex flex-col gap-6 justify-center z-50 left-1/2 top-1/2 -translate-1/2 rounded-md bg-ms-white dark:bg-ms-black border-1 border-ms-<?= $mood['color'] ?> dark:border-ms-white text-ms-black dark:text-ms-white">
+            <p class="font-semibold text-2xl text-start">Changer d'email</p>            
+            <input name="email" id="email" class="border-2 border-ms-<?= $mood['color'] ?> rounded-md "></input>
+            <div class="w-full flex gap-3 items-center justify-center">
+                <button type="submit" class="rounded-md hover:underline w-full py-2 bg-ms-<?= $mood['color'] ?> text-ms-<?= $mood['text_color'] ?>">Changer</button>
+            </div>
+        </form>
+    </dialog>
+
+
     <div class="mx-4 min-h-screen max-w-screen-xl sm:mx-8 xl:mx-auto">
         <h1 class="border-b py-6 text-4xl font-semibold">Settings</h1>
         <div class="grid grid-cols-8 pt-3 sm:grid-cols-10">
@@ -61,7 +72,7 @@
                     <p class="text-gray-600">
                         Your email address is <strong><?= GetEmail() ?></strong>
                     </p>
-                    <button class="inline-flex text-sm font-semibold text-blue-600 underline decoration-2">
+                    <button id="button-email" class="inline-flex text-sm font-semibold text-blue-600 underline decoration-2">
                         Change
                     </button>
                 </div>
@@ -140,7 +151,9 @@
         </div>
     </div>
 
-    <script src="/resources/js/theme.js"></script>
+    <?php include_once($root . '/resources/layout/account/footer.php') ?>
+
+
 </body>
 
 </html>

@@ -1,5 +1,5 @@
-const buttonPost = document.getElementById('button-post');
-const postDialog = document.getElementById("post-dialog");
+const buttonPost = document.getElementById('button-email');
+const postDialog = document.getElementById("email-dialog");
 
 buttonPost.addEventListener('click', () => {
     postDialog.showModal();

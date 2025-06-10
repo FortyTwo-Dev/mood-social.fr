@@ -1,9 +1,10 @@
 <?php
+include_once($root . '/private/Actions/Database/Database.php');
+
 function UpdatePassword($userId, $currentPassword, $newPassword)
 {
     try {
         $conn = Connection();
-
         $query = "SELECT password FROM USERS WHERE id = :id;";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
@@ -27,7 +28,6 @@ function UpdatePassword($userId, $currentPassword, $newPassword)
         }
 
         $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-
         $updateQuery = "UPDATE USERS SET password = :password WHERE id = :id;";
         $updateStmt = $conn->prepare($updateQuery);
         $updateStmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
@@ -67,12 +67,12 @@ function ValidatePasswordData($data)
         $errors[] = 'Le nouveau mot de passe est requis';
     }
 
-    if (empty($data['confirm-password'])) {
+    if (empty($data['confirm-new-password'])) {
         $errors[] = 'La confirmation du mot de passe est requise';
     }
 
-    if (!empty($data['new-password']) && !empty($data['confirm-password'])) {
-        if ($data['new-password'] !== $data['confirm-password']) {
+    if (!empty($data['new-password']) && !empty($data['confirm-new-password'])) {
+        if ($data['new-password'] !== $data['confirm-new-password']) {
             $errors[] = 'Les nouveaux mots de passe ne correspondent pas';
         }
     }
@@ -103,3 +103,4 @@ function CheckAuthSession()
         'user_id' => $_SESSION['id']
     ];
 }
+?>
