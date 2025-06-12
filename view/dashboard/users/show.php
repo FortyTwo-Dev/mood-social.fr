@@ -102,30 +102,71 @@
                             <span class="text-2xl font-medium">Envoyer un avertissement</span>
                         </li>
                         <li class="flex justify-center items-center p-4 border-ms-red border rounded-md text-ms-red bg-ms-white hover:text-ms-white hover:bg-ms-red">
-                            <span class="text-2xl font-medium uppercase">Supprimer le compte</span>
+                        <form action="/dashboard/users/delete/" method="POST" onsubmit="return confirm('⚠️ Cette action est irréversible ! Voulez-vous vraiment supprimer cet utilisateur ?');">
+                        <input type="hidden" name="email" value="<?= $data['user']->email ?>">
+                            <button type="submit" class="text-2xl font-medium uppercase bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-red hover:text-ms-white">
+                                Supprimer le compte
+                            </button>
+                        </form>
                         </li>
                         <?php if ($data['user']->status === 'banned'): ?>
-                        <li class="flex justify-center items-center p-4 border-ms-green border rounded-md text-ms-green bg-ms-white hover:text-ms-white hover:bg-ms-green">
-                            <form action="/dashboard/users/unban/" method="POST" onsubmit="return confirm('Débannir cet utilisateur ?');">
-                                <input type="hidden" name="email" value="<?= $data['user']->email ?>">
-                                <button type="submit" class="text-2xl font-medium uppercase bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-green hover:text-ms-white">
-                                    Débannir le compte
-                                </button>
-                            </form>
-                        </li>
+
+                    <li class="flex flex-col items-center justify-center p-4 border-ms-green border rounded-md text-ms-green bg-ms-white hover:text-ms-white hover:bg-ms-green">
+                        <div class="mb-2 text-center">
+                            <span class="font-semibold">Raison du bannissement :</span>
+                            <span class="italic">
+                                <?= htmlspecialchars($data['user']->ban_reason ?? 'Non précisée') ?>
+                            </span>
+                        </div>
+                        <form action="/dashboard/users/unban/" method="POST" onsubmit="return confirm('Débannir cet utilisateur ?');">
+                            <input type="hidden" name="email" value="<?= $data['user']->email ?>">
+                            <button type="submit" class="text-2xl font-medium uppercase bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-green hover:text-ms-white">
+                                Débannir le compte
+                            </button>
+                        </form>
+                    </li>
                     <?php else: ?>
                         <li class="flex justify-center items-center p-4 border-ms-red border rounded-md text-ms-red bg-ms-white hover:text-ms-white hover:bg-ms-red">
-                            <form action="/dashboard/users/ban/" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir bannir cet utilisateur ?');">
-                                <input type="hidden" name="email" value="<?= $data['user']->email ?>">
-                                <label for="ban_duration" class="mr-2">Durée (heures) :</label>
-                                <input type="number" name="ban_duration" id="ban_duration" min="1" value="1" required class="w-24 mr-2 p-1 border rounded">
-                                <button type="submit" class="text-2xl font-medium uppercase bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-red hover:text-ms-white">
-                                    Bannir le compte
-                                </button>
-                            </form>
-                        </li>
+                    <button 
+                        type="button"
+                        onclick="document.getElementById('banModal').classList.remove('hidden')"
+                        class="text-2xl font-medium uppercase bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-red hover:text-ms-white">
+                        Bannir le compte
+                    </button>
+                </li>
                     <?php endif; ?>
-            </ul>
+            <div id="banModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50 hidden">
+                <div class="bg-white rounded-2xl p-10 w-full max-w-2xl shadow-2xl border-4 border-ms-red relative">
+                    <button type="button"
+                        onclick="document.getElementById('banModal').classList.add('hidden')"
+                        class="absolute top-4 right-4 text-3xl text-ms-red hover:text-ms-black font-bold"
+                        aria-label="Fermer">&times;</button>
+                    <h2 class="text-3xl font-bold mb-6 text-ms-red text-center">Bannir l'utilisateur</h2>
+                    <form action="/dashboard/users/ban/" method="POST" onsubmit="return confirm('Confirmer le bannissement ?');">
+                        <input type="hidden" name="email" value="<?= $data['user']->email ?>">
+                        <div class="mb-6">
+                            <label for="ban_duration" class="block text-xl font-semibold mb-2">Durée du bannissement (heures) :</label>
+                            <input type="number" name="ban_duration" id="ban_duration" min="1" value="1" required class="w-full p-3 border-2 border-ms-red rounded-lg text-lg">
+                        </div>
+                        <div class="mb-6">
+                            <label for="ban_reason" class="block text-xl font-semibold mb-2">Raison du bannissement :</label>
+                            <textarea name="ban_reason" id="ban_reason" required rows="3" class="w-full p-3 border-2 border-ms-red rounded-lg text-lg" placeholder="Motif du bannissement"></textarea>
+                        </div>
+                        <div class="flex justify-end gap-4">
+                            <button type="button"
+                                onclick="document.getElementById('banModal').classList.add('hidden')"
+                                class="px-6 py-3 rounded-lg bg-gray-300 text-gray-700 text-lg font-semibold hover:bg-gray-400 transition">Annuler</button>
+                            <button type="submit"
+                                class="px-6 py-3 rounded-lg bg-ms-red text-white text-lg font-semibold hover:bg-ms-black transition">Bannir</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+document.getElementById('banModal').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.add('hidden');
+});
+</script>
                 </section>
             </div>
         </section>

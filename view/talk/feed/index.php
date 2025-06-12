@@ -4,7 +4,7 @@
     <?php require_once($root . '/resources/layout/notification/base.php') ?>
     <dialog id="post-dialog">
         <form method="POST" action="/talk/feed/message/store/" enctype="multipart/form-data" class="max-w-4xl w-full mx-4 p-6 fixed flex flex-col gap-6 justify-center z-50 left-1/2 top-1/2 -translate-1/2 rounded-md bg-ms-white dark:bg-ms-black border-1 border-ms-<?= $mood['color'] ?> dark:border-ms-white text-ms-black dark:text-ms-white">
-            <p class="font-semibold text-2xl text-start">Nouveau post</p>            
+            <p class="font-semibold text-2xl text-start">Nouveau post</p>
             <label for="content">Message</label>
             <textarea name="content" id="content" class="border-2 border-ms-<?= $mood['color'] ?> rounded-md min-h-40"></textarea>
             <div class="w-full flex gap-3 items-center justify-center">

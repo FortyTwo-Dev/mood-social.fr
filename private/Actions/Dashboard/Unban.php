@@ -9,7 +9,7 @@ function UnbanUser() {
         ToRoute(Back(), "Utilisateur invalide", "error");
     }
 
-    $stmt = Connection()->prepare("UPDATE USERS SET status = NULL, banned_until = NULL WHERE email = :email");
+    $stmt = Connection()->prepare("UPDATE USERS SET status = NULL, banned_until = NULL, ban_duration = NULL, ban_reason = NULL WHERE email = :email");
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     $stmt->execute();
 
