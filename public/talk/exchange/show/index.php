@@ -11,6 +11,7 @@
     include_once($root . '/private/Actions/Database/Query/Mood.php');
     include_once($root . '/private/Actions/Database/Query/User.php');
     include_once($root . '/private/Actions/Database/Query/Message.php');
+    include_once($root . '/private/Actions/Database/Query/Reaction.php');
 
     include_once($root . '/private/Actions/Logs/Logs.php');
     include_once($root . '/private/Actions/Exchange/Exchange.php');

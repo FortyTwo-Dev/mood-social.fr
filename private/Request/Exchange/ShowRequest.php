@@ -13,8 +13,8 @@ function ShowValidation() {
 
     Exist('id', 'USERS', $id, "L'utilisateur n'existe pas.", PDO::PARAM_STR);
 
-    if (!CheckExhangeExists(GetUserId(), $id)) { ToRoute(Back()); };
-
+    if (!CheckFriendExists(GetUserId(), $id)) { ToRoute(Back()); };
+    
     return [
         'id' => $id,
     ];

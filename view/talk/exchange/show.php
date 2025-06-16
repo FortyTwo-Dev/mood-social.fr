@@ -1,6 +1,18 @@
 <?php include( $root . '/resources/layout/talk/head.php' );?>
 <body class="w-screen h-screen overflow-hidden bg-ms-white dark:bg-ms-black text-ms-black dark:text-ms-white">
     <?php require_once( $root . '/resources/layout/notification/base.php' ) ?>
+    
+    <dialog id="reaction-dialog">
+        <div class="max-w-xl w-full mx-4 p-6 fixed flex flex-col gap-6 justify-center items-center z-50 left-1/2 top-1/2 -translate-1/2 rounded-md bg-ms-white dark:bg-ms-black border-1 border-ms-<?=$mood['color']?> dark:border-ms-white text-ms-black dark:text-ms-white">
+            <p class="font-semibold text-2xl text-start">Ajouter une réaction</p>
+            <div class="h-72 border border-ms-<?=$mood['color']?> rounded-md">
+                <ul id="reaction-list" class="w-full h-fit p-3 grid grid-flow-row-dense grid-cols-9 gap-2 overflow-y-scroll">
+                    
+                </ul>
+            </div>
+        </div>
+    </dialog>
+
     <main class="w-full h-full flex justify-center gap-8 px-4 pt-4">
         <?php include( $root . '/resources/layout/talk/sidebar.php' );?>
         <section class="relative w-4xl flex flex-col gap-4 border-x border-t">
@@ -19,7 +31,7 @@
 
                         <?php if (GetUserId() == $exchange->sender_user_id): ?>
 
-                            <div class="w-full flex flex-row justify-end first:mb-8">
+                            <div class="relative w-full flex flex-col items-end first:mb-8 group/reaction">
                                 <div class="w-fit border p-4 rounded-md">
                                     <div class="w-full flex flex-col gap-2">
                                         
@@ -32,8 +44,31 @@
                                         <div class="w-full">
                                             <p class="text-lg/8"><?= nl2br($exchange->content)?></p>
                                         </div>
+
                                     </div>
                                 </div>
+                                <div data-id="<?=$exchange->id?>" data-color="<?=$mood['color']?>" data-text="<?=$mood['text_color']?>" class="group-hover/reaction:block hidden absolute -top-8 right-2 p-2 dark:bg-ms-black bg-ms-white border border-ms-grey rounded-md z-20 reaction-plus">
+                                    <svg class="stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11v1a10 10 0 1 1-9-10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/><path d="M16 5h6"/><path d="M19 2v6"/></svg>
+                                </div>
+                                
+                                 <?php if (GetExchangeReactions(GetUserId(), $exchange->id) !== null): ?>
+
+                                    <div data-exch="<?=$exchange->id?>" class="use-reaction-list flex flex-row-reverse gap-2 mt-2">
+                                        <?php foreach(GetExchangeReactions(GetUserId(), $exchange->id) as $reaction): ?>
+                                            <div data-reaction-id="<?=$reaction['id']?>" class="use-reaction flex gap-1 stroke-[1.5px] p-2 dark:bg-ms-black bg-ms-white border border-ms-grey rounded-md">
+                                                <?=$reaction['emoji']?>
+                                            </div>
+                                        <?php endforeach ?>
+
+                                    </div>
+
+                                <?php else: ?>
+
+                                    <div data-exch="<?=$exchange->id?>" class="hidden use-reaction-list flex gap-2 mt-2">
+                                        
+                                    </div>
+
+                                <?php endif ?>
                             </div>
 
                         <?php else: ?>
@@ -54,6 +89,28 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div data-id="<?=$exchange->id?>" data-color="<?=$mood['color']?>" data-text="<?=$mood['text_color']?>" class="group-hover/reaction:block hidden absolute -top-8 right-2 p-2 dark:bg-ms-black bg-ms-white border border-ms-grey rounded-md z-20 reaction-plus">
+                                    <svg class="stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11v1a10 10 0 1 1-9-10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/><path d="M16 5h6"/><path d="M19 2v6"/></svg>
+                                </div>
+                                
+                                 <?php if (GetExchangeReactions(GetUserId(), $exchange->id) !== null): ?>
+
+                                    <div data-exch="<?=$exchange->id?>" class="use-reaction-list flex flex-row-reverse gap-2 mt-2">
+                                        <?php foreach(GetExchangeReactions(GetUserId(), $exchange->id) as $reaction): ?>
+                                            <div data-reaction-id="<?=$reaction['id']?>" class="use-reaction flex gap-1 stroke-[1.5px] p-2 dark:bg-ms-black bg-ms-white border border-ms-grey rounded-md">
+                                                <?=$reaction['emoji']?>
+                                            </div>
+                                        <?php endforeach ?>
+
+                                    </div>
+
+                                <?php else: ?>
+
+                                    <div data-exch="<?=$exchange->id?>" class="hidden use-reaction-list flex gap-2 mt-2">
+                                        
+                                    </div>
+
+                                <?php endif ?>
                             </div>
 
                         <?php endif ?>

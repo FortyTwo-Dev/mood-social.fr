@@ -89,16 +89,15 @@
 
                     <?php if (isset($exchange)): ?>
 
-                    <form action="/talk/exchange/show/" method="GET" class="w-full border p-4 rounded-md last:mb-4">
+                    <form action="/talk/exchange/show/" method="GET" class="w-full border p-4 rounded-md last:mb-4 group/reaction">
                         <input type="hidden" name="exchange_id" value="<?=$exchange->id?>">
-                        <button class="w-full flex flex-row gap-4">
+                        <button class="w-full flex flex-row gap-4 cursor-pointer">
 
                             <div class="bg-ms-<?=$mood['color']?> h-6 w-6 p-8 rounded-full flex items-center justify-center text-4xl font-semibold text-ms-<?=$mood['text_color']?>">A</div>
 
                             <div class="w-full flex items-center overflow-hidden">
                                 <h2 class="text-lg font-medium truncate"><?=$exchange->username?></h2>
                             </div>
-
                         </button>
                     </form>
 

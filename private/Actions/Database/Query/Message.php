@@ -45,7 +45,7 @@ function GetGroupMessages($talk_id) {
 }
 
 function GetExchangeMessages(int $user_id) {
-    $query = "SELECT sender_user_id, receiver_user_id, content, file_path, updated_at, created_at FROM EXCHANGES WHERE (sender_user_id = :user_id OR receiver_user_id = :user_id) AND (sender_user_id = :current_user_id OR receiver_user_id = :current_user_id) ORDER BY created_at DESC;";
+    $query = "SELECT id, sender_user_id, receiver_user_id, content, file_path, updated_at, created_at FROM EXCHANGES WHERE (sender_user_id = :user_id OR receiver_user_id = :user_id) AND (sender_user_id = :current_user_id OR receiver_user_id = :current_user_id) ORDER BY created_at DESC;";
     $stmt = Connection()->prepare($query);
     $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT); 
     $stmt->bindValue(':current_user_id', GetUserId(), PDO::PARAM_INT); 
