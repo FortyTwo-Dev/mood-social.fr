@@ -170,6 +170,8 @@ function Logout() {
     session_destroy();
     ToRoute('/');
 }
+
+
 function Delete() {
 
     $request = DeleteValidation();
