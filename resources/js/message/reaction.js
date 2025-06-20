@@ -2,7 +2,24 @@ const reactionsPlus = document.querySelectorAll(".reaction-plus");
 const useReactionList = document.querySelectorAll(".use-reaction-list");
 const reactionDialog = document.getElementById("reaction-dialog");
 
-console.log(useReactionList);
+function decodeHtmlspecialChars(text) {
+    var map = {
+        '&amp;': '&',
+        '&#038;': "&",
+        '&lt;': '<',
+        '&gt;': '>',
+        '&quot;': '"',
+        '&#039;': "'",
+        '&#8217;': "’",
+        '&#8216;': "‘",
+        '&#8211;': "–",
+        '&#8212;': "—",
+        '&#8230;': "…",
+        '&#8221;': '”'
+    };
+
+    return text.replace(/\&[\w\d\#]{2,5}\;/g, function(m) { return map[m]; });
+};
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -24,8 +41,7 @@ useReactionList.forEach((reactionlist) => {
   reactionlist.querySelectorAll(".use-reaction").forEach((reaction) => {
     reaction.addEventListener("click", () => {
 
-      deleteReaction(reaction.dataset.reactionId, reactionlist.dataset.exch);
-      reaction.remove();
+      deleteUseReaction(reaction.dataset.reactionId, reactionlist.dataset.exch, reaction);
 
     })
 
@@ -38,7 +54,7 @@ function showReactions(color, text, id) {
   reactions = data.reactions
     .map(
       (reaction) =>
-        `<li data-id="${reaction.id}" class="reaction flex items-center justify-center stroke-[1.5px] rounded-md max-w-16 max-h-16 w-fit h-fit p-2 bg-ms-${color} text-ms-${text} cursor-pointer" title="${reaction.name}">${reaction.emoji}</li>`
+        `<li data-id="${reaction.id}" class="reaction flex items-center justify-center stroke-[1.5px] rounded-md max-w-16 max-h-16 w-fit h-fit p-2 bg-ms-${color} text-ms-${text} cursor-pointer" title="${reaction.name}">${decodeHtmlspecialChars(reaction.emoji)}</li>`
     )
     .join("");
 
@@ -47,12 +63,12 @@ function showReactions(color, text, id) {
   document.querySelectorAll(".reaction").forEach((reactionAction) => {
     reactionAction.addEventListener("click", () => {
       reactionDialog.close();
-      submitUseReaction(reactionAction.dataset.id, id);
+      submitUseReaction(reactionAction.dataset.id, id, color);
     });
   });
 }
 
-function addReaction(reactionId, exchangeId) {
+function addReaction(reactionId, exchangeId, color) {
   const userReactionList = document.querySelector(`[data-exch="${exchangeId}"]`);
   const data = JSON.parse(sessionStorage.getItem("reactions"));
 
@@ -71,9 +87,9 @@ function addReaction(reactionId, exchangeId) {
 
   const reactionDiv = document.createElement("div");
   reactionDiv.className =
-    "use-reaction flex gap-1 stroke-[1.5px] p-2 dark:bg-ms-black bg-ms-white border border-ms-grey rounded-md";
+    `use-reaction flex gap-1 stroke-[1.5px] p-2 bg-ms-${color}/20 border border-ms-${color} rounded-md`;
   reactionDiv.setAttribute("data-reaction-id", reaction.id);
-  reactionDiv.innerHTML = reaction.emoji;
+  reactionDiv.innerHTML = decodeHtmlspecialChars(reaction.emoji);
 
   reactionDiv.addEventListener("click", function () {
     this.remove();
@@ -83,11 +99,11 @@ function addReaction(reactionId, exchangeId) {
   userReactionList.classList.remove("hidden");
 }
 
-function deleteReaction(reactionId, exchangeId) {
-  deleteUseReaction(reactionId, exchangeId);
+function deleteReaction(reaction) {
+  reaction.remove();
 }
 
-async function submitUseReaction(reactionId, exchangeId) {
+async function submitUseReaction(reactionId, exchangeId, color) {
   const res = await fetch("/api/message/reaction/store/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -103,13 +119,13 @@ async function submitUseReaction(reactionId, exchangeId) {
   if (result.success) {
     await sleep(200);
 
-    addReaction(reactionId, exchangeId);
+    addReaction(reactionId, exchangeId, color);
   } else {
     alert("Une erreur c'est produit.");
   }
 }
 
-async function deleteUseReaction(reactionId, exchangeId) {
+async function deleteUseReaction(reactionId, exchangeId, reaction) {
   const res = await fetch("/api/message/reaction/delete/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -125,9 +141,7 @@ async function deleteUseReaction(reactionId, exchangeId) {
   if (result.success) {
     await sleep(200);
 
-    deleteReaction(reactionId, exchangeId);
-  } else {
-    alert("Une erreur c'est produit.");
+    deleteReaction(reaction);
   }
 }
 

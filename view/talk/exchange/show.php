@@ -51,13 +51,26 @@
                                     <svg class="stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11v1a10 10 0 1 1-9-10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/><path d="M16 5h6"/><path d="M19 2v6"/></svg>
                                 </div>
                                 
-                                 <?php if (GetExchangeReactions(GetUserId(), $exchange->id) !== null): ?>
+                                 <?php if (GetExchangeReactions($exchange->id) !== null): ?>
 
                                     <div data-exch="<?=$exchange->id?>" class="use-reaction-list flex flex-row-reverse gap-2 mt-2">
-                                        <?php foreach(GetExchangeReactions(GetUserId(), $exchange->id) as $reaction): ?>
-                                            <div data-reaction-id="<?=$reaction['id']?>" class="use-reaction flex gap-1 stroke-[1.5px] p-2 dark:bg-ms-black bg-ms-white border border-ms-grey rounded-md">
-                                                <?=$reaction['emoji']?>
+                                        <?php foreach(GetExchangeReactions($exchange->id) as $reaction): ?>
+
+                                            <?php if (GetUserId() == $reaction['user_id']): ?>
+
+                                            <div data-reaction-id="<?=$reaction['id']?>" class="use-reaction flex gap-1 stroke-[1.5px] p-2 bg-ms-<?=$mood['color']?>/20 border border-ms-<?=$mood['color']?> rounded-md">
+                                                <?=htmlspecialchars_decode($reaction['emoji'])?>
                                             </div>
+
+                                            <?php else: ?>
+
+                                                <div data-reaction-id="<?=$reaction['id']?>" class="use-reaction flex gap-1 stroke-[1.5px] p-2 dark:bg-ms-black bg-ms-white border border-ms-grey rounded-md">
+                                                <?= htmlspecialchars_decode($reaction['emoji'])?>
+                                        
+                                            </div>
+
+                                            <?php endif ?>
+
                                         <?php endforeach ?>
 
                                     </div>
@@ -73,8 +86,9 @@
 
                         <?php else: ?>
 
-                            <div class="border p-4 rounded-md first:mb-8">
-                                <div class="w-full flex flex-row">
+                            <div class="relative first:mb-8 group/reaction">
+
+                                <div class="w-full flex flex-row border p-4 rounded-md ">
                                     <div class="bg-ms-<?=$mood['color']?> h-6 w-6 p-8 rounded-full"></div>
                                     <div class="w-full flex flex-col gap-2 pl-4">
                                         <h2 class="text-lg font-medium"><?=$data['receiver_user']->username?></h2>
@@ -93,13 +107,25 @@
                                     <svg class="stroke-[1.5px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11v1a10 10 0 1 1-9-10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/><path d="M16 5h6"/><path d="M19 2v6"/></svg>
                                 </div>
                                 
-                                 <?php if (GetExchangeReactions(GetUserId(), $exchange->id) !== null): ?>
+                                 <?php if (GetExchangeReactions($exchange->id) !== null): ?>
 
                                     <div data-exch="<?=$exchange->id?>" class="use-reaction-list flex flex-row-reverse gap-2 mt-2">
-                                        <?php foreach(GetExchangeReactions(GetUserId(), $exchange->id) as $reaction): ?>
-                                            <div data-reaction-id="<?=$reaction['id']?>" class="use-reaction flex gap-1 stroke-[1.5px] p-2 dark:bg-ms-black bg-ms-white border border-ms-grey rounded-md">
-                                                <?=$reaction['emoji']?>
-                                            </div>
+                                        <?php foreach(GetExchangeReactions($exchange->id) as $reaction): ?>
+
+                                            <?php if (GetUserId() == $reaction['user_id']): ?>
+
+                                                <div data-reaction-id="<?=$reaction['id']?>" class="use-reaction flex gap-1 stroke-[1.5px] p-2 bg-ms-<?=$mood['color']?>/20 border border-ms-<?=$mood['color']?> rounded-md">
+                                                    <?=htmlspecialchars_decode($reaction['emoji'])?>
+                                                </div>
+
+                                            <?php else: ?>
+
+                                                <div data-reaction-id="<?=$reaction['id']?>" class="use-reaction flex gap-1 stroke-[1.5px] p-2 dark:bg-ms-black bg-ms-white border border-ms-grey rounded-md">
+                                                <?=htmlspecialchars_decode($reaction['emoji'])?>
+                                                </div>
+
+                                            <?php endif ?>
+
                                         <?php endforeach ?>
 
                                     </div>

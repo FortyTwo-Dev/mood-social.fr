@@ -6,13 +6,13 @@
     
     <?php include( $root . '/resources/layout/header.php' ) ?>
 
-    <input type="hidden" class="text-ms-grey bg-ms-grey border-ms-grey shadow-ms-grey fill-ms-grey outline-ms-grey ring-ms-grey stroke-ms-grey">
-    <input type="hidden" class="text-ms-yellow bg-ms-yellow border-ms-yellow shadow-ms-yellow fill-ms-yellow outline-ms-yellow ring-ms-yellow stroke-ms-yellow">
-    <input type="hidden" class="text-ms-purple bg-ms-purple border-ms-purple shadow-ms-purple fill-ms-purple outline-ms-purple ring-ms-purple stroke-ms-purple">
-    <input type="hidden" class="text-ms-red bg-ms-red border-ms-red shadow-ms-red fill-ms-red outline-ms-red ring-ms-red stroke-ms-red">
-    <input type="hidden" class="text-ms-blue bg-ms-blue border-ms-blue shadow-ms-blue fill-ms-blue outline-ms-blue ring-ms-blue stroke-ms-blue">
-    <input type="hidden" class="text-ms-white bg-ms-white border-ms-white shadow-ms-white fill-ms-white outline-ms-white ring-ms-white stroke-ms-white">
-    <input type="hidden" class="text-ms-black bg-ms-black border-ms-black shadow-ms-black fill-ms-black outline-ms-black ring-ms-black stroke-ms-black">
+    <input type="hidden" class="text-ms-grey bg-ms-grey bg-ms-grey/20 border-ms-grey shadow-ms-grey fill-ms-grey outline-ms-grey ring-ms-grey stroke-ms-grey">
+    <input type="hidden" class="text-ms-yellow bg-ms-yellow bg-ms-yellow/20 border-ms-yellow shadow-ms-yellow fill-ms-yellow outline-ms-yellow ring-ms-yellow stroke-ms-yellow">
+    <input type="hidden" class="text-ms-purple bg-ms-purple bg-ms-purple/20 border-ms-purple shadow-ms-purple fill-ms-purple outline-ms-purple ring-ms-purple stroke-ms-purple">
+    <input type="hidden" class="text-ms-red bg-ms-red bg-ms-red/20 border-ms-red shadow-ms-red fill-ms-red outline-ms-red ring-ms-red stroke-ms-red">
+    <input type="hidden" class="text-ms-blue bg-ms-blue bg-ms-blue/20 border-ms-blue shadow-ms-blue fill-ms-blue outline-ms-blue ring-ms-blue stroke-ms-blue">
+    <input type="hidden" class="text-ms-white bg-ms-white bg-ms-white/20 border-ms-white shadow-ms-white fill-ms-white outline-ms-white ring-ms-white stroke-ms-white">
+    <input type="hidden" class="text-ms-black bg-ms-black bg-ms-black/20 border-ms-black shadow-ms-black fill-ms-black outline-ms-black ring-ms-black stroke-ms-black">
 
     <main class="">
         <section class="h-svh flex flex-col sm:gap-8 gap-10 items-center justify-center bg-ms-white dark:bg-ms-black">

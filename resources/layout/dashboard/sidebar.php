@@ -30,5 +30,12 @@
                 <p>Sécurités</p>
             </a>
         </li>
+        <li class="w-full py-2 px-4 text-2xl font-medium <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/dashboard/reactions/")): ?> bg-ms-yellow text-ms-black <?php else: ?> hover:bg-ms-yellow/20 <?php endif; ?>">
+            <a href="/dashboard/reactions/" class="flex items-center gap-4">
+   
+                <svg class="stroke-2 <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/dashboard/reactions/")): ?> stroke-ms-black <?php else: ?> stroke-ms-black <?php endif; ?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11v1a10 10 0 1 1-9-10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/><path d="M16 5h6"/><path d="M19 2v6"/></svg>
+                <p>Reactions</p>
+            </a>
+        </li>
     </ul>
 </nav>

@@ -21,6 +21,17 @@ function Unique(string $column, string $table, $value, string $message = "Alread
     }
 }
 
+function UniqueExept(string $column, string $table, $value, string $exept_colum, string $exept_value, string $message = "Already exists.", int $pdo_param = 2) {
+    $query = "SELECT $column FROM $table WHERE $column = :value AND $exept_colum <> :exept_value;";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindParam(':value', $value, $pdo_param);
+    $stmt->bindParam(':exept_value', $exept_value, $pdo_param);
+    $stmt->execute();
+    if ($stmt->fetchColumn() !== false) {
+        ToRoute(Back(), $message, 'error');
+    }
+}
+
 function Exist(string $column, string $table, $value, string $message = "Does not exist.", int $pdo_param = 2) {
     $query = "SELECT $column FROM $table WHERE $column = :value;";
     $stmt = Connection()->prepare($query);
@@ -84,7 +95,6 @@ function UploadFile(array $file, string $path) {
         ToRoute(Back(), 'Erreur lors de l\'enregistrement', 'error');
     }
 }
-
 
 function Banned(string $email, string $message ='Banned.') {
     $query = "SELECT status FROM USERS WHERE email = :email AND status = 'banned'";

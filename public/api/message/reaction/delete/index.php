@@ -28,7 +28,11 @@ if ($exchange_id && $reaction_id) {
     
     $stmt->execute();
 
-    echo json_encode(['success' => true]);
+    if ($stmt->rowCount() > 0) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'error' => 'error']);
+    }
 } else {
     echo json_encode(['success' => false, 'error' => 'ID manquant']);
 }
