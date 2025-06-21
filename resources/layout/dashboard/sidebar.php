@@ -65,10 +65,7 @@
 
         <li class="w-full py-2 px-4 text-2xl font-medium <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/dashboard/profil/")): ?> bg-ms-red text-white <?php else: ?> hover:bg-ms-red/20 <?php endif; ?>">
             <a href="/dashboard/profil/" class="flex items-center gap-4">
-                <svg class="stroke-2 <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/dashboard/profil/")): ?> stroke-ms-white <?php else: ?> stroke-ms-black <?php endif; ?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-                    <path d="M12 22V2" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 <p>Profil</p>
             </a>
         </li>
