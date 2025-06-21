@@ -47,13 +47,13 @@
 
 
                         <?php if (!empty($image['head'])): ?>
-                            <img src="data:image/png;base64,<?= $image['head'] ?>" class="  absolute w-36 h-36 object-cover z-20 top-0" alt="head">
+                            <img src="data:image/png;base64,<?= $image['head'] ?>" class="  absolute w-10 h-10 object-cover z-10 bottom-4 right-3" alt="head">
                         <?php endif; ?>
                         <?php if (!empty($image['beard'])): ?>
-                            <img src="data:image/png;base64,<?= $image['beard'] ?>" class=" absolute w-24 h-24 object-cover z-20 -bottom-14 right-4" alt="beard">
+                            <img src="data:image/png;base64,<?= $image['beard'] ?>" class=" absolute w-10 h-10 object-cover z-20 bottom-4 left-1.5 " alt="beard">
                         <?php endif; ?>
                         <?php if (!empty($image['hat'])): ?>
-                            <img src="data:image/png;base64,<?= $image['hat'] ?>" class="  absolute w-24 h-24 object-cover z-30 -top-13 right-4" alt="hat">
+                            <img src="data:image/png;base64,<?= $image['hat'] ?>" class="  absolute w-10 h-10 object-cover z-10 top-0.5 right-10.5" alt="hat">
                         <?php endif; ?>
 
                         <button id="toggle-options"

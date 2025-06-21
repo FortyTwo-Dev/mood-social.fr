@@ -43,89 +43,81 @@
         </ul>
       </div>
 
-      
-      
-        <div class="col-span-8 overflow-hidden rounded-xl sm:px-8 sm:shadow">
-          <div class="border-b pt-4 pb-8">
-            <h1 class="py-2 text-2xl font-semibold">Notification settings</h1>
-            <p class="font-">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-          </div>
-          <div class="grid border-b py-6 sm:grid-cols-2">
-            <div class="">
-              <h2 class="text-lg font-semibold leading-4 ">Comments</h2>
-              <p class="font-">Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis neque.</p>
-            </div>
-            <div class="mt-4 flex items-center sm:justify-end">
-              <div class="flex flex-col gap-3">
-                <label for="push" class="relative inline-flex cursor-pointer items-center">
-                  <input type="checkbox" value="" id="push" class="peer sr-only" checked />
-                  <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Push</span>
-                </label>
-                <label for="email" class="relative inline-flex cursor-pointer items-center">
-                  <input type="checkbox" value="" id="email" class="peer sr-only" checked />
-                  <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Email</span>
-                </label>
-                <label for="sms" class="relative inline-flex cursor-pointer items-center">
-                  <input type="checkbox" value="" id="sms" class="peer sr-only" />
-                  <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">SMS</span>
-                </label>
-              </div>
-            </div>
-          </div>
 
-          <div class="grid border-b py-6 sm:grid-cols-2">
-            <div class="">
-              <h2 class="text-lg font-semibold leading-4 ">Reminders</h2>
-              <p class="font-">Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis neque.</p>
+
+      <div class="col-span-8 overflow-hidden rounded-xl sm:px-8 sm:shadow">
+        <div class="pt-4 pb-8">
+          <form class="space-y-4">
+            <div>
+              <label for="state" class="block text-sm font-medium text-gray-700 mb-2">
+                État/Région
+              </label>
+              <input
+                type="text"
+                id="state"
+                name="state"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                placeholder="Entrez l'état ou la région">
             </div>
-            <div class="mt-4 flex items-center sm:justify-end">
-              <div class="flex flex-col gap-3">
-                <label for="push" class="relative inline-flex cursor-pointer items-center">
-                  <input type="checkbox" value="" id="push" class="peer sr-only" />
-                  <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Push</span>
-                </label>
-                <label for="email" class="relative inline-flex cursor-pointer items-center">
-                  <input type="checkbox" value="" id="email" class="peer sr-only" checked />
-                  <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Email</span>
-                </label>
-                <label for="sms" class="relative inline-flex cursor-pointer items-center">
-                  <input type="checkbox" value="" id="sms" class="peer sr-only" />
-                  <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">SMS</span>
-                </label>
-              </div>
+
+            <div>
+              <label for="visibility" class="block text-sm font-medium text-gray-700 mb-2">
+                Visibilité
+              </label>
+              <select
+                id="visibility"
+                name="visibility"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200">
+                <option value="">Sélectionnez la visibilité</option>
+                <option value="public">Public</option>
+                <option value="private">Privé</option>
+              </select>
             </div>
-          </div>
-          <div class="grid border-b py-6 sm:grid-cols-2">
-            <div class="">
-              <h2 class="text-lg font-semibold leading-4">Updates</h2>
-              <p class="font-">Lorem ipsum dolor, Alias eligendi laboriosam magni reiciendis neque.</p>
+
+            <div>
+              <label for="street" class="block text-sm font-medium text-gray-700 mb-2">
+                Rue
+              </label>
+              <input
+                type="text"
+                id="street"
+                name="street"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                placeholder="Entrez l'adresse de la rue">
             </div>
-            <div class="mt-4 flex items-center sm:justify-end">
-              <div class="flex flex-col gap-3">
-                <label for="push" class="relative inline-flex cursor-pointer items-center">
-                  <input type="checkbox" value="" id="push" class="peer sr-only" />
-                  <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Push</span>
-                </label>
-                <label for="email" class="relative inline-flex cursor-pointer items-center">
-                  <input type="checkbox" value="" id="email" class="peer sr-only" />
-                  <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Email</span>
-                </label>
-                <label for="sms" class="relative inline-flex cursor-pointer items-center">
-                  <input type="checkbox" value="" id="sms" class="peer sr-only" />
-                  <div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-                  <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">SMS</span>
-                </label>
-              </div>
+
+            <div>
+              <label for="city" class="block text-sm font-medium text-gray-700 mb-2">
+                Ville
+              </label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                placeholder="Entrez la ville">
             </div>
-          </div>
+
+            <div>
+              <label for="country" class="block text-sm font-medium text-gray-700 mb-2">
+                Pays
+              </label>
+              <input
+                type="text"
+                id="country"
+                name="country"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                placeholder="Entrez le pays">
+            </div>
+
+            <div class="pt-4">
+              <button
+                type="submit"
+                class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 font-medium">
+                Envoyer
+              </button>
+            </div>
+          </form>
         </div>
       </div>
       <div id="toggle-theme-button" class="fixed right-0 top-0 mr-8 max-2xl:hidden">
@@ -145,6 +137,6 @@
             <path d="m19.07 4.93-1.41 1.41" />
           </svg>
         </div>
-      <script src="/resources/js/theme.js"></script>
-    </div>
+        <script src="/resources/js/theme.js"></script>
+      </div>
 </body>

@@ -12,24 +12,38 @@ function StoreValidation()
     $content = ValidatePost('content');
     $user_id = GetUserId();
 
-    if ($_FILES['image']['error'] == 0) {
-        $image = $_FILES['image'];
-    }
-
     $filename = NULL;
-
-    if ($_FILES['image']['error'] == 0) {
-        FileExist('image');
-        FileMaxSize($image, 5);
-        AllowedFilesTypes($image, $allowedFilesTypes);
-    }
 
     Required([$content, $user_id]);
 
-    if ($_FILES['image']['error'] == 0) {
-        $filename = UniqueFileName($image, 'feed_' . $user_id . '_');
+    if (FileExist('drawing')) {
+        $image = $_FILES['drawing'];
+    } else {
+        if (FileExist('image')) {
+            $image = $_FILES['image'];
+        }
+    }
+
+    if (FileExist('drawing')) {
+        FileMaxSize($image, 5);
+        AllowedFilesTypes($image, $allowedFilesTypes);
+    } else {
+        if (FileExist('image')) {
+            FileMaxSize($image, 5);
+            AllowedFilesTypes($image, $allowedFilesTypes);
+        }
+    }
+
+    if (FileExist('drawing')) {
+        $filename = UniqueFileName($image, 'draw_' . $user_id . '_');
 
         UploadFile($image, $_SERVER['DOCUMENT_ROOT'] . '/storage/feed/' . $filename);
+    } else {
+        if (FileExist('image')) {
+            $filename = UniqueFileName($image, 'feed' . $user_id . '');
+
+            UploadFile($image, $_SERVER['DOCUMENT_ROOT'] . '/storage/feed/' . $filename);
+        }
     }
 
     return [

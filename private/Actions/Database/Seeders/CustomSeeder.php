@@ -4,13 +4,13 @@ include_once($root . '/private/Actions/Database/Database.php');
 function CustomSeeder(PDO $conn) {
     $customs = [
 
-        [ 'image' => "cat.png", 'category' => "head", 'user_id' => "2"],
-        [ 'image' => "dog.png", 'category' => "head", 'user_id' => "2"],
-        [ 'image' => "panda.png", 'category' => "head", 'user_id' => "2"],
+        [ 'image' => "bag_job.png", 'category' => "head", 'user_id' => "2"],
+        [ 'image' => "bag_travel.png", 'category' => "head", 'user_id' => "2"],
+        [ 'image' => "bag_school.png", 'category' => "head", 'user_id' => "2"],
 
-        [ 'image' => "barbe_noel.png", 'category' => "beard", 'user_id' => "2"],
-        [ 'image' => "barbe_rue.png", 'category' => "beard", 'user_id' => "2"],
-        [ 'image' => "moustache.png", 'category' => "beard", 'user_id' => "2"],
+        [ 'image' => "banane.png", 'category' => "beard", 'user_id' => "2"],
+        [ 'image' => "cerise.png", 'category' => "beard", 'user_id' => "2"],
+        [ 'image' => "melon.png", 'category' => "beard", 'user_id' => "2"],
 
         [ 'image' => "study_hat.png", 'category' => "hat", 'user_id' => "2"],
         [ 'image' => "hard.png", 'category' => "hat", 'user_id' => "2"],
