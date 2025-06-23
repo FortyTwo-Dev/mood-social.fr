@@ -12,7 +12,7 @@
 	MethodVerify("GET");
 
 	if (!IsAdmin()) { ToRoute('/'); }
-	$users = GetAllUsers("id, username");
+	$users = GetAllUsers("id, username,status");
 	LogAction();
 ?>
 

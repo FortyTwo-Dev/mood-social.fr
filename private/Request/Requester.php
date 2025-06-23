@@ -99,7 +99,7 @@ function UploadFile(array $file, string $path) {
 function Banned(string $email, string $message ='Banned.') {
     $query = "SELECT status FROM USERS WHERE email = :email AND status = 'banned'";
     $stmt = Connection()->prepare($query);
-    $stmt->bindValue(':email',$email, PDO::PARAM_INT);
+    $stmt->bindValue(':email',$email, PDO::PARAM_STR);
     $stmt->execute();
     $banned_user = $stmt->fetch(PDO::FETCH_ASSOC);
 

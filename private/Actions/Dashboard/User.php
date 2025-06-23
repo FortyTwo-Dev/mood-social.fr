@@ -1,6 +1,7 @@
 <?php
 include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Routing/Route.php');
+include_once($root . '/private/Actions/Dashboard/Moderation.php');
 
 include_once($root . '/private/Request/Dashboard/User/ShowRequest.php');
 
@@ -10,6 +11,9 @@ function Show() {
 
     $user = GetUserWithId(
     'username, email, state, street, city, country, description, updated_at, created_at, email_verified_at, status, banned_until, ban_start, ban_duration, ban_reason',$request['user_id']);
+
+
+    UnbanVerification($user);
 
     $moods = GetAllUserMood($request['user_id']);
 
