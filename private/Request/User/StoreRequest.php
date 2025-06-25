@@ -25,6 +25,19 @@ function StoreValidation() {
         ToRoute(Back(), 'Les mots de passe ne correspondent pas.', 'error');
     }
 
+    if (
+    strlen($password) < 8 ||
+    !preg_match('/[A-Z]/', $password) ||
+    !preg_match('/[a-z]/', $password) ||
+    !preg_match('/[0-9]/', $password) 
+) {
+    ToRoute(
+        Back(),
+        'Le mot de passe ne respecte pas les critères de sécurité requis. Il doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.',
+        'error'
+    );
+}
+
     if ($captcha !== "on") {
         ToRoute(Back(), 'Il faut compléter le captcha', 'error');
     }
