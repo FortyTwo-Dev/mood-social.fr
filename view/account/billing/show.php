@@ -18,11 +18,11 @@
         </ul>
       </div>
 
-      <div class="col-span-2 hidden sm:block">
+            <div class="col-span-2 hidden sm:block">
         <ul>
           <a
             href='/account/show/'
-            class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">
+            class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700 ">
             Accounts
           </a>
           <a
@@ -32,16 +32,17 @@
           </a>
           <a
             href='/account/billing/show/'
-            class="mt-5 block cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700">
+            class="mt-5 block cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700">
             Billing
           </a>
           <a
-            href='/account/notification/show/'
+            href='/account/infos/show/'
             class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">
-            Notifications
+            infos
           </a>
         </ul>
       </div>
+
 
       <div class="col-span-8 overflow-hidden rounded-xl sm:px-8 sm:shadow">
         <div class="pt-4">

@@ -35,9 +35,9 @@
                         Billing
                     </a>
                     <a
-                        href='/account/notification/show/'
+                        href='/account/infos/show/'
                         class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">
-                        Notifications
+                        infos
                     </a>
                 </ul>
             </div>

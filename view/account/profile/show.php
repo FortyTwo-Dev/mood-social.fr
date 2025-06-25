@@ -8,12 +8,29 @@
         <div class="grid grid-cols-8 pt-3 sm:grid-cols-10">
             <div class="col-span-2 hidden sm:block">
                 <ul>
-                    <a href="/account/show/" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Accounts</a>
-                    <a href="/account/profile/show/" class="mt-5 block cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700">Profile</a>
-                    <a href="/account/billing/show/" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Billing</a>
-                    <a href="/account/notification/show/" class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">Notifications</a>
+                    <a
+                        href='/account/show/'
+                        class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700 ">
+                        Accounts
+                    </a>
+                    <a
+                        href='/account/profile/show/'
+                        class="mt-5 block cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700">
+                        Profile
+                    </a>
+                    <a
+                        href='/account/billing/show/'
+                        class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">
+                        Billing
+                    </a>
+                    <a
+                        href='/account/infos/show/'
+                        class="mt-5 block cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700">
+                        infos
+                    </a>
                 </ul>
             </div>
+
             <div id="toggle-theme-button" class="fixed right-0 top-0 mr-8 max-2xl:hidden">
                 <div class="relative mr-8 mt-6">
                     <svg id="moon" class="absolute stroke-[1.5px] mr-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
