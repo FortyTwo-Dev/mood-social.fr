@@ -23,5 +23,7 @@ function SeedAllTable() {
     echo "Seed table - TALKS\n";
     TalkSeeder($conn);
     echo "Seed table - CUSTOMS\n";
-    CustomSeeder($conn);
+    CustomSeeder($conn);    
+    echo "Seed table - BADGES\n";
+    BadgeSeeder($conn);
 }

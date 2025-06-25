@@ -21,6 +21,9 @@
     if (!EmailVerified()) { ToRoute('/'); }
 
     $user = Show();
-?>
 
+    // var_dump($user);
+
+
+?>
 <?php include( $root . '/view/profil/show.php' ) ?>

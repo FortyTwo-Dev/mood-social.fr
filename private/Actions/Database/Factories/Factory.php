@@ -31,6 +31,8 @@ function CreateAllTables(PDO $conn): bool {
         CreateNewsletterTable($conn);
         CreateCustomTable($conn);
         CreateUserCustomTable($conn);
+        CreateBadgeTable($conn);
+        CreateUserBadgeTable($conn);
         return true;
 
     } catch (PDOException $e) {
@@ -40,7 +42,7 @@ function CreateAllTables(PDO $conn): bool {
 }
 
 function DropAllTables(PDO $conn) {
-    $conn->prepare('DROP TABLE IF EXISTS USER_CUSTOM, USER_EXCHANGE_REACTION, USER_MESSAGE_REACTION, MESSAGE_LIKES, EVENT_LIKES, USER_MOOD, USER_EVENT, USER_TALK, FRIENDS, FOLLOWERS, EXCHANGES, LOGS, NEWSLETTERS, CUSTOMS, CAPTCHAS, ROLE_RIGHT, MESSAGES, EVENTS, MOODS, REACTIONS, USERS, TALKS, SUBSCRIPTIONS, ROLES, RIGHTS;')->execute();
+    $conn->prepare('DROP TABLE IF EXISTS USER_CUSTOM, USER_EXCHANGE_REACTION, USER_MESSAGE_REACTION, MESSAGE_LIKES, EVENT_LIKES, USER_MOOD, USER_EVENT, USER_TALK, FRIENDS, FOLLOWERS, EXCHANGES, LOGS, NEWSLETTERS, CUSTOMS, CAPTCHAS, ROLE_RIGHT, MESSAGES, EVENTS, MOODS, REACTIONS, USERS, TALKS, SUBSCRIPTIONS, ROLES, RIGHTS, BADGES, USER_BADGE;')->execute();
 }
 
 function ResetDatabase() {
