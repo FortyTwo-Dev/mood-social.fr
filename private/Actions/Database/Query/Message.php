@@ -28,6 +28,7 @@ function GetFeedMessages() {
                 )
             )
             AND MESSAGES.message_id IS NULL
+            AND (USERS.status IS NULL OR USERS.status != 'banned')
             GROUP BY MESSAGES.id
             ORDER BY MESSAGES.created_at DESC";
     $stmt = Connection()->prepare($query);
@@ -51,4 +52,12 @@ function GetExchangeMessages(int $user_id) {
     $stmt->bindValue(':current_user_id', GetUserId(), PDO::PARAM_INT); 
     $stmt->execute();
     return ($stmt->fetchAll(PDO::FETCH_OBJ));
+}
+
+function GetFeedMessagesById(int $user_id) {
+    $query = "SELECT * FROM MESSAGES WHERE user_id = :id ORDER BY created_at DESC";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
