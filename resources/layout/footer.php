@@ -2,13 +2,13 @@
     <div class="w-full flex flex-col gap-4 my-6">
         <nav class="w-full flex justify-center items-center ">
             <ul class="w-full flex sm:flex-row flex-col justify-center items-center gap-8">
-                <li><a href="/legal/privacy_policy/" class="hover:underline">Privacy Policy</a></li>
-                <li><a href="/legal/terms_of_service" class="hover:underline">Terms of Service</a></li>
-                <li><a href="/legal/cookies" class="hover:underline">Cookies Settings</a></li>
+                <li><a href="/legal/privacy_policy/" class="hover:underline">Politique de confidentialité</a></li>
+                <li><a href="/legal/terms_of_service" class="hover:underline">Condition de service</a></li>
+                <li><a href="/legal/cookies" class="hover:underline">Paramètres des Cookies</a></li>
             </ul>
         </nav>
         <div class="w-full flex justify-center items-center">
-            <span class=" font-medium">MoodSocial | All Right Reserved</span>
+            <span class=" font-medium">MoodSocial | Tous droits réservés</span>
         </div>
     </div>
 </footer>

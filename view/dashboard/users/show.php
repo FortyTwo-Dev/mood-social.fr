@@ -1,5 +1,5 @@
 <?php include( $root . '/resources/layout/dashboard/head.php' );?>
-
+<title>Posts</title>
 <body class="w-screen h-screen overflow-hidden bg-ms-white">
     <?php include( $root . '/resources/layout/dashboard/header.php' );?>
     <main class="w-full h-full grid grid-cols-12">
@@ -105,13 +105,19 @@
                     <h2 class="text-2xl font-semibold">Actions</h2>
                     <ul class="flex flex-col gap-4">
                         <li class="flex justify-center items-center p-4 border-ms-blue border rounded-md text-ms-blue bg-ms-white hover:text-ms-white hover:bg-ms-blue">
-                            <button
-                                type="button"
-                                onclick="document.getElementById('moodModal').classList.remove('hidden')"
-                                class="text-2xl font-medium bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-blue hover:text-ms-white">
+                            <a href="/dashboard/users/changeusermood/?id=<?= $_GET['id'] ?>"
+                            class="text-2xl font-medium bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-blue hover:text-ms-white">
                                 Changer le mood actuel
-                            </button>
+                            </a>
                         </li>
+
+                        <li class="flex justify-center items-center p-4 border-ms-blue border rounded-md text-ms-blue bg-ms-white hover:text-white hover:bg-ms-blue">
+                            <a href="/dashboard/users/userposts/?id=<?= $_GET['id'] ?>"
+                            class="group w-full flex justify-center items-center text-2xl font-medium uppercase">
+                            <span class="group-hover:text-white">Voir les posts</span>
+                            </a>
+                        </li>
+
                         <li class="flex justify-center items-center p-4 border-ms-blue border rounded-md text-ms-blue bg-ms-white hover:text-ms-white hover:bg-ms-blue">
                             <form action="/dashboard/users/warning/" method="POST" onsubmit="return confirm('Envoyer un avertissement à cet utilisateur ?');">
                                 <input type="hidden" name="user_id" value="<?= $data['user']->id ?>">
