@@ -36,7 +36,7 @@
 
       <div class="col-span-8 overflow-hidden rounded-xl sm:px-8 sm:shadow">
         <div class="pt-4 pb-8">
-          <form class="space-y-4">
+          <form method="POST" action="/account/infos/update/" class="space-y-4">
             <div>
               <label for="state" class="block text-sm font-medium text-gray-700 mb-2">
                 État/Région
