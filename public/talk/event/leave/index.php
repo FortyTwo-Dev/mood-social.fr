@@ -14,14 +14,14 @@
 
     include_once($root . '/private/Actions/Logs/Logs.php');
 
-    MethodVerify("GET");
+    MethodVerify("POST");
     $mood = SelectedColor();
     LogAction();
 
     if (!EmailVerified()) { ToRoute('/'); }
     if (!IsAuth()) { ToRoute('/auth/login/'); }
 
-    $data = Index();
+    Leave();
 ?>
 
 <?php include( $root . '/view/talk/event/index.php' ) ?>

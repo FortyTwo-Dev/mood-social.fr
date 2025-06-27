@@ -1,5 +1,3 @@
-<!-- Non validé W3C -->
-
 <?php include( $root . '/resources/layout/head.php' ) ?>
 
 <body class="relative transition-colors text-ms-black dark:text-ms-white bg-ms-white dark:bg-ms-black">

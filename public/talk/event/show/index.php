@@ -1,7 +1,7 @@
 <?php
     session_start();
     $root = $_SERVER['DOCUMENT_ROOT'];
-    $page_title = 'MoodSocial - Evenement';
+    $page_title = 'MoodSocial - Evenement - Show';
 
     include_once($root . '/private/Actions/Security/Method.php');
     include_once($root . '/private/Actions/Security/User.php');
@@ -21,7 +21,7 @@
     if (!EmailVerified()) { ToRoute('/'); }
     if (!IsAuth()) { ToRoute('/auth/login/'); }
 
-    $data = Index();
+    $data = Show();
 ?>
 
-<?php include( $root . '/view/talk/event/index.php' ) ?>
+<?php include( $root . '/view/talk/event/show.php' ) ?>

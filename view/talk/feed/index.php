@@ -10,10 +10,10 @@
     <?php require_once($root . '/resources/layout/notification/base.php') ?>
 
     <dialog id="post-dialog">
-        <form method="POST" action="/talk/feed/message/store/" enctype="multipart/form-data" class="max-w-4xl w-full mx-4 p-6 fixed flex flex-col gap-6 justify-center z-50 left-1/2 top-1/2 -translate-1/2 rounded-md bg-ms-white dark:bg-ms-black border-1 border-ms-blue text-ms-black dark:text-ms-white">
+        <form method="POST" action="/talk/feed/message/store/" enctype="multipart/form-data" class="max-w-4xl w-full mx-4 p-6 fixed flex flex-col gap-6 justify-center z-50 left-1/2 top-1/2 -translate-1/2 rounded-md bg-ms-white dark:bg-ms-black border-1 border-ms-<?= $mood['color'] ?> text-ms-black dark:text-ms-white">
             <p class="font-semibold text-2xl text-start">Nouveau post</p>
             <label for="content">Message</label>
-            <textarea name="content" id="content" class="border-2 border-ms-blue rounded-md min-h-40"></textarea>
+            <textarea name="content" id="content" class="border-2 border-ms-<?= $mood['color'] ?> rounded-md min-h-40"></textarea>
             <div id="drawing-container" class="hidden flex flex-col items-center gap-2">
                 <p class="text-sm text-center">Dessinez votre message</p>
                 <canvas id="drawing-canvas" data-color="<?= $mood['color'] ?>" width="300" height="300" class="border-2 border-gray-500 bg-white touch-none"></canvas>
@@ -28,7 +28,7 @@
             </div>
             <div class="w-full flex gap-3 items-center justify-center">
                 <label for="image-upload" class="flex justify-center items-center cursor-pointer">
-                    <svg class="stroke-2 stroke-ms-blue" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="stroke-2 stroke-ms-<?= $mood['color'] ?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 5h6" />
                         <path d="M19 2v6" />
                         <path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5" />
@@ -37,59 +37,11 @@
                     </svg>
                 </label>
                 <input id="image-upload" name="image" type="file" class="hidden">
-                <button type="submit" class="rounded-md hover:underline w-full py-2 bg-ms-blue text-white">Publier</button>
+                <button type="submit" class="rounded-md hover:underline w-full py-2 bg-ms-<?= $mood['color'] ?> text-<?= $mood['text_color'] ?>">Publier</button>
             </div>
             <input type="hidden" name="message_id" value="1">
         </form>
     </dialog>
-
-    <!-- <dialog id="post-dialog">
-        <form method="POST" action="/talk/feed/message/store/" enctype="multipart/form-data" class="max-w-4xl w-full mx-4 p-6 fixed flex flex-col gap-6 justify-center z-50 left-1/2 top-1/2 -translate-1/2 rounded-md bg-ms-white dark:bg-ms-black border-1 border-ms-<?= $mood['color'] ?> dark:border-ms-white text-ms-black dark:text-ms-white">
-            <p class="font-semibold text-2xl text-start">Nouveau post</p>
-            <label for="content">Message</label>
-            <textarea name="content" id="content" class="border-2 border-ms-<?= $mood['color'] ?> rounded-md min-h-40"></textarea>
-            <div class="w-full flex gap-3 items-center justify-center">
-                <label for="image-upload" class="flex justify-center items-center cursor-pointer">
-                    <svg class="stroke-2 stroke-ms-<?= $mood['color'] ?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 5h6" />
-                        <path d="M19 2v6" />
-                        <path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5" />
-                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                        <circle cx="9" cy="9" r="2" />
-                    </svg>
-                </label>
-                <div id="drawing-container" class="hidden flex flex-col items-center gap-2">
-                    <p class="text-sm text-center">Dessinez votre message</p>
-                    <canvas id="drawing-canvas" width="300" height="300" class="border-2 border-ms-gray-500 bg-white touch-none"></canvas>
-                    <button type="button" id="clear-canvas" class="text-red-600 text-sm mt-1">Effacer le dessin</button>
-                    <input type="hidden" name="drawing" id="drawing-data">
-                </div>
-                <input id="image-upload" name="image" type="file" class="hidden">
-                <button type="submit" class="rounded-md hover:underline w-full py-2 bg-ms-<?= $mood['color'] ?> text-ms-<?= $mood['text_color'] ?>">Publier</button>
-            </div>
-        </form>
-    </dialog> -->
-
-    <!-- <dialog id="post-dialog">
-        <form method="POST" action="/talk/feed/message/store/" enctype="multipart/form-data" class="max-w-4xl w-full mx-4 p-6 fixed flex flex-col gap-6 justify-center z-50 left-1/2 top-1/2 -translate-1/2 rounded-md bg-ms-white dark:bg-ms-black border-1 border-ms-<?= $mood['color'] ?> dark:border-ms-white text-ms-black dark:text-ms-white">
-            <p class="font-semibold text-2xl text-start">Nouveau post</p>
-            <label for="content">Message</label>
-            <textarea name="content" id="content" class="border-2 border-ms-<?= $mood['color'] ?> rounded-md min-h-40"></textarea>
-            <div class="w-full flex gap-3 items-center justify-center">
-                <label for="image-upload" class="flex justify-center items-center cursor-pointer">
-                    <svg class="stroke-2 stroke-ms-<?= $mood['color'] ?>" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 5h6" />
-                        <path d="M19 2v6" />
-                        <path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5" />
-                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                        <circle cx="9" cy="9" r="2" />
-                    </svg>
-                </label>
-                <input id="image-upload" name="image" type="file" class="hidden">
-                <button type="submit" class="rounded-md hover:underline w-full py-2 bg-ms-<?= $mood['color'] ?> text-ms-<?= $mood['text_color'] ?>">Publier</button>
-            </div>
-        </form>
-    </dialog> -->
 
     <main class="w-full h-full flex justify-center gap-8 px-4 pt-4">
         <?php include($root . '/resources/layout/talk/sidebar.php'); ?>
@@ -136,7 +88,6 @@
                                             <img src="data:image/png;base64,<?= $image['hat'] ?>" class="  absolute w-5 h-5 object-cover z-10 top-0.5 right-6" alt="hat">
                                         <?php endif; ?>
                                     </div>
-                                    <!-- la ligne au dessus le rond -->
                                     <div class="max-w-full flex flex-col gap-2 pl-4 overflow-hidden">
                                         <h2 class="text-lg font-medium hover:underline"><a href="/profil/show/?username=<?= $message->username ?>"><?= $message->username ?></a></h2>
 
