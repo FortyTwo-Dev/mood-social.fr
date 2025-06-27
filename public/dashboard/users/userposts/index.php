@@ -11,7 +11,7 @@ if (!$user_id) {
     exit;
 }
 
-$user = GetUserId($user_id);
+$user = GetUserWithId('id,username', $user_id);
 $messages = GetFeedMessagesById($user_id);
 
 $data = [

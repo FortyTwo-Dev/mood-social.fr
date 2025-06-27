@@ -3,8 +3,8 @@
         <nav class="w-full flex justify-center items-center ">
             <ul class="w-full flex sm:flex-row flex-col justify-center items-center gap-8">
                 <li><a href="/legal/privacy_policy/" class="hover:underline">Politique de confidentialité</a></li>
-                <li><a href="/legal/terms_of_service" class="hover:underline">Condition de service</a></li>
-                <li><a href="/legal/cookies" class="hover:underline">Paramètres des Cookies</a></li>
+                <li><a href="/legal/terms_of_service" class="hover:underline">Termes d'utilisation</a></li>
+                <li><a href="/legal/legal_notice/index.php" class="hover:underline">Mentions légales</a></li>
             </ul>
         </nav>
         <div class="w-full flex justify-center items-center">

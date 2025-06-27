@@ -3,6 +3,8 @@
     if (!isset($root)) {
         $root = $_SERVER['DOCUMENT_ROOT'];
     }
+
+        $page_title = "Messages de " . (isset($data['user']) ? htmlspecialchars($data['user']->username) : 'Utilisateur inconnu');
     include($root . '/resources/layout/dashboard/head.php');
     include_once($root . '/private/Actions/Routing/Route.php');
 ?>
@@ -27,7 +29,7 @@
                 <li class="border rounded-md p-4">
                     <p class="text-lg post-content"><?= htmlspecialchars($message->content) ?></p>
                     <?php if (!empty($message->path)): ?>
-                    <img src="<?= htmlspecialchars('/storage/feed/' . $message->path) ?>" alt="Post Image" class="mt-2 max-w-full h-auto rounded-md">
+                    <img src="<?= htmlspecialchars( $message->path) ?>" alt="Post Image" class="mt-2 max-w-full h-auto rounded-md">
                     <?php endif; ?>
                     <span class="text-xs text-gray-500 block mt-2"><?= htmlspecialchars($message->created_at) ?></span>
                 </li>

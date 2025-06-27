@@ -113,8 +113,8 @@
 
                         <li class="flex justify-center items-center p-4 border-ms-blue border rounded-md text-ms-blue bg-ms-white hover:text-white hover:bg-ms-blue">
                             <a href="/dashboard/users/userposts/?id=<?= $_GET['id'] ?>"
-                            class="group w-full flex justify-center items-center text-2xl font-medium uppercase">
-                            <span class="group-hover:text-white">Voir les posts</span>
+                            class="group w-full flex justify-center items-center text-2xl font-medium">
+                            <span class="group-hover:text-white">Voir les messages</span>
                             </a>
                         </li>
 

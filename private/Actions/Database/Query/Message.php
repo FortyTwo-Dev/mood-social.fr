@@ -28,7 +28,7 @@ function GetFeedMessages() {
                 )
             )
             AND MESSAGES.message_id IS NULL
-            AND (USERS.status IS NULL OR USERS.status != 'banned')
+gia            AND (USERS.status IS NULL OR USERS.status != 'banned')
             GROUP BY MESSAGES.id
             ORDER BY MESSAGES.created_at DESC";
     $stmt = Connection()->prepare($query);
