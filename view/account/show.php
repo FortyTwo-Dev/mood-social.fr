@@ -141,7 +141,7 @@
                             </button>
                         </form>
 
-                        <a href="/account/export-pdf.php" target="_blank"
+                        <a href="/account/profile/pdf/" target="_blank"
                             class="text-sm font-semibold text-blue-600 underline decoration-2 cursor-pointer">
                             Extraire au format PDF
                         </a>
