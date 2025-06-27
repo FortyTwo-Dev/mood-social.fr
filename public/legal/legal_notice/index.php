@@ -11,8 +11,6 @@ include($root . '/resources/layout/head.php');
     <main class="w-full min-h-screen overflow-y-auto px-6 py-8 pt-20">
         <section class="max-w-4xl mx-auto flex flex-col gap-6">
 
-        <br>
-            <br>
             <h1 class="text-4xl font-bold">Mentions légales</h1>
 
             <h2 class="text-2xl font-semibold">1. Éditeur du site</h2>
