@@ -10,7 +10,7 @@ function Show() {
     $request = ShowValidation();
 
     $user = GetUserWithId(
-    'username, email, state, street, city, country, description, updated_at, created_at, email_verified_at, status, banned_until, ban_start, ban_duration, ban_reason',$request['user_id']);
+    'username, email, state, last_activity, street, city, country, description, updated_at, created_at, email_verified_at, status, banned_until, ban_start, ban_duration, ban_reason',$request['user_id']);
 
 
     UnbanVerification($user);

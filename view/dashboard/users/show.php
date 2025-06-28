@@ -10,7 +10,17 @@
             </div>
             <div class="w-full h-full grid grid-cols-12 grid-rows-8 p-4 gap-4">
                 <section class="relative col-span-3 row-span-4 p-4 flex flex-col items-center justify-between border border-gray-300 hover:border-ms-blue rounded-md">
-                    <div class="absolute h-4 w-4 bg-green-500 rounded-full top-0 right-0 mr-4 mt-4"></div>
+                    <?php if (!empty($data['user']->last_activity)): ?>
+                        <?php if ($data['user']->state == 0 || (time() - strtotime($data['user']->last_activity)) > 900): ?>
+                        <div class="absolute h-4 w-4 bg-red-500 rounded-full top-0 right-0 mr-4 mt-4"></div>
+                        <?php elseif ($data['user']->state == 1): ?>
+                            <div class="absolute h-4 w-4 bg-orange-500 rounded-full top-0 right-0 mr-4 mt-4"></div>
+                        <?php elseif ($data['user']->state == 2): ?>
+                            <div class="absolute h-4 w-4 bg-green-500 rounded-full top-0 right-0 mr-4 mt-4"></div>
+                        <?php endif ?>
+                    <?php else: ?>
+                        <div class="absolute h-4 w-4 bg-red-500 rounded-full top-0 right-0 mr-4 mt-4"></div>
+                    <?php endif ?>
                     <div class="flex flex-col items-center gap-4">
                         <div class=" h-24 w-24 rounded-full bg-gray-300"></div>
                         <p class="text-3xl font-semibold flex items-center gap-2">
