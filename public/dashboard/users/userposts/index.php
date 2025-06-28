@@ -13,10 +13,16 @@ if (!$user_id) {
 
 $user = GetUserWithId('id,username', $user_id);
 $messages = GetFeedMessagesById($user_id);
+$exchanges = GetUserExchangeMessages($user_id);
+
+
 
 $data = [
     'user' => $user,
-    'messages' => $messages,
+    'feed_messages' => $messages,
+    'exchange_messages' => $exchanges,
 ];
 
 include($root . '/view/dashboard/users/userpost.php');
+
+

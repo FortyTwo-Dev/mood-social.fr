@@ -105,7 +105,7 @@
                     <h2 class="text-2xl font-semibold">Actions</h2>
                     <ul class="flex flex-col gap-4">
                         <li class="flex justify-center items-center p-4 border-ms-blue border rounded-md text-ms-blue bg-ms-white hover:text-ms-white hover:bg-ms-blue">
-                            <a href="/dashboard/users/changeusermood/?id=<?= $_GET['id'] ?>"
+                            <a href="/dashboard/users/changemood/?id=<?= $_GET['id'] ?>"
                             class="text-2xl font-medium bg-transparent border-0 cursor-pointer p-0 m-0 text-ms-blue hover:text-ms-white">
                                 Changer le mood actuel
                             </a>

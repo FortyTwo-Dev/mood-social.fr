@@ -54,6 +54,16 @@ function GetExchangeMessages(int $user_id) {
     return ($stmt->fetchAll(PDO::FETCH_OBJ));
 }
 
+function GetUserExchangeMessages(int $user_id) {
+    $query = "SELECT id, sender_user_id, receiver_user_id, content, file_path, updated_at, created_at FROM EXCHANGES WHERE sender_user_id = :user_id ORDER BY created_at DESC;";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);  
+    $stmt->execute();
+    return ($stmt->fetchAll(PDO::FETCH_OBJ));
+}
+
+
+
 function GetFeedMessagesById(int $user_id) {
     $query = "SELECT * FROM MESSAGES WHERE user_id = :id ORDER BY created_at DESC";
     $stmt = Connection()->prepare($query);
