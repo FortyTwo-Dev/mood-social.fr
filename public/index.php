@@ -10,10 +10,8 @@
 
     MethodVerify("GET");
 
-
     $mood = SelectedColor();
     LogAction();
-
 ?>
 
 
