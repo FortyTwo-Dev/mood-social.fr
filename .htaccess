@@ -6,7 +6,6 @@
     RewriteCond %{REQUEST_URI} !^/resources/
     RewriteRule ^(.*)$ /public/$1 [L]
 
-
     ErrorDocument 401 /errors/401/
     ErrorDocument 402 /errors/402/
     ErrorDocument 403 /errors/403/
@@ -14,5 +13,4 @@
     ErrorDocument 429 /errors/429/
     ErrorDocument 500 /errors/500/
     ErrorDocument 503 /errors/503/
-
 </IfModule>

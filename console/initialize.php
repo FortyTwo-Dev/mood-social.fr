@@ -15,4 +15,31 @@ if (CreateAllTables(Connection())) {
 } else {
     echo "Base de données déjà initialiser ou la base de données : " . DBNAME . " n'existe pas.CREATE DATABASE " . DBNAME . ";\n";
 }
+
+$chemin = $root . "storage/feed/";
+
+$folders = [
+    "storage/feed/",
+    "storage/exchange/",
+    "storage/customs/",
+    "storage/customs/beard/",
+    "storage/customs/hat/",
+    "storage/customs/head",
+];
+
+foreach ($folders as $relativePath) {
+    $fullPath = $root . $relativePath;
+
+    if (!file_exists($fullPath)) {
+        if (mkdir($fullPath, 0755, true)) {
+            echo "The directory '$fullPath' was successfully created.\n";
+        } else {
+            echo "Failed to create the directory '$fullPath'.\n";
+        }
+    } else {
+        echo "The directory '$fullPath' already exists.\n";
+    }
+}
+
+
 ?>

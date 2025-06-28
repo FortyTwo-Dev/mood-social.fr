@@ -11,7 +11,7 @@
     
     if (!EmailVerified()) { ToRoute('/'); }
     if (!IsAuth()) { ToRoute('/auth/login/'); }
-    if (!HaveUsername()) { ToRoute('/auth/username'); }
+    if (!HaveUsername()) { ToRoute('/auth/username/'); }
 
     Store();
 ?>
