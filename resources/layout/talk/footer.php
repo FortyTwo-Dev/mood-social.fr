@@ -11,3 +11,4 @@
     <script src="/resources/js/message/reaction.js"></script>
 <?php endif ?>
 <script src="/resources/js/draw.js"></script>
+<script src="/resources/js/user/state.js"></script>

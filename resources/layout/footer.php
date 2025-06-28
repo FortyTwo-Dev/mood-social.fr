@@ -13,3 +13,4 @@
     </div>
 </footer>
 <script src="/resources/js/theme.js"></script>
+<script src="/resources/js/user/state.js"></script>

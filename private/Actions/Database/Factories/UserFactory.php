@@ -8,6 +8,7 @@ function CreateUserTable(PDO $conn) {
             password VARCHAR(255),
             profile_photo_path VARCHAR(255),
             state INT,
+            last_activity DATETIME,
             visibility INT,
             street VARCHAR(100),
             city VARCHAR(50),

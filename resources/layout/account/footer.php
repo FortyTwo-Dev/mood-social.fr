@@ -3,3 +3,4 @@
     <script src="/resources/js/reply/feed.js"></script>
 <?php endif ?>
 <script src="/resources/js/theme.js"></script>
+<script src="/resources/js/user/state.js"></script>
