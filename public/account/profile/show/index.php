@@ -7,19 +7,13 @@ include_once($root . '/private/Actions/MoodColor.php');
 include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Logs/Logs.php');
 
-
-
-
 MethodVerify("GET");
-LogAction();
 $mood = SelectedColor();
 ?>
 <?php
 include_once($root . '/private/Actions/Logs/Logs.php');
 
-
 $userId = GetUserId();
-
 
 $sql = "
 SELECT c.category, c.image
@@ -38,5 +32,3 @@ foreach ($customs as $custom) {
 LogAction();
 ?>
 <?php include_once($root . '/view/account/profile/show.php'); ?>
-
-

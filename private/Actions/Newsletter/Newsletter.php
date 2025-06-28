@@ -69,7 +69,7 @@ function Store() {
         <body>
         <table>
             <tr>
-                <td class=\"logo-container\"><img src=\"http://". $_SERVER['HTTP_HOST'] ."/resources/assets/svg/logo.svg\" alt=\"MoodSocial\" width=\"150\"></td>
+                <td class=\"logo-container\"><img src=\"https://". $_SERVER['HTTP_HOST'] ."/resources/assets/svg/logo.svg\" alt=\"MoodSocial\" width=\"150\"></td>
             </tr>
             ";
     $content = "
@@ -90,6 +90,7 @@ function Store() {
             </tr>
                 ";
     }
+
     $footer = "
                     <tr>
                         <td class=\"paragraph\">Cordialement,</td>

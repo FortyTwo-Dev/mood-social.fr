@@ -55,6 +55,7 @@ function SendEmails(string $from_name, $recipient, string $subject, string $body
             $mail->Body = $body;
     
             $mail->send();
+
         } catch (Exception $e) {
             echo "Erreur : {$mail->ErrorInfo}";
         }
