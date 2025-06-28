@@ -9,7 +9,16 @@
                 <ul class="sm:flex gap-8 font-medium hidden">
                     <li class="hover:underline"><a href="/">Accueil</a></li>
                     <li class="hover:underline"><a href="/pricing/">Tarif</a></li>
-                    <li class="hover:underline"><a href="/auth/login/">Connexion</a></li>
+                    <?php if(!IsAuth()): ?>
+                        <li class="hover:underline"><a href="/auth/login/">Connexion</a></li>
+                    <?php else: ?>
+                        <li class="hover:underline"><a href="/talk/">Discuter</a></li>
+                        <li>
+                            <form action="/auth/logout/" method="POST">
+                                <button type="submit" class="hover:underline cursor-pointer">Déconnexion</button>
+                            </form>
+                        </li>
+                    <?php endif ?>
                 </ul>
                 <div id="nav-button-open" class="sm:hidden flex">
                     <svg class="stroke-ms-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>

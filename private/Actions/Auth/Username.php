@@ -12,6 +12,8 @@ function Store() {
     $stmt->bindValue(':username', $request['username']);
     $stmt->bindValue(':id', GetUserId(), PDO::PARAM_INT);
     $stmt->execute();
+
+    $_SESSION['username'] = $request['username'];
     
     header('Location: /');
     die();

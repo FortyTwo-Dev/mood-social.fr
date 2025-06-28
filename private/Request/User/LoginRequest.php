@@ -21,7 +21,7 @@ function LoginValidation() {
 
     Banned($email, "Votre compte a été banni.");
 
-    $query = "SELECT id, role_id, password FROM USERS WHERE email = :email;";
+    $query = "SELECT id, role_id, password, username FROM USERS WHERE email = :email;";
     $stmt = Connection()->prepare($query);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->execute();
@@ -38,6 +38,7 @@ function LoginValidation() {
     return [
         'id' => $user['id'],
         'email' => $email,
-        'role' => $user['role_id']
+        'role' => $user['role_id'],
+        'username' => $user['username']
     ];
 }

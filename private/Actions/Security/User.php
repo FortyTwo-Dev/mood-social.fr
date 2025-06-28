@@ -29,6 +29,20 @@ function IsAdmin(): bool {
     return false;
 }
 
+
+function HaveUsername(): bool {
+    if (IsAuth()) {
+        if (!empty($_SESSION['username'])){
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+    return false;
+}
+
 function EmailVerified(): bool {
     if (IsAuth()) {
         if (!GetEmailVerifiedAt() == null) {

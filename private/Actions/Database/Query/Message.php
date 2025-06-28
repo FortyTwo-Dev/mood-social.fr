@@ -37,7 +37,7 @@ function GetFeedMessages() {
     return ($stmt->fetchAll(PDO::FETCH_OBJ));
 }
 
-function GetGroupMessages($talk_id) {
+function GetGroupMessages(int $talk_id) {
     $query = "SELECT MESSAGES.content, MESSAGES.path, MESSAGES.user_id, USERS.username FROM MESSAGES JOIN USERS ON MESSAGES.user_id = USERS.id WHERE MESSAGES.talk_id = :talk_id ORDER BY MESSAGES.updated_at DESC;";
     $stmt = Connection()->prepare($query);
     $stmt->bindValue(':talk_id', $talk_id, PDO::PARAM_INT); 

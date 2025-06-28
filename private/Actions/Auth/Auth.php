@@ -42,6 +42,7 @@ function Register() {
     $_SESSION['id'] = $user['id'];
     $_SESSION['email'] = $request['email'];
     $_SESSION['role'] = $user['role_id'];
+    $_SESSION['username'] = "";
 
     $url = GenerateSignedRoute($token, $_SERVER['HTTP_HOST'] . '/auth/verify-email/?id=' . $user['id'] . '&');
 
@@ -152,6 +153,7 @@ function Login() {
     $_SESSION['id'] = $request['id'];
     $_SESSION['email'] = $request['email'];
     $_SESSION['role'] = $request['role'];
+    $_SESSION['username'] = $request['username'];
 
     $mood = GetMood(GetUserId());
 
