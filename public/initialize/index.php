@@ -12,6 +12,8 @@ include_once($root . '/private/Actions/Database/Factories/Factory.php');
 include_once($root . '/private/Actions/Logs/Logs.php');
 
 
+LogAction();
+
 MethodVerify("GET");
 
 if (CreateAllTables(Connection())) {

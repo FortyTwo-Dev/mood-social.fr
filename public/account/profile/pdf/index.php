@@ -7,6 +7,9 @@ include_once($root . '/private/Actions/Database/Database.php');
 include_once($root . '/private/Actions/Database/Query/User.php');
 
 include_once($root . '/private/Actions/Profil/Pdf/CreatePdf.php');
+include_once($root . '/private/Actions/Logs/Logs.php');
+
+
 
 MethodVerify("GET");
 
@@ -17,4 +20,5 @@ try {
 } catch (Exception $e) {
     echo "Erreur lors de la génération du PDF: " . $e->getMessage();
 }
+LogAction();
 ?>

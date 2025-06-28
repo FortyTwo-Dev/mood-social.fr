@@ -1,5 +1,8 @@
 <?php
 session_start();
+include_once($root . '/private/Actions/Logs/Logs.php');
+
+
 
 $root = $_SERVER['DOCUMENT_ROOT'];
 include_once($root . '/private/Actions/Auth/Password.php');
@@ -37,5 +40,6 @@ if ($result['success']) {
     header('Location: /account/show/?error=' . $errorParam);
 }
 
+LogAction();
 exit();
 ?>
