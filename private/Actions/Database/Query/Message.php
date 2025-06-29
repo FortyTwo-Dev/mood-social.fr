@@ -10,7 +10,9 @@ function GetFeedMessages() {
             MESSAGES.id AS id,
             MESSAGES.content AS content,
             MESSAGES.path AS path,
-            COUNT(MESSAGE_LIKES.user_id) AS like_count,
+            (SELECT COUNT(MESSAGE_LIKES.user_id)
+        FROM MESSAGE_LIKES
+        WHERE MESSAGE_LIKES.message_id = MESSAGES.id) AS like_count,
             MAX(MESSAGE_LIKES.user_id = :current_user_id) AS liked_by_current_user
             FROM MESSAGES
             JOIN USERS ON MESSAGES.user_id = USERS.id
