@@ -32,3 +32,114 @@
       width: 100%;
     }
 }
+
+.shake-element-1 {
+    animation: shake-1 0.5s;
+}
+
+.shake-element-2 {
+    animation: shake-2 0.5s;
+}
+
+.shake-element-3 {
+    animation: shake-3 0.5s;
+}
+
+.shake-element-4 {
+    animation: shake-4 0.5s;
+}
+
+.shake-element-5 {
+    animation: shake-5 0.5s;
+}
+
+.rgb-element {
+    animation: rgb-effect 3s infinite;
+}
+
+@keyframes rgb-effect {
+    0% {
+        background: var(--color-ms-yellow);
+    }
+    25% {
+        background: var(--color-ms-red);
+    }
+    75% {
+        background: var(--color-ms-blue);
+    }
+    100% {
+        background: var(--color-ms-purple);
+    }
+}
+
+@keyframes shake-1 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-1px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(1px);
+    }
+}
+
+@keyframes shake-2 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-2px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(2px);
+    }
+}
+
+@keyframes shake-3 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-3px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(3px);
+    }
+}
+
+@keyframes shake-4 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-4px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(4px);
+    }
+}
+
+@keyframes shake-5 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes shake-6 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-6px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(6px);
+    }
+}
