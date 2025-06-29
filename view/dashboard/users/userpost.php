@@ -23,13 +23,13 @@ include_once($root . '/private/Actions/Routing/Route.php');
                 id="search-post"
                 placeholder="Rechercher un post..."
                 class="mt-4 w-full p-2 border rounded-md"
-            />
-            <div class="flex gap-4 mt-2">
-                <label><input type="checkbox" id="filter-feed" checked> Messages du feed</label>
-                <label><input type="checkbox" id="filter-exchange" checked> Messages privé</label>
-            </div>
-        </div>
-        <ul class="p-4 flex flex-col gap-4" id="feed-posts-list">
+                    />
+                    <div class="flex gap-4 mt-2">
+                        <label><input type="checkbox" id="filter-feed" checked> Messages du feed</label>
+                        <label><input type="checkbox" id="filter-exchange" checked> Messages privé</label>
+                    </div>
+                </div>
+                <ul class="p-4 flex flex-col gap-4" id="feed-posts-list">
             <?php foreach($data['feed_messages'] as $message): ?>
             <li class="border rounded-md p-4" data-type="feed">
                 <p class="text-lg post-content"><?= htmlspecialchars($message->content) ?></p>
@@ -37,21 +37,27 @@ include_once($root . '/private/Actions/Routing/Route.php');
                 <img src="data:image/png;base64,<?=base64_encode(file_get_contents($root . '/storage/feed/' . $message->path))?>">
                 <?php endif; ?>
                 <span class="text-xs text-gray-500 block mt-2"><?= htmlspecialchars($message->created_at) ?></span>
+                <form action="/public/dashboard/users/deletefeedmessage/index.php" method="POST" style="display:inline" onsubmit="return confirm('Supprimer ce message ?');">
+                    <input type="hidden" name="message_id" value="<?= $message->id ?>">
+                    <button type="submit" class="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm transition">Supprimer</button>       
+                </form>
             </li>
-            <?php endforeach; ?>
-            <?php foreach($data['exchange_messages'] as $message): ?>
-            <li class="border rounded-md p-4" data-type="exchange">
-                <p class="text-lg post-content"><?= htmlspecialchars($message->content) ?></p>
-                <?php if (!empty($message->path)): ?>
-                <img src="data:image/png;base64,<?=base64_encode(file_get_contents($root . '/storage/exchange/' . $message->path))?>">
-                <?php endif; ?>
-                <span class="text-xs text-gray-500 block mt-2"><?= htmlspecialchars($message->created_at) ?></span>
-            </li>
-            <?php endforeach; ?>
-            <?php if (empty($data['feed_messages']) && empty($data['exchange_messages'])): ?>
-                <li>Aucun messages.</li>
-            <?php endif; ?>
-        </ul>
+    <?php endforeach; ?>
+
+    <?php foreach($data['exchange_messages'] as $message): ?>
+    <li class="border rounded-md p-4" data-type="exchange">
+        <p class="text-lg post-content"><?= htmlspecialchars($message->content) ?></p>
+        <?php if (!empty($message->path)): ?>
+        <img src="data:image/png;base64,<?=base64_encode(file_get_contents($root . '/storage/exchange/' . $message->path))?>">
+        <?php endif; ?>
+        <span class="text-xs text-gray-500 block mt-2"><?= htmlspecialchars($message->created_at) ?></span>
+    </li>
+    <?php endforeach; ?>
+
+    <?php if (empty($data['feed_messages']) && empty($data['exchange_messages'])): ?>
+        <li>Aucun messages.</li>
+    <?php endif; ?>
+</ul>
         <script>
         const searchInput = document.getElementById('search-post');
         const filterFeed = document.getElementById('filter-feed');

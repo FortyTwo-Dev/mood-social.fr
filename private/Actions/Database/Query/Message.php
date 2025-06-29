@@ -71,3 +71,10 @@ function GetFeedMessagesById(int $user_id) {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
+
+function DeleteFeedMessage($message_id) {
+    $query = "DELETE FROM MESSAGES WHERE id = :id AND talk_id = 1";
+    $stmt = Connection()->prepare($query);
+    $stmt->bindValue(':id', $message_id, PDO::PARAM_INT);
+    $stmt->execute();
+}
